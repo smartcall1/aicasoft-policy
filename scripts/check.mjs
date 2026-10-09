@@ -1,7 +1,7 @@
 // 모든 html 점검: lang="ko", meta charset, viewport, 외부 리소스 없음, 내부 링크 깨짐 0
 import { readdirSync, readFileSync, existsSync, statSync } from 'node:fs';
 import { join, dirname, relative, resolve } from 'node:path';
-import { ROOT, SITE_BASE, APPS } from './lib.mjs';
+import { ROOT, SITE_BASE, APPS, RETIRED } from './lib.mjs';
 
 const htmls = [];
 (function walk(d) {
@@ -14,7 +14,7 @@ const htmls = [];
 })(ROOT);
 
 const errs = [];
-const expected = ['index.html', '404.html', ...APPS.map((a) => `${a.slug}/index.html`)];
+const expected = ['index.html', '404.html', ...APPS.map((a) => `${a.slug}/index.html`), ...RETIRED.map((a) => `${a.slug}/index.html`)];
 for (const e of expected) if (!existsSync(join(ROOT, e))) errs.push(`없음: ${e}`);
 
 for (const f of htmls) {
