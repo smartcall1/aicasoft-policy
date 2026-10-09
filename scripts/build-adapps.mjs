@@ -179,8 +179,15 @@ function sectionsFor(app) {
   return sections.map((s, i) => ({ ...s, title: `${i + 1}. ${s.title}` }));
 }
 
+// 받침 유무로 조사 고르기(한글 끝 글자 기준, 그 밖은 받침 없음으로 본다)
+const josa = (word, withFinal, withoutFinal) => {
+  const c = word.charCodeAt(word.length - 1);
+  const hasFinal = c >= 0xac00 && c <= 0xd7a3 && (c - 0xac00) % 28 !== 0;
+  return word + (hasFinal ? withFinal : withoutFinal);
+};
+
 for (const app of APPS.filter((a) => a.slug !== 'danamtok')) {
-  const intro = `${CONTACT.company}(이하 "회사")는 ${app.name}을(를) 제공하면서 개인정보 보호법 제30조에 따라 아래와 같이 개인정보 처리방침을 정해 공개해요.`;
+  const intro = `${CONTACT.company}(이하 "회사")는 ${josa(app.name, '을', '를')} 제공하면서 개인정보 보호법 제30조에 따라 아래와 같이 개인정보 처리방침을 정해 공개해요.`;
   const body = `<p>${esc(intro)}</p>
 ${sectionsHtml(sectionsFor(app))}
 <p class="back"><a href="../">다른 앱 방침 보기</a></p>`;
@@ -192,8 +199,8 @@ ${sectionsHtml(sectionsFor(app))}
 
 // 통합돼 출시하지 않는 옛 폴더: 공개된 주소를 살려 두고 사회생활 계산기로 안내한다.
 for (const r of RETIRED) {
-  const body = `<p>${esc(r.name)}은(는) 출시 전에 사회생활 계산기로 합쳐졌어요. 이 이름의 앱은 따로 나오지 않아요.</p>
+  const body = `<p>${esc(josa(r.name, '은', '는'))} 출시 전에 사회생활 계산기로 합쳐졌어요. 이 이름의 앱은 따로 나오지 않아요.</p>
 <p><a href="../lifecalc/">사회생활 계산기 개인정보처리방침 보기</a></p>
 <p class="back"><a href="../">다른 앱 방침 보기</a></p>`;
-  write(`${r.slug}/index.html`, page({ title: `${r.name} 안내`, heading: `${r.name}은(는) 사회생활 계산기로 통합됐어요`, sub: '', body, cssPath: '../style.css' }));
+  write(`${r.slug}/index.html`, page({ title: `${r.name} 안내`, heading: `${josa(r.name, '은', '는')} 사회생활 계산기로 통합됐어요`, sub: '', body, cssPath: '../style.css' }));
 }
