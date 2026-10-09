@@ -1,0 +1,47 @@
+:root {
+  color-scheme: light dark;
+  --bg: #fafaf7;
+  --fg: #1f2328;
+  --muted: #5d646c;
+  --line: #dcdcd4;
+  --link: #1a5fb4;
+  --card: #ffffff;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #15171a;
+    --fg: #e6e8ea;
+    --muted: #9aa1a9;
+    --line: #2c3036;
+    --link: #8ab4f8;
+    --card: #1c1f23;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0 auto;
+  max-width: 42rem;
+  padding: 1.5rem 1rem 3rem;
+  background: var(--bg);
+  color: var(--fg);
+  font: 1rem/1.75 system-ui, -apple-system, "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+h1 { font-size: 1.5rem; line-height: 1.35; margin: 0 0 .25rem; }
+h2 { font-size: 1.1rem; margin: 2rem 0 .5rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+.sub { margin: 0; color: var(--muted); }
+ul { padding-left: 1.2rem; margin: .5rem 0; }
+li { margin: .4rem 0; }
+a { color: var(--link); }
+.contact { display: grid; grid-template-columns: max-content 1fr; gap: .25rem 1rem; margin: .5rem 0; }
+.contact dt { color: var(--muted); }
+.contact dd { margin: 0; }
+.apps { list-style: none; padding: 0; }
+.apps li { margin: .75rem 0; padding: .9rem 1rem; background: var(--card); border: 1px solid var(--line); border-radius: .6rem; }
+.apps a { font-weight: 600; }
+.apps span { display: block; color: var(--muted); font-size: .92rem; }
+footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
+footer p { margin: 0; }
+.back { margin-top: 2rem; }
