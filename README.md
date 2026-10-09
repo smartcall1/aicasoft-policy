@@ -8,7 +8,7 @@ Node 22.18 이상 필요(개발은 24.11). 의존성 없음.
 
 ```
 node scripts/build-danamtok.mjs <privacy.ts 경로>   # 다남겨톡: 앱의 privacy.ts 를 import 해서 생성
-node scripts/build-adapps.mjs                       # 광고 앱 4개(108배·복불복·점수판·사회생활 계산기) + 통합돼 안내 페이지만 둔 carloan·salarycalc
+node scripts/build-adapps.mjs                       # 광고 앱 4개(108배·복불복·점수판·사회생활 계산기) + 쾅픽(서버·AI 앱이라 별도 문구) + 통합돼 안내 페이지만 둔 carloan·salarycalc
 node scripts/build-index.mjs                        # index.html, 404.html
 node scripts/check.mjs                              # lang/charset/viewport/링크 점검
 ```
@@ -30,3 +30,7 @@ Settings > Pages > Source: Deploy from a branch > Branch: `main` / Folder: `/ (r
 
 권한은 각 앱 `<slug>-appid` 작업본의 debug 병합 매니페스트(`android/app/build/intermediates/merged_manifest/debug/processDebugMainManifest/AndroidManifest.xml`) 기준이다. 5개 앱이 같고 bow108만 VIBRATE가 더 있다. 5개 모두 `allowBackup="true"`. 아동 대상 태그: `main.tsx:48` `childDirected = (audience==='child')`, 5개 앱 모두 audience 'general' 이라 false, `maxAdContentRating: 'ParentalGuidance'`.
 Google 역할 서술(AdMob은 제3자 제공, Firebase Analytics는 처리 위탁)은 Google 문서(AdMob·Firebase의 데이터 수집 안내, policies.google.com/technologies/partner-sites)를 근거로 한 해석이라 법무 확인이 필요하다.
+
+## 쾅픽 확인 근거 (D:App_developpick-one main 0016aff)
+
+서버 전송: `src/lib/api.ts`(x-device-id, x-metrics, A·B·상황 POST), `shared/contract.ts` LIMITS(30/30/80자), `worker/src/handler.ts`(판정·신고·IP/기기 해시·cron 정리 7/30/90일), `worker/src/gemini.ts:213-216`·`prompt.ts:109`(Gemini에는 A·B·상황만), `worker/migrations/*.sql`(저장 표), `worker/METRICS.md`(집계·보관 8~15일), `worker/wrangler.toml`(Cloudflare Worker·D1 apac). 광고: `src/lib/ads.ts`(UMP, npa:true), `ad-config.ts`. 권한·백업: `android/app/src/main/AndroidManifest.xml`(allowBackup=false)와 debug 병합 매니페스트. Firebase: 의존성·코드 없음. 결제: `src/lib/billing.ts` 운영 빌드는 unavailable. 시행일은 `build-adapps.mjs` 의 `KWANGPICK_EFFECTIVE`.
