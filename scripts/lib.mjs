@@ -17,8 +17,13 @@ export const APPS = [
   { slug: 'bow108', name: '108배·염주', desc: '108배와 염주 횟수를 세는 앱' },
   { slug: 'bokbulbok', name: '복불복 모음', desc: '이름 뽑기·사다리 같은 복불복 게임 모음' },
   { slug: 'scoreboard', name: '스포츠 점수판', desc: '탁구·배드민턴 등 점수를 기록하는 앱' },
-  { slug: 'carloan', name: '자동차 할부', desc: '자동차 할부 월 납입액 계산기' },
-  { slug: 'salarycalc', name: '직장인 계산기', desc: '월급·세금 등 직장인 돈 계산기' },
+  { slug: 'lifecalc', name: '사회생활 계산기', desc: '월급 실수령·퇴직금·연차·대출 상환 등 직장인 생활 계산기 8종' },
+];
+
+// 출시 전에 lifecalc 로 통합돼 앱이 나오지 않은 옛 폴더. 이미 공개된 주소가 404가 되지 않도록 안내 페이지만 둔다.
+export const RETIRED = [
+  { slug: 'carloan', name: '자동차 할부' },
+  { slug: 'salarycalc', name: '직장인 계산기' },
 ];
 
 export const esc = (s) =>

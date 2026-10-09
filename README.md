@@ -8,7 +8,7 @@ Node 22.18 이상 필요(개발은 24.11). 의존성 없음.
 
 ```
 node scripts/build-danamtok.mjs <privacy.ts 경로>   # 다남겨톡: 앱의 privacy.ts 를 import 해서 생성
-node scripts/build-adapps.mjs                       # 광고 앱 5개(108배·복불복·점수판·자동차 할부·직장인 계산기)
+node scripts/build-adapps.mjs                       # 광고 앱 4개(108배·복불복·점수판·사회생활 계산기) + 통합돼 안내 페이지만 둔 carloan·salarycalc
 node scripts/build-index.mjs                        # index.html, 404.html
 node scripts/check.mjs                              # lang/charset/viewport/링크 점검
 ```
@@ -26,7 +26,7 @@ Settings > Pages > Source: Deploy from a branch > Branch: `main` / Folder: `/ (r
 ## 광고 앱 데이터 흐름 확인 근거 (각 저장소 main)
 
 공통(각 앱 저장소 main): `android/app/src/main/AndroidManifest.xml` 직접 선언 권한은 INTERNET 뿐, `firebase_analytics_collection_enabled=false`(40~43행 부근) / `src/ads/consent.ts` UMP, 동의 정보 실패 시 광고 요청 안 함 / `src/main.tsx:52` `analytics.decide(ads.consent.canRequestAds)` / `src/analytics/analytics.ts:19-49` 결정 전 이벤트 보류, 거부 시 폐기 / `app.config.ts` `removeAds.enabled:false`(결제 없음), `main.tsx:40` 광고 제거 결제 조회 수단 없음 / 서버 호출 코드(fetch 등) 없음.
-앱별 저장: bow108 `src/bow/progress.ts:5-6`, `records.ts:14` / bokbulbok `src/store/data.ts:5` / scoreboard `src/store/storage.ts:4-5` / carloan `src/calc/form.ts:14` / salarycalc 는 `theme` 외 저장 없음.
+앱별 저장: bow108 `src/bow/progress.ts:5-6`, `records.ts:14` / bokbulbok `src/store/data.ts:5` / scoreboard `src/store/storage.ts:4-5` / lifecalc `src/calc/giftLedger.ts:7`(경조사비), `form.ts:14`·`compare.ts:5`(자동차 할부 입력·비교 3건), `theme.ts:5`, 자동 백업 꺼짐 `scripts/patch-android.mjs:51-54`. carloan·salarycalc 는 lifecalc 로 통합(안내 페이지).
 
 권한은 각 앱 `<slug>-appid` 작업본의 debug 병합 매니페스트(`android/app/build/intermediates/merged_manifest/debug/processDebugMainManifest/AndroidManifest.xml`) 기준이다. 5개 앱이 같고 bow108만 VIBRATE가 더 있다. 5개 모두 `allowBackup="true"`. 아동 대상 태그: `main.tsx:48` `childDirected = (audience==='child')`, 5개 앱 모두 audience 'general' 이라 false, `maxAdContentRating: 'ParentalGuidance'`.
 Google 역할 서술(AdMob은 제3자 제공, Firebase Analytics는 처리 위탁)은 Google 문서(AdMob·Firebase의 데이터 수집 안내, policies.google.com/technologies/partner-sites)를 근거로 한 해석이라 법무 확인이 필요하다.

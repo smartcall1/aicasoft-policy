@@ -1,6 +1,6 @@
 // 광고 앱 5개 방침 페이지 생성: 공통 템플릿 + 앱별 값.
 // 앱별 값은 각 앱 저장소(main 브랜치) 코드로 확인한 내용이다. 근거는 README 의 "확인 근거" 참고.
-import { APPS, EFFECTIVE_DATE, CONTACT, esc, page, write, sectionsHtml, contactHtml, effectiveSub } from './lib.mjs';
+import { APPS, RETIRED, EFFECTIVE_DATE, CONTACT, esc, page, write, sectionsHtml, contactHtml, effectiveSub } from './lib.mjs';
 
 // stored: 기기 localStorage 에만 저장하는 항목(앱마다 다름). null 이면 입력값을 저장하지 않는 앱.
 // action: 이용 통계의 core_action 이 세는 동작(앱마다 다름)
@@ -24,15 +24,15 @@ const DETAIL = {
     note: '팀(선수) 이름은 사용자가 직접 적은 글자 그대로 이 기기에만 저장돼요.',
     action: '경기를 끝냈는지',
   },
-  carloan: {
-    purpose: '자동차 할부 월 납입액을 계산해요.',
-    stored: ['마지막으로 입력한 계산 값(차량 가격, 선수금 또는 선수금 비율, 할부 개월 수, 금리)'],
-    action: '계산을 실행했는지',
-  },
-  salarycalc: {
-    purpose: '월급과 세금 같은 직장인 돈 계산을 해 줘요.',
-    stored: null,
-    action: '어떤 계산 기능을 썼는지',
+  lifecalc: {
+    purpose: '월급 실수령액, 퇴직금, 연차, 시급, 대출 상환, 적금, 자동차 할부, 경조사비 기록 같은 직장인 생활 계산 8종을 해 줘요.',
+    stored: [
+      '경조사비 기록(사용자가 적은 이름, 금액, 메모)',
+      '자동차 할부 계산기에 마지막으로 입력한 값(차량 가격, 선수금 또는 선수금 비율, 할부 개월 수, 금리)과 비교하려고 저장한 계산 조건(최대 3건)',
+    ],
+    note: '경조사비 기록의 이름과 메모는 사용자가 직접 적은 글자 그대로 이 기기에만 저장돼요. 다른 사람의 이름을 적었더라도 외부로 보내지 않아요. 월급·퇴직금·연차·대출·적금 등 나머지 계산에 입력한 값은 저장하지 않고 앱을 닫으면 사라져요.',
+    noBackup: true,
+    action: '어떤 계산을 끝냈는지, 경조사비 기록을 추가했는지(계산 종류만 고정된 이름으로 보내고 이름·금액·메모는 보내지 않아요)',
   },
 };
 
@@ -94,7 +94,9 @@ function sectionsFor(app) {
           ? '이 기기에 저장된 기록은 사용자가 지우거나 앱을 삭제할 때까지 보관해요. 정해진 기간이 지나면 자동으로 지우는 기능은 없어요.'
           : '입력값을 저장하지 않으므로 보관하는 기록이 없어요.',
         '광고 정보와 이용 통계는 Google의 정책에 따라 Google이 보관해요.',
-        '기기의 백업 설정에 따라 이 앱의 저장 데이터가 Google 계정 백업에 포함될 수 있어요(안드로이드 자동 백업). 백업을 원하지 않으면 휴대폰의 백업 설정을 꺼 주세요.',
+        d.noBackup
+          ? '이 앱은 안드로이드 자동 백업을 꺼 두었어요. 저장된 기록은 Google 계정 등으로 백업되지 않고, 앱을 삭제하면 함께 지워져요.'
+          : '기기의 백업 설정에 따라 이 앱의 저장 데이터가 Google 계정 백업에 포함될 수 있어요(안드로이드 자동 백업). 백업을 원하지 않으면 휴대폰의 백업 설정을 꺼 주세요.',
       ],
     },
     {
@@ -177,8 +179,15 @@ function sectionsFor(app) {
   return sections.map((s, i) => ({ ...s, title: `${i + 1}. ${s.title}` }));
 }
 
+// 받침 유무로 조사 고르기(한글 끝 글자 기준, 그 밖은 받침 없음으로 본다)
+const josa = (word, withFinal, withoutFinal) => {
+  const c = word.charCodeAt(word.length - 1);
+  const hasFinal = c >= 0xac00 && c <= 0xd7a3 && (c - 0xac00) % 28 !== 0;
+  return word + (hasFinal ? withFinal : withoutFinal);
+};
+
 for (const app of APPS.filter((a) => a.slug !== 'danamtok')) {
-  const intro = `${CONTACT.company}(이하 "회사")는 ${app.name}을(를) 제공하면서 개인정보 보호법 제30조에 따라 아래와 같이 개인정보 처리방침을 정해 공개해요.`;
+  const intro = `${CONTACT.company}(이하 "회사")는 ${josa(app.name, '을', '를')} 제공하면서 개인정보 보호법 제30조에 따라 아래와 같이 개인정보 처리방침을 정해 공개해요.`;
   const body = `<p>${esc(intro)}</p>
 ${sectionsHtml(sectionsFor(app))}
 <p class="back"><a href="../">다른 앱 방침 보기</a></p>`;
@@ -186,4 +195,12 @@ ${sectionsHtml(sectionsFor(app))}
     `${app.slug}/index.html`,
     page({ title: `${app.name} 개인정보처리방침`, heading: `${app.name} 개인정보처리방침`, sub: effectiveSub(EFFECTIVE_DATE), body, cssPath: '../style.css' }),
   );
+}
+
+// 통합돼 출시하지 않는 옛 폴더: 공개된 주소를 살려 두고 사회생활 계산기로 안내한다.
+for (const r of RETIRED) {
+  const body = `<p>${esc(josa(r.name, '은', '는'))} 출시 전에 사회생활 계산기로 합쳐졌어요. 이 이름의 앱은 따로 나오지 않아요.</p>
+<p><a href="../lifecalc/">사회생활 계산기 개인정보처리방침 보기</a></p>
+<p class="back"><a href="../">다른 앱 방침 보기</a></p>`;
+  write(`${r.slug}/index.html`, page({ title: `${r.name} 안내`, heading: `${josa(r.name, '은', '는')} 사회생활 계산기로 통합됐어요`, sub: '', body, cssPath: '../style.css' }));
 }
