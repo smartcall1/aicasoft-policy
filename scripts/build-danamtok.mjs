@@ -1,11 +1,16 @@
 // 다남겨톡 방침 페이지 생성. 앱의 privacy.ts 를 직접 import 한다(별도 파싱 없음).
 // 필요: Node 22.18+ (TypeScript 타입 제거 기본 지원; 그 아래면 `node --experimental-strip-types` 로 실행).
-// 사용: node scripts/build-danamtok.mjs [privacy.ts 경로]
+// 사용: node scripts/build-danamtok.mjs <privacy.ts 경로>   (또는 환경변수 DANAMTOK_PRIVACY_TS)
 import { pathToFileURL } from 'node:url';
 import { resolve } from 'node:path';
 import { CONTACT, esc, page, write, sectionsHtml, contactHtml, effectiveSub } from './lib.mjs';
 
-const SRC = resolve(process.argv[2] ?? process.env.DANAMTOK_PRIVACY_TS ?? 'D:/Codes/ssum_analyzer-panel/app/src/content/privacy.ts');
+const arg = process.argv[2] ?? process.env.DANAMTOK_PRIVACY_TS;
+if (!arg) {
+  console.error('privacy.ts 경로가 필요해요: node scripts/build-danamtok.mjs <privacy.ts 경로> 또는 환경변수 DANAMTOK_PRIVACY_TS');
+  process.exit(1);
+}
+const SRC = resolve(arg);
 
 let mod;
 try {
