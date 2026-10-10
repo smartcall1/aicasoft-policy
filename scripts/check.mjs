@@ -25,7 +25,7 @@ for (const f of htmls) {
   if (!/<meta charset="utf-8">/i.test(s)) errs.push(`${rel}: meta charset 없음`);
   if (!/<meta name="viewport" content="[^"]*width=device-width/.test(s)) errs.push(`${rel}: viewport 없음`);
   if (/<script|<iframe|https?:\/\//i.test(noStyle)) errs.push(`${rel}: 스크립트 또는 외부 URL 포함`);
-  if (!/<footer><p>AICA SOFT<\/p><\/footer>/.test(s)) errs.push(`${rel}: 맨 아래 AICA SOFT 없음`);
+  if (!/<footer><p>더퍼스트타이탄 \(서비스명 AICA SOFT\)<\/p><\/footer>/.test(s)) errs.push(`${rel}: 맨 아래 더퍼스트타이탄(서비스명 AICA SOFT) 없음`);
   for (const m of s.matchAll(/(?:href|src)="([^"]+)"/g)) {
     const u = m[1];
     if (u.startsWith('mailto:')) continue;

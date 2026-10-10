@@ -5,7 +5,9 @@ import { fileURLToPath } from 'node:url';
 
 export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
-export const CONTACT = { company: 'AICA SOFT', officer: '김광옥', email: 'hsindevelop@gmail.com' };
+export const SERVICE_NAME = 'AICA SOFT';
+// 개인정보처리자는 사업자 상호, AICA SOFT 는 서비스명(2026-10-10 결정)
+export const CONTACT = { company: '더퍼스트타이탄', service: SERVICE_NAME, officer: '김광옥', email: 'hsindevelop@gmail.com' };
 export const EFFECTIVE_DATE = '2026-10-09';
 
 // GitHub Pages 프로젝트 사이트 주소의 경로(저장소 이름). 404.html 의 홈 링크에만 쓴다.
@@ -50,7 +52,7 @@ ${sub ? `<p class="sub">${sub}</p>` : ''}
 <main>
 ${body}
 </main>
-<footer><p>AICA SOFT</p></footer>
+<footer><p>더퍼스트타이탄 (서비스명 AICA SOFT)</p></footer>
 </body>
 </html>
 `;
@@ -65,9 +67,9 @@ export function write(rel, text) {
 
 /** 책임자 표 (정의 목록) */
 export function contactHtml(labels = {}) {
-  const L = { company: '회사', officer: '개인정보 보호책임자', email: '문의 이메일', ...labels };
+  const L = { company: '개인정보처리자', officer: '개인정보 보호책임자', email: '문의 이메일', ...labels };
   return `<dl class="contact">
-<dt>${esc(L.company)}</dt><dd>${esc(CONTACT.company)}</dd>
+<dt>${esc(L.company)}</dt><dd>${esc(CONTACT.company)} (서비스명 ${esc(CONTACT.service)})</dd>
 <dt>${esc(L.officer)}</dt><dd>${esc(CONTACT.officer)}</dd>
 <dt>${esc(L.email)}</dt><dd><a href="mailto:${esc(CONTACT.email)}">${esc(CONTACT.email)}</a></dd>
 </dl>`;
