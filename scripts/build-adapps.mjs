@@ -24,13 +24,6 @@ const DETAIL = {
     note: '팀(선수) 이름은 사용자가 직접 적은 글자 그대로 이 기기에만 저장돼요.',
     action: '경기를 끝냈는지',
   },
-  jumprope: {
-    noDeleteUi: true, // 앱 안에 기록 삭제 화면이 없다(저장소 grep 확인) — 권리 행사 문구를 기기 설정 기준으로
-    purpose: '줄넘기 게임을 하고, 최고 기록을 보여 줘요.',
-    stored: ['최고 기록, 튜토리얼을 마쳤는지 여부, 안내를 본 기술 목록'],
-    noBackup: true,
-    action: '한 판을 끝냈는지',
-  },
   blastline: {
     noDeleteUi: true, // 앱 안에 기록 삭제 화면이 없다(저장소 grep 확인) — 권리 행사 문구를 기기 설정 기준으로
     purpose: '폭파 퍼즐 게임을 하고, 판별 별 개수와 일일 도전 기록을 보여 줘요.',
@@ -354,7 +347,7 @@ function kwangpickSections() {
   return sections.map((s, i) => ({ ...s, title: `${i + 1}. ${s.title}` }));
 }
 
-for (const app of APPS.filter((a) => a.slug !== 'danamtok' && a.slug !== 'kwangpick')) {
+for (const app of APPS.filter((a) => DETAIL[a.slug])) {
   const intro = `${CONTACT.company}(서비스명 ${CONTACT.service}, 이하 "회사")은 ${josa(app.name, '을', '를')} 제공하면서 개인정보 보호법 제30조에 따라 아래와 같이 개인정보 처리방침을 정해 공개해요.`;
   const body = `<p>${esc(intro)}</p>
 ${sectionsHtml(sectionsFor(app))}
