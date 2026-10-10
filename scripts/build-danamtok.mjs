@@ -38,7 +38,7 @@ if (!C.intro.startsWith(introHead)) {
   console.error(`privacy.ts 의 intro 가 '${introHead}' 로 시작하지 않아요: ${C.intro.slice(0, 40)}`);
   process.exit(1);
 }
-const intro = `${CONTACT.company}(서비스명 ${CONTACT.service}, 이하 "회사")` + C.intro.slice(introHead.length);
+const intro = `${CONTACT.company}(서비스명 ${CONTACT.service}, 이하 "회사")` + C.intro.slice(introHead.length).replace(/^는 /, '은 ');
 const body = `<p>${esc(intro)}</p>
 ${sectionsHtml(sections)}
 <section>

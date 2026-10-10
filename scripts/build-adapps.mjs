@@ -337,7 +337,7 @@ function kwangpickSections() {
 }
 
 for (const app of APPS.filter((a) => a.slug !== 'danamtok' && a.slug !== 'kwangpick')) {
-  const intro = `${CONTACT.company}(서비스명 ${CONTACT.service}, 이하 "회사")는 ${josa(app.name, '을', '를')} 제공하면서 개인정보 보호법 제30조에 따라 아래와 같이 개인정보 처리방침을 정해 공개해요.`;
+  const intro = `${CONTACT.company}(서비스명 ${CONTACT.service}, 이하 "회사")은 ${josa(app.name, '을', '를')} 제공하면서 개인정보 보호법 제30조에 따라 아래와 같이 개인정보 처리방침을 정해 공개해요.`;
   const body = `<p>${esc(intro)}</p>
 ${sectionsHtml(sectionsFor(app))}
 <p class="back"><a href="../">다른 앱 방침 보기</a></p>`;
@@ -357,7 +357,7 @@ for (const r of RETIRED) {
 
 {
   const app = APPS.find((a) => a.slug === 'kwangpick');
-  const intro = `${CONTACT.company}(서비스명 ${CONTACT.service}, 이하 "회사")는 ${josa(app.name, '을', '를')} 제공하면서 개인정보 보호법 제30조에 따라 아래와 같이 개인정보 처리방침을 정해 공개해요.`;
+  const intro = `${CONTACT.company}(서비스명 ${CONTACT.service}, 이하 "회사")은 ${josa(app.name, '을', '를')} 제공하면서 개인정보 보호법 제30조에 따라 아래와 같이 개인정보 처리방침을 정해 공개해요.`;
   const body = `<p>${esc(intro)}</p>
 ${sectionsHtml(kwangpickSections())}
 <p class="back"><a href="../">다른 앱 방침 보기</a></p>`;
