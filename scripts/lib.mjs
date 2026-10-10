@@ -20,6 +20,8 @@ export const APPS = [
   { slug: 'bokbulbok', name: '복불복 모음', desc: '이름 뽑기·사다리 같은 복불복 게임 모음' },
   { slug: 'scoreboard', name: '스포츠 점수판', desc: '탁구·배드민턴 등 점수를 기록하는 앱' },
   { slug: 'lifecalc', name: '사회생활 계산기', desc: '월급 실수령·퇴직금·연차·대출 상환 등 직장인 생활 계산기 8종' },
+  { slug: 'jumprope', name: '콩콩 줄넘기', desc: '타이밍 맞춰 줄넘기를 넘는 캐주얼 게임' },
+  { slug: 'blastline', name: '폭파 한 줄', desc: '한 줄을 폭파시키는 퍼즐 게임' },
   { slug: 'kwangpick', name: '쾅픽', desc: '두 선택지 중 하나를 AI가 한 줄로 골라 주는 앱' },
 ];
 
