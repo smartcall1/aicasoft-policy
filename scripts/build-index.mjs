@@ -12,7 +12,7 @@ write(
     title: 'AICA SOFT 개인정보처리방침',
     heading: 'AICA SOFT 개인정보처리방침',
     sub: effectiveSub(EFFECTIVE_DATE),
-    body: `<p>AICA SOFT 앱의 개인정보처리방침을 앱별로 모아 두었어요. 보고 싶은 앱을 골라 주세요.</p>\n<ul class="apps">\n${list}\n</ul>`,
+    body: `<p>AICA SOFT 앱의 개인정보처리방침을 앱별로 모아 두었습니다. 보고 싶은 앱을 골라 주십시오.</p>\n<ul class="apps">\n${list}\n</ul>`,
     cssPath: 'style.css',
   }),
 );
@@ -21,10 +21,10 @@ write(
 write(
   '404.html',
   page({
-    title: '페이지를 찾을 수 없어요',
-    heading: '페이지를 찾을 수 없어요',
+    title: '페이지를 찾을 수 없습니다',
+    heading: '페이지를 찾을 수 없습니다',
     sub: '',
-    body: `<p>주소가 잘못되었거나 옮겨진 페이지예요.</p>\n<p><a href="${SITE_BASE}">AICA SOFT 개인정보처리방침 목록으로 가기</a></p>`,
+    body: `<p>주소가 잘못되었거나 옮겨진 페이지입니다.</p>\n<p><a href="${SITE_BASE}">AICA SOFT 개인정보처리방침 목록으로 가기</a></p>`,
     inlineCss: readFileSync(join(ROOT, 'style.css'), 'utf8'),
   }),
 );
