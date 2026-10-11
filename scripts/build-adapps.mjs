@@ -3,7 +3,7 @@
 import { APPS, RETIRED, EFFECTIVE_DATE, CONTACT, esc, page, write, sectionsHtml, contactHtml, effectiveSub } from './lib.mjs';
 
 // stored: 기기 localStorage 에만 저장하는 항목(앱마다 다름). null 이면 입력값을 저장하지 않는 앱.
-// action: 이용 통계의 core_action 이 세는 동작(앱마다 다름)
+// action: 앱이 핵심 동작으로 보는 행동(앱마다 다름). 이용 통계는 수집하지 않으므로 현재 방침 문구에는 출력하지 않는다.
 const DETAIL = {
   bow108: {
     purpose: '108배와 염주 횟수를 세고, 날짜별 기록을 보여 줍니다.',
