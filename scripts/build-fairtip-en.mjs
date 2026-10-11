@@ -5,9 +5,9 @@ import { esc, page, write } from './lib.mjs';
 
 const APP = 'FairTip';
 const EFFECTIVE = '2026-10-12';
-const OPERATOR = '더퍼스트타이탄';
+const OPERATOR = 'The First Titan';
 const SERVICE = 'AICA SOFT';
-const OFFICER = '김광옥';
+const OFFICER = 'KIM KWANGOK';
 const EMAIL = 'hsindevelop@gmail.com';
 const PUBLIC_URL = 'https://smartcall1.github.io/aicasoft-policy/tipsplit/';
 const GOOGLE_PRIVACY = 'https://policies.google.com/privacy';
@@ -53,5 +53,5 @@ const body = [
 
 write(
   'tipsplit/index.html',
-  page({ title: `${APP} Privacy Policy`, heading: `${APP} Privacy Policy`, sub: `Effective date ${EFFECTIVE}`, body, cssPath: '../style.css', lang: 'en' }),
+  page({ title: `${APP} Privacy Policy`, heading: `${APP} Privacy Policy`, sub: `Effective date ${EFFECTIVE}`, body, cssPath: '../style.css', lang: 'en', footer: `${OPERATOR} (${SERVICE})` }),
 );

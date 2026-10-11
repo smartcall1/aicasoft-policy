@@ -43,7 +43,7 @@ export const esc = (s) =>
   String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
 /** 본문 HTML을 받아 완성된 페이지 문자열을 돌려준다. cssPath: 이 페이지에서 본 style.css 상대 경로 */
-export function page({ title, heading, sub, body, cssPath, inlineCss = '', lang = 'ko' }) {
+export function page({ title, heading, sub, body, cssPath, inlineCss = '', lang = 'ko', footer = '더퍼스트타이탄 (서비스명 AICA SOFT)' }) {
   const css = inlineCss ? `<style>${inlineCss}</style>` : `<link rel="stylesheet" href="${cssPath}">`;
   return `<!doctype html>
 <html lang="${lang}">
@@ -62,7 +62,7 @@ ${sub ? `<p class="sub">${sub}</p>` : ''}
 <main>
 ${body}
 </main>
-<footer><p>더퍼스트타이탄 (서비스명 AICA SOFT)</p></footer>
+<footer><p>${esc(footer)}</p></footer>
 </body>
 </html>
 `;
