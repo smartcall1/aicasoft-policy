@@ -48,7 +48,7 @@ const sections = number([
     title: '개인정보의 파기 절차 및 방법',
     items: [
       '앱을 삭제하면 설정값, 배경 사진, 원래 배경 백업, 동작 기록이 모두 지워집니다.',
-      '휴대폰 설정 > 앱 > 올해점 > 저장공간에서 데이터를 지워도 모두 사라집니다.',
+      '휴대폰 설정 > 앱 > YearDOT > 저장공간에서 데이터를 지워도 모두 사라집니다.',
       '앱의 "원래 배경 복원"을 누르면 저장해 둔 원래 배경으로 잠금화면을 되돌리고 자동 교체를 끕니다. 백업이 없으면 잠금화면이 기본 상태(홈 배경 공유)로 돌아갑니다. 이 기능은 앱 안의 사진 파일을 지우지는 않으니, 파일까지 없애려면 위 두 방법을 쓰십시오.',
       '이 앱에는 배경 사진 파일만 따로 지우는 버튼이 없습니다.',
     ],
@@ -104,7 +104,7 @@ const sections = number([
 ]);
 
 const app = APPS.find((a) => a.slug === 'olhaejeom');
-const intro = `${CONTACT.company}(서비스명 ${CONTACT.service}, 이하 "회사")은 ${app.name}을 제공하면서 개인정보 보호법 제30조에 따라 아래와 같이 개인정보 처리방침을 정해 공개합니다.`;
+const intro = `${CONTACT.company}(서비스명 ${CONTACT.service}, 이하 "회사")은 YearDOT 앱을 제공하면서 개인정보 보호법 제30조에 따라 아래와 같이 개인정보 처리방침을 정해 공개합니다.`;
 const body = `<p>${esc(intro)}</p>
 ${sectionsHtml(sections)}
 <p class="back"><a href="../">다른 앱 방침 보기</a></p>`;

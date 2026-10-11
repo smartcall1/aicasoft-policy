@@ -26,7 +26,7 @@ export const APPS = [
   { slug: 'aero', name: 'AERO VOYAGE(에어로 보이지)', desc: '항공편 실시간 추적과 시차 적응을 돕는 비행 동반 앱' },
   { slug: 'kids-chess', name: '꼬마체스', desc: '아이가 체스를 배우고 노는 앱' },
   { slug: 'name-demo', name: '이름마중', desc: '사주를 보고 아기 이름 후보를 풀이해 주는 앱' },
-  { slug: 'olhaejeom', name: '올해점', desc: '올해가 얼마나 지났는지 점으로 그려 잠금화면을 매일 바꿔 주는 앱' },
+  { slug: 'olhaejeom', name: 'YearDOT(1년세기)', desc: '올해가 얼마나 지났는지 점으로 그려 잠금화면을 매일 바꿔 주는 앱' },
   { slug: 'subway-escape', name: '지하철 탈출', desc: '열차를 탭해 탈출시키는 퍼즐 게임' },
   // 영어 방침 페이지(앱 config 의 privacyPolicyUrl 이 .../tipsplit/). 앱 이름은 app.config.ts 의 name.
   { slug: 'tipsplit', name: 'FairTip', desc: 'English privacy policy', en: true },
