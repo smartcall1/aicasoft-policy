@@ -26,6 +26,7 @@ export const APPS = [
   { slug: 'aero', name: 'AERO VOYAGE(에어로 보이지)', desc: '항공편 실시간 추적과 시차 적응을 돕는 비행 동반 앱' },
   { slug: 'kids-chess', name: '꼬마체스', desc: '아이가 체스를 배우고 노는 앱' },
   { slug: 'name-demo', name: '이름마중', desc: '사주를 보고 아기 이름 후보를 풀이해 주는 앱' },
+  { slug: 'olhaejeom', name: '올해점', desc: '올해가 얼마나 지났는지 점으로 그려 잠금화면을 매일 바꿔 주는 앱' },
 ];
 
 // 출시 전에 lifecalc 로 통합돼 앱이 나오지 않은 옛 폴더. 이미 공개된 주소가 404가 되지 않도록 안내 페이지만 둔다.
