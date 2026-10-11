@@ -37,6 +37,8 @@ const body = [
   sec('Retention and deletion', p("Settings the app stores on your device are deleted when you uninstall the app. Advertising data sent to Google is kept under Google's retention policies. Once the app is uninstalled, nothing more is sent (you can also cut the link for ads by resetting or deleting your advertising ID in device settings). To request deletion of data already sent, contact us using the details below.")),
   sec('Age', p('The app is not directed to children under 13, and we do not knowingly collect information from children.')),
   sec('Third-party privacy policies', p(`Google Privacy Policy: ${GOOGLE_PRIVACY}`)),
+  sec('Your rights', p('You can ask to view or delete your data by emailing the contact address below. You can withdraw ad consent under "Ad privacy options" in Settings, or by resetting or deleting your advertising ID in your device settings.')),
+  sec('Changes to this policy', p('We will update this page and the effective date when this policy changes.')),
   sec(
     'Contact',
     [
