@@ -4,7 +4,7 @@ import { join } from 'node:path';
 import { APPS, EFFECTIVE_DATE, ROOT, SITE_BASE, esc, page, write, effectiveSub } from './lib.mjs';
 
 const list = APPS.map(
-  (a) => `<li><a href="${a.slug}/">${esc(a.name)} 개인정보처리방침</a><span>${esc(a.desc)}</span></li>`,
+  (a) => `<li><a href="${a.slug}/">${esc(a.name)} ${a.en ? 'Privacy Policy (English)' : '개인정보처리방침'}</a><span>${esc(a.desc)}</span></li>`,
 ).join('\n');
 write(
   'index.html',

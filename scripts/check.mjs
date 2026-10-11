@@ -20,9 +20,10 @@ for (const e of expected) if (!existsSync(join(ROOT, e))) errs.push(`없음: ${e
 for (const f of htmls) {
   const rel = relative(ROOT, f).replace(/\\/g, '/');
   const s = readFileSync(f, 'utf8');
-  const noStyle = s.replace(/<style>[\s\S]*?<\/style>/, '');
+  // 영어 방침 본문에 글자로만 적는 Google 방침 주소(앱 화면과 같은 문구). 링크(href)로는 걸지 않는다.
+  const noStyle = s.replace(/<style>[\s\S]*?<\/style>/, '').replace(/https:\/\/(policies\.google\.com\/privacy|smartcall1\.github\.io\/aicasoft-policy\/[a-z0-9-]+\/)/g, '');
   // credits/ 는 영문 유튜브 출처 페이지라 lang="en"
-  const lang = rel.replace(/\\/g, '/').startsWith('credits/') ? 'en' : 'ko';
+  const lang = ['credits/', ...APPS.filter((a) => a.en).map((a) => `${a.slug}/`)].some((q) => rel.startsWith(q)) ? 'en' : 'ko';
   if (!new RegExp(`<html lang="${lang}">`).test(s)) errs.push(`${rel}: <html lang="${lang}"> 없음`);
   if (!/<meta charset="utf-8">/i.test(s)) errs.push(`${rel}: meta charset 없음`);
   if (!/<meta name="viewport" content="[^"]*width=device-width/.test(s)) errs.push(`${rel}: viewport 없음`);

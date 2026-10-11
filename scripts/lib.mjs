@@ -28,6 +28,8 @@ export const APPS = [
   { slug: 'name-demo', name: '이름마중', desc: '사주를 보고 아기 이름 후보를 풀이해 주는 앱' },
   { slug: 'olhaejeom', name: '올해점', desc: '올해가 얼마나 지났는지 점으로 그려 잠금화면을 매일 바꿔 주는 앱' },
   { slug: 'subway-escape', name: '지하철 탈출', desc: '열차를 탭해 탈출시키는 퍼즐 게임' },
+  // 영어 방침 페이지(앱 config 의 privacyPolicyUrl 이 .../tipsplit/). 앱 이름은 app.config.ts 의 name.
+  { slug: 'tipsplit', name: 'FairTip', desc: 'English privacy policy', en: true },
 ];
 
 // 출시 전에 lifecalc 로 통합돼 앱이 나오지 않은 옛 폴더. 이미 공개된 주소가 404가 되지 않도록 안내 페이지만 둔다.
@@ -40,10 +42,10 @@ export const esc = (s) =>
   String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
 /** 본문 HTML을 받아 완성된 페이지 문자열을 돌려준다. cssPath: 이 페이지에서 본 style.css 상대 경로 */
-export function page({ title, heading, sub, body, cssPath, inlineCss = '' }) {
+export function page({ title, heading, sub, body, cssPath, inlineCss = '', lang = 'ko' }) {
   const css = inlineCss ? `<style>${inlineCss}</style>` : `<link rel="stylesheet" href="${cssPath}">`;
   return `<!doctype html>
-<html lang="ko">
+<html lang="${lang}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
