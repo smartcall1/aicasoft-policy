@@ -13,7 +13,13 @@ const htmls = [];
   }
 })(ROOT);
 
+// 글자로만 적는 허용 주소. 접두 뒤에 글자·점·하이픈·@가 이어지는 연장 주소(예: privacy.evil.com)는 통과시키지 않는다.
+const ALLOWED_URL = /https:\/\/(policies\.google\.com\/privacy|smartcall1\.github\.io\/aicasoft-policy\/[a-z0-9-]+\/)(?![\w\-@]|\.\w)/g;
 const errs = [];
+// 자체 검사: 허용 주소는 지워지고, 연장 주소는 남아야(=외부 URL로 걸려야) 한다.
+for (const [txt, remains] of [['https://policies.google.com/privacy', false], ['https://policies.google.com/privacy.evil.com', true], ['https://policies.google.com/privacy-x', true], ['https://policies.google.com/privacy. For app', false], ['https://policies.google.com/privacy@x', true], ['https://smartcall1.github.io/aicasoft-policy/tipsplit/', false]]) {
+  if (/https?:\/\//.test(txt.replace(ALLOWED_URL, '')) !== remains) errs.push(`URL 예외 자체검사 실패: ${txt}`);
+}
 const expected = ['index.html', '404.html', ...APPS.map((a) => `${a.slug}/index.html`), ...RETIRED.map((a) => `${a.slug}/index.html`)];
 for (const e of expected) if (!existsSync(join(ROOT, e))) errs.push(`없음: ${e}`);
 
@@ -21,7 +27,7 @@ for (const f of htmls) {
   const rel = relative(ROOT, f).replace(/\\/g, '/');
   const s = readFileSync(f, 'utf8');
   // 영어 방침 본문에 글자로만 적는 Google 방침 주소(앱 화면과 같은 문구). 링크(href)로는 걸지 않는다.
-  const noStyle = s.replace(/<style>[\s\S]*?<\/style>/, '').replace(/https:\/\/(policies\.google\.com\/privacy|smartcall1\.github\.io\/aicasoft-policy\/[a-z0-9-]+\/)/g, '');
+  const noStyle = s.replace(/<style>[\s\S]*?<\/style>/, '').replace(ALLOWED_URL, '');
   // credits/ 는 영문 유튜브 출처 페이지라 lang="en"
   const lang = ['credits/', ...APPS.filter((a) => a.en).map((a) => `${a.slug}/`)].some((q) => rel.startsWith(q)) ? 'en' : 'ko';
   if (!new RegExp(`<html lang="${lang}">`).test(s)) errs.push(`${rel}: <html lang="${lang}"> 없음`);
