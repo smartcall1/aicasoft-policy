@@ -21,7 +21,9 @@ for (const f of htmls) {
   const rel = relative(ROOT, f).replace(/\\/g, '/');
   const s = readFileSync(f, 'utf8');
   const noStyle = s.replace(/<style>[\s\S]*?<\/style>/, '');
-  if (!/<html lang="ko">/.test(s)) errs.push(`${rel}: <html lang="ko"> 없음`);
+  // credits/ 는 영문 유튜브 출처 페이지라 lang="en"
+  const lang = rel.replace(/\\/g, '/').startsWith('credits/') ? 'en' : 'ko';
+  if (!new RegExp(`<html lang="${lang}">`).test(s)) errs.push(`${rel}: <html lang="${lang}"> 없음`);
   if (!/<meta charset="utf-8">/i.test(s)) errs.push(`${rel}: meta charset 없음`);
   if (!/<meta name="viewport" content="[^"]*width=device-width/.test(s)) errs.push(`${rel}: viewport 없음`);
   if (/<script|<iframe|https?:\/\//i.test(noStyle)) errs.push(`${rel}: 스크립트 또는 외부 URL 포함`);
