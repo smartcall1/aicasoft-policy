@@ -31,6 +31,7 @@ export const APPS = [
   // 영어 방침 페이지(앱 config 의 privacyPolicyUrl 이 .../tipsplit/). 앱 이름은 app.config.ts 의 name.
   { slug: 'tipsplit', name: 'FairTip', desc: 'English privacy policy', en: true },
   { slug: 'beatset', name: 'Beatset', desc: 'English privacy policy', en: true },
+  { slug: 'bingo-caller', name: 'Bingo Caller Voice', desc: 'English privacy policy', en: true },
 ];
 
 // 출시 전에 lifecalc 로 통합돼 앱이 나오지 않은 옛 폴더. 이미 공개된 주소가 404가 되지 않도록 안내 페이지만 둔다.
