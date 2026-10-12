@@ -29,7 +29,7 @@ for (const f of htmls) {
   // 영어 방침 본문에 글자로만 적는 Google 방침 주소(앱 화면과 같은 문구). 링크(href)로는 걸지 않는다.
   const noStyle = s.replace(/<style>[\s\S]*?<\/style>/, '').replace(ALLOWED_URL, '');
   // credits/ 는 영문 유튜브 출처 페이지라 lang="en"
-  const lang = ['credits/', ...APPS.filter((a) => a.en).map((a) => `${a.slug}/`)].some((q) => rel.startsWith(q)) ? 'en' : 'ko';
+  const lang = !rel.endsWith('/ko/index.html') && ['credits/', ...APPS.filter((a) => a.en).map((a) => `${a.slug}/`)].some((q) => rel.startsWith(q)) ? 'en' : 'ko';
   if (!new RegExp(`<html lang="${lang}">`).test(s)) errs.push(`${rel}: <html lang="${lang}"> 없음`);
   if (!/<meta charset="utf-8">/i.test(s)) errs.push(`${rel}: meta charset 없음`);
   if (!/<meta name="viewport" content="[^"]*width=device-width/.test(s)) errs.push(`${rel}: viewport 없음`);

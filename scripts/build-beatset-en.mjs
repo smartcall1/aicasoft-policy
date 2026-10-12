@@ -25,7 +25,8 @@ const transferItems = [
 ];
 
 const body = [
-  p(`${APP} ("the app") does not collect personal information such as your name or contact details, and does not store it on a server. What you enter in the app is processed only on your device.`),
+  p(`${APP} ("the app") has no server. The developer does not collect or store personal information such as your name or contact details; what you enter in the app is processed only on your device. Google processes the advertising ID, approximate location, and other data described below to serve ads.`),
+  '<p><a href="ko/">한국어 개인정보처리방침 (Korean version)</a></p>',
   sec('Advertising (Google AdMob)', p(`The app is free, supported by ads from Google AdMob. To serve ads, Google may collect and use your advertising ID, device information, approximate location (based on IP address), app interactions, and diagnostic data. Users in the European Economic Area (EEA) and the UK are asked for consent on first launch and can change it anytime under "Ad privacy options" in Settings. You can also reset your advertising ID or turn off personalized ads in your device settings. If consent is declined or cannot be confirmed, the app does not request ads.`)),
   sec(
     'International data transfers',
