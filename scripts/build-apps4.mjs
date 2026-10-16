@@ -4,6 +4,8 @@
 import { CONTACT, esc, page, write, sectionsHtml, contactHtml, effectiveSub, APPS } from './lib.mjs';
 
 const EFFECTIVE = '2026-10-11';
+// 앱별 시행일(없으면 EFFECTIVE). 월급마중은 대상 연령 변경으로 10-17.
+const EFFECTIVE_BY_SLUG = { 'alba-pay': '2026-10-17' };
 
 const josa = (word, withFinal, withoutFinal) => {
   const c = word.charCodeAt(word.length - 1);
@@ -78,8 +80,9 @@ function albaPay() {
     {
       title: '만 14세 미만 아동',
       items: [
-        '이 앱은 모든 이용자를 위한 일반 앱이고 어린이 전용 앱이 아닙니다.',
-        '나이를 묻지 않고, 만 14세 미만 아동의 개인정보를 따로 모으지 않습니다. 앱이 정보를 밖으로 보내지 않기 때문입니다.',
+        '이 앱은 만 13세 이상을 대상으로 하며, 만 13세 미만 아동을 대상으로 하지 않습니다. 어린이 전용 앱이 아닙니다.',
+        '나이, 이름, 연락처를 묻지 않습니다. 앱이 정보를 밖으로 보내지 않으므로 만 14세 미만 아동의 개인정보를 따로 모으지 않습니다.',
+        '만 14세 미만 아동의 법정대리인은 hsindevelop@gmail.com 으로 열람·삭제를 요청할 수 있습니다. 이 앱의 기록은 그 기기에만 저장되므로 앱을 삭제하거나 앱 설정에서 데이터를 삭제하면 지워집니다.',
       ],
     },
     {
@@ -447,6 +450,6 @@ ${sectionsHtml(build())}
 <p class="back"><a href="../">다른 앱 방침 보기</a></p>`;
   write(
     `${slug}/index.html`,
-    page({ title: `${app.name} 개인정보처리방침`, heading: `${app.name} 개인정보처리방침`, sub: effectiveSub(EFFECTIVE), body, cssPath: '../style.css' }),
+    page({ title: `${app.name} 개인정보처리방침`, heading: `${app.name} 개인정보처리방침`, sub: effectiveSub(EFFECTIVE_BY_SLUG[slug] ?? EFFECTIVE), body, cssPath: '../style.css' }),
   );
 }
