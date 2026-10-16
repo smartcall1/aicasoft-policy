@@ -4,6 +4,8 @@
 import { CONTACT, esc, page, write, sectionsHtml, contactHtml, effectiveSub, APPS } from './lib.mjs';
 
 const EFFECTIVE = '2026-10-11';
+// 앱별 시행일: 방침을 바꾼 앱만 바뀐 날짜를 적는다(나머지는 EFFECTIVE).
+const EFFECTIVE_BY_SLUG = { 'kids-chess': '2026-10-16' };
 
 const josa = (word, withFinal, withoutFinal) => {
   const c = word.charCodeAt(word.length - 1);
@@ -253,7 +255,7 @@ function kidsChess() {
       title: '처리하는 개인정보 항목과 저장 위치',
       items: [
         '이 앱은 이름, 나이, 계정 정보를 묻지 않고, 로그인이나 회원 가입도 없습니다. 회사 서버가 없고 앱은 어떤 정보도 밖으로 보내지 않습니다.',
-        '이 기기에만 저장하는 것 두 가지: 레슨·퍼즐·트로피·대국 기록(진행 중인 대국이나 대회의 판 상태 포함), 이야기 진행·보상·책갈피.',
+        '이 기기에만 저장하는 것 세 가지: 레슨·퍼즐·트로피·대국 기록(진행 중인 대국이나 대회의 판 상태 포함), 이야기 진행·보상·책갈피, 앱 설정(소리, 말 모양, 갈 수 있는 칸 표시). 모두 이 기기 안의 저장 공간(localStorage)에만 둡니다.',
         '앱은 필요한 화면과 글꼴을 모두 앱 안에 담고 있어서 인터넷에서 받아 오는 것이 없습니다.',
         '광고, 이용 통계 분석, 결제 도구(SDK)는 들어 있지 않습니다. 안드로이드 웹뷰의 사용 통계를 Google로 보내는 기능도 꺼 두었습니다.',
         '안드로이드 자동 백업은 꺼 두었습니다. 저장된 기록이 Google 계정 등으로 백업되지 않습니다.',
@@ -276,7 +278,7 @@ function kidsChess() {
     {
       title: '개인정보의 파기 절차 및 방법',
       items: [
-        '엄마 아빠 메뉴(보호자 확인 문제를 푼 뒤 열립니다)의 설정에서 "진행 지우기"를 누르고 확인하면 위 두 가지 기록이 모두 지워집니다. 되돌릴 수 없습니다.',
+        '엄마 아빠 메뉴(보호자 확인 문제를 푼 뒤 열립니다)의 설정에서 "진행 지우기"를 누르고 확인하면 레슨·퍼즐·트로피·대국 기록과 이야기 진행·보상·책갈피가 지워집니다. 앱 설정(소리, 말 모양, 갈 수 있는 칸 표시)은 \"진행 지우기\"로 지워지지 않고, 아래 방법으로 앱을 삭제하거나 데이터를 지우면 함께 지워집니다. 되돌릴 수 없습니다.',
         '앱을 삭제하거나, 휴대폰 설정 > 앱 > 이 앱 > 저장공간에서 데이터를 지워도 기록이 사라집니다.',
       ],
     },
@@ -447,6 +449,6 @@ ${sectionsHtml(build())}
 <p class="back"><a href="../">다른 앱 방침 보기</a></p>`;
   write(
     `${slug}/index.html`,
-    page({ title: `${app.name} 개인정보처리방침`, heading: `${app.name} 개인정보처리방침`, sub: effectiveSub(EFFECTIVE), body, cssPath: '../style.css' }),
+    page({ title: `${app.name} 개인정보처리방침`, heading: `${app.name} 개인정보처리방침`, sub: effectiveSub(EFFECTIVE_BY_SLUG[slug] ?? EFFECTIVE), body, cssPath: '../style.css' }),
   );
 }
