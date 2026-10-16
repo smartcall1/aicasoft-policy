@@ -184,7 +184,7 @@ function aero() {
         '로그인과 푸시 알림(Google LLC): Google 로그인 요청, 푸시 토큰과 알림 문구가 Google(Firebase Cloud Messaging)을 거칩니다. 처리를 맡기는 처리 위탁입니다.',
         '결제(Google Play): 결제는 Google Play가 처리하고, 회사 서버는 구매 확인을 위해 Google에 구매 토큰을 보냅니다.',
         '운항 정보(AeroDataBox, RapidAPI 경유): 편명과 출발일만 보냅니다. 사용자를 알 수 있는 정보는 보내지 않습니다.',
-        '앱이 직접 연결하는 곳: 도착지 날씨(Open-Meteo)는 도착 공항 좌표를 보내 조회하고, 공유 카드의 항공사 로고(pics.avs.io)는 항공사 코드 두 글자를 주소에 담아 불러옵니다. 두 곳 모두 연결할 때 기기의 IP 주소가 전달될 수 있습니다.',
+        '앱이 직접 연결하는 곳: 도착지 날씨(Open-Meteo)는 도착 공항 좌표를 보내 조회합니다. 연결할 때 기기의 IP 주소가 전달될 수 있습니다.',
         '지도는 앱에 들어 있는 지도 자료(OpenStreetMap 기반, Protomaps)로 그려서 지도를 볼 때 외부 지도 서버를 호출하지 않습니다.',
         '이용 목적은 위 처리 목적과 같고, 보유·이용 기간은 위 보유 기간 절과 각 업체의 정책을 따릅니다.',
       ],
@@ -192,9 +192,9 @@ function aero() {
     {
       title: '개인정보의 국외 이전',
       items: [
-        '이전받는 자: Cloudflare, Inc. (서버·데이터베이스 운영), Google LLC (Google 로그인, 푸시 알림, Play 결제), AeroDataBox·RapidAPI (운항 정보 조회), Open-Meteo (날씨), pics.avs.io (항공사 로고)',
+        '이전받는 자: Cloudflare, Inc. (서버·데이터베이스 운영), Google LLC (Google 로그인, 푸시 알림, Play 결제), AeroDataBox·RapidAPI (운항 정보 조회), Open-Meteo (날씨)',
         '이전되는 국가: 미국을 비롯해 각 업체의 서버가 있는 나라. 업체별 정확한 국가는 확인하지 못했습니다.',
-        '이전 항목: (Cloudflare) 위 서버 저장 항목 전체와 접속 IP 주소. (Google) 로그인 요청, 푸시 토큰과 알림 문구, 구매 토큰. (AeroDataBox) 편명과 출발일. (Open-Meteo) 도착 공항 좌표와 IP 주소. (pics.avs.io) 항공사 코드와 IP 주소.',
+        '이전 항목: (Cloudflare) 위 서버 저장 항목 전체와 접속 IP 주소. (Google) 로그인 요청, 푸시 토큰과 알림 문구, 구매 토큰. (AeroDataBox) 편명과 출발일. (Open-Meteo) 도착 공항 좌표와 IP 주소.',
         '이전 시기와 방법: 로그인, 항공편 조회, 알림 등록, 결제 확인, 날씨와 로고를 불러올 때마다 인터넷으로 전송됩니다.',
         '이전 목적: 서비스 제공(조회, 알림, 로그인, 결제 확인).',
         '보유 및 이용 기간: 위 보유 기간 절과 각 업체의 정책에 따릅니다.',
