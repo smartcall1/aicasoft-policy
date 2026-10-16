@@ -4,6 +4,8 @@
 import { CONTACT, esc, page, write, sectionsHtml, contactHtml, effectiveSub, APPS } from './lib.mjs';
 
 const EFFECTIVE = '2026-10-11';
+// 앱별 시행일: 목록에 없으면 EFFECTIVE.
+const EFFECTIVE_BY_SLUG = { aero: '2026-10-17' };
 
 const josa = (word, withFinal, withoutFinal) => {
   const c = word.charCodeAt(word.length - 1);
@@ -148,7 +150,7 @@ function aero() {
         '네트워크 상태 보기(ACCESS_NETWORK_STATE): 인터넷 연결 상태를 확인합니다.',
         '카메라(CAMERA): 탑승권 바코드를 스캔할 때만 씁니다.',
         '알림 표시(POST_NOTIFICATIONS): 운항 변경과 시차 코치 알림을 띄웁니다. 거부해도 앱의 다른 기능은 쓸 수 있습니다.',
-        '정확한 알람(SCHEDULE_EXACT_ALARM)과 부팅 완료 수신(RECEIVE_BOOT_COMPLETED): 기내식 신청 마감 같은 알림을 정해진 시각에 띄우고, 기기를 껐다 켜도 다시 예약하는 데 알림 라이브러리가 씁니다.',
+        '부팅 완료 수신(RECEIVE_BOOT_COMPLETED): 기기를 껐다 켜도 알림을 다시 예약하는 데 알림 라이브러리가 씁니다. 정확한 알람 권한은 쓰지 않습니다.',
         '절전 방지(WAKE_LOCK), 푸시 수신(com.google.android.c2dm.permission.RECEIVE): 푸시 알림 SDK(Firebase)가 알림을 받는 데 씁니다.',
         'Google Play 결제(com.android.vending.BILLING): 여행 패스를 결제하는 데 씁니다.',
         '생체 인증(USE_BIOMETRIC, USE_FINGERPRINT): Google 로그인 라이브러리가 함께 선언하는 권한입니다. 이 앱은 지문이나 얼굴 정보를 읽지 않습니다.',
@@ -170,7 +172,7 @@ function aero() {
         '앱의 프로필 화면에서 "계정 및 데이터 삭제"를 누르면 서버에 있는 계정, 로그인 세션, 푸시 토큰, 알림 예약, 항공편 알림 설정, 가족 공유 링크, 구매 확인 기록, 조회 횟수가 한꺼번에 지워집니다(결제 기록은 위의 5년 보관 기록만 남습니다). 서버 삭제가 실패하면 삭제되지 않았다고 알려 주고 기기의 프로필도 그대로 둡니다. 이 메뉴는 Google 계정으로 로그인한 사용자에게 보입니다.',
         '로그아웃하면 푸시 알림을 해제하고 서버 세션을 끝낸 뒤, 이 기기의 프로필과 저장된 탑승권 정보를 지웁니다.',
         '앱을 삭제하면 기기에 저장된 정보가 함께 지워집니다.',
-        '앱이 없어도 서버의 계정 삭제 웹 페이지에서 Google 계정으로 로그인해 서버 정보를 지울 수 있습니다. 주소는 아래 이메일로 문의하면 알려 드립니다.',
+        '앱이 없어도 서버의 계정 삭제 웹 페이지에서 Google 계정으로 로그인해 서버 정보를 지울 수 있습니다. 주소는 https://aero-voyage-api.aica.workers.dev/account/delete 입니다.',
         'Google이 가진 정보는 휴대폰 설정 > Google, 또는 Google 계정에서 확인하고 지울 수 있습니다.',
       ],
     },
@@ -201,10 +203,10 @@ function aero() {
       ],
     },
     {
-      title: '만 14세 미만 아동',
+      title: '이용 대상 연령(만 18세 이상)',
       items: [
-        '이 앱은 만 14세 이상을 대상으로 하며, 만 14세 미만 아동의 정보를 알면서 수집하지 않습니다.',
-        '만 14세 미만 아동의 정보가 모인 것을 알게 되면 아래 개인정보 보호책임자에게 알려 주십시오. 확인해서 알려 주신 정보가 회사에 있다면 지체 없이 지웁니다.',
+        '이 앱은 Google 계정으로 로그인해 쓰는 만 18세 이상 성인을 대상으로 합니다. 만 18세 미만은 가입·이용 대상이 아니며, 회사는 만 18세 미만의 정보를 알면서 수집하지 않습니다.',
+        '만 18세 미만 이용자의 정보가 모인 것을 알게 되면 아래 개인정보 보호책임자에게 알려 주십시오. 확인해서 알려 주신 정보가 회사에 있다면 지체 없이 지웁니다.',
       ],
     },
     {
@@ -447,6 +449,6 @@ ${sectionsHtml(build())}
 <p class="back"><a href="../">다른 앱 방침 보기</a></p>`;
   write(
     `${slug}/index.html`,
-    page({ title: `${app.name} 개인정보처리방침`, heading: `${app.name} 개인정보처리방침`, sub: effectiveSub(EFFECTIVE), body, cssPath: '../style.css' }),
+    page({ title: `${app.name} 개인정보처리방침`, heading: `${app.name} 개인정보처리방침`, sub: effectiveSub(EFFECTIVE_BY_SLUG[slug] ?? EFFECTIVE), body, cssPath: '../style.css' }),
   );
 }

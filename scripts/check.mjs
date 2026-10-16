@@ -14,7 +14,7 @@ const htmls = [];
 })(ROOT);
 
 // 글자로만 적는 허용 주소. 접두 뒤에 글자·점·하이픈·@가 이어지는 연장 주소(예: privacy.evil.com)는 통과시키지 않는다.
-const ALLOWED_URL = /https:\/\/(policies\.google\.com\/privacy|smartcall1\.github\.io\/aicasoft-policy\/[a-z0-9-]+\/)(?![\w\-@]|\.\w)/g;
+const ALLOWED_URL = /https:\/\/(policies\.google\.com\/privacy|smartcall1\.github\.io\/aicasoft-policy\/[a-z0-9-]+\/|aero-voyage-api\.aica\.workers\.dev\/account\/delete)(?![\w\-@]|\.\w)/g;
 const errs = [];
 // 자체 검사: 허용 주소는 지워지고, 연장 주소는 남아야(=외부 URL로 걸려야) 한다.
 for (const [txt, remains] of [['https://policies.google.com/privacy', false], ['https://policies.google.com/privacy.evil.com', true], ['https://policies.google.com/privacy-x', true], ['https://policies.google.com/privacy. For app', false], ['https://policies.google.com/privacy@x', true], ['https://smartcall1.github.io/aicasoft-policy/tipsplit/', false]]) {
