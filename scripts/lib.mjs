@@ -28,6 +28,7 @@ export const APPS = [
   { slug: 'name-demo', name: '이름마중', desc: '사주를 보고 아기 이름 후보를 풀이해 주는 앱' },
   { slug: 'olhaejeom', name: 'YearDOT(1년세기)', desc: '올해가 얼마나 지났는지 점으로 그려 잠금화면을 매일 바꿔 주는 앱' },
   { slug: 'subway-escape', name: '지하철 탈출', desc: '열차를 탭해 탈출시키는 퍼즐 게임' },
+  { slug: 'numbaseball', name: '숫자야구', desc: '숫자야구 게임과 반응속도 테스트를 하는 앱' },
   // 영어 방침 페이지(앱 config 의 privacyPolicyUrl 이 .../tipsplit/). 앱 이름은 app.config.ts 의 name.
   { slug: 'tipsplit', name: 'FairTip', desc: 'English privacy policy', en: true },
   { slug: 'beatset', name: 'Beatset', desc: 'English privacy policy', en: true },
