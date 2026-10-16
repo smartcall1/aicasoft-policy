@@ -15,6 +15,7 @@ const DETAIL = {
     purpose: '이름 뽑기, 사다리 같은 복불복 게임을 하고, 저장한 이름 목록을 다시 불러옵니다.',
     stored: ['사용자가 입력한 이름 그룹, 참가자 이름, 메뉴 후보'],
     note: '참가자 이름은 사용자가 직접 적은 글자 그대로 이 기기에만 저장됩니다. 다른 사람의 이름을 적었더라도 외부로 보내지 않습니다.',
+    noBackup: true,
     action: '복불복 한 판을 끝냈는지',
   },
   scoreboard: {
@@ -22,6 +23,7 @@ const DETAIL = {
     stored: ['진행 중인 경기의 점수와 사용자가 적은 두 팀(선수) 이름', '지난 경기 기록(최근 30건: 팀 이름, 세트 점수, 승자, 시각)', '카운터(사용자가 적은 카운터 이름과 숫자, 최대 5개)', '진동 켜짐·꺼짐 설정'],
     device: '화면 켜짐 유지와 화면 방향 고정 기능을 쓰지만 이 기능들이 개인정보를 모으지는 않습니다.',
     note: '팀(선수) 이름은 사용자가 직접 적은 글자 그대로 이 기기에만 저장됩니다.',
+    noBackup: true,
     action: '경기를 끝냈는지',
   },
   blastline: {
@@ -50,10 +52,11 @@ function permissionItems(slug) {
     '네트워크 상태 보기(ACCESS_NETWORK_STATE): 인터넷이 연결돼 있는지 확인해서 광고를 불러올지 정합니다.',
     '광고 ID 사용(AD_ID, ACCESS_ADSERVICES_AD_ID): 광고 제공과 측정을 위해 기기의 광고 ID를 읽습니다. 휴대폰 설정에서 삭제하거나 재설정할 수 있습니다.',
     '안드로이드 광고 서비스(ACCESS_ADSERVICES_ATTRIBUTION, ACCESS_ADSERVICES_TOPICS): 광고 SDK가 기기의 광고 측정과 관심 주제 기능을 쓸 수 있게 하는 권한입니다.',
-    '설치 경로 확인(BIND_GET_INSTALL_REFERRER_SERVICE): Google Play가 알려 주는 앱 설치 경로를 광고 측정에 씁니다.',
     '절전 방지와 백그라운드 작업(WAKE_LOCK, FOREGROUND_SERVICE): 광고 SDK가 작업을 마칠 때까지 기기가 잠들지 않게 하는 SDK용 권한입니다.',
     '앱 내부 보호용 권한(DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION): 앱 안의 신호를 다른 앱이 엿보지 못하게 하는 권한입니다.',
   ];
+  // bokbulbok 은 병합 매니페스트에 BIND_GET_INSTALL_REFERRER_SERVICE 가 없다(POLICY_SITE_PROPOSAL 3절). 나머지 광고 앱은 그대로.
+  if (slug !== 'bokbulbok') p.splice(4, 0, '설치 경로 확인(BIND_GET_INSTALL_REFERRER_SERVICE): Google Play가 알려 주는 앱 설치 경로를 광고 측정에 씁니다.');
   if (slug === 'bow108') p.push('진동(VIBRATE): 횟수를 셀 때 진동으로 알려 줍니다.');
   if (slug === 'scoreboard') p.push('진동(VIBRATE): 점수를 올릴 때 짧게 진동하는 기능에 씁니다. 설치 때 자동 허용되고 따로 묻지 않습니다. 앱 설정에서 끌 수 있습니다.');
   return p;

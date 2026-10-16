@@ -10,7 +10,7 @@ Node 22.18 이상 필요(개발은 24.11). 의존성 없음.
 node scripts/build-danamtok.mjs <privacy.ts 경로>   # 다남겨톡: 앱의 privacy.ts 를 import 해서 생성
 node scripts/build-adapps.mjs                       # 광고 앱 4개(108배·복불복·점수판·사회생활 계산기) + 쾅픽(서버·AI 앱이라 별도 문구) + 통합돼 안내 페이지만 둔 carloan·salarycalc
 node scripts/build-apps4.mjs                       # 월급마중(alba-pay)·AERO VOYAGE(aero)·꼬마체스(kids-chess)·이름마중(name-demo). 근거 기준 커밋은 스크립트 머리 주석
-node scripts/build-olhaejeom.mjs                    # 올해점(olhaejeom). 기준 코드 yeardots-probe main cb504ec
+node scripts/build-olhaejeom.mjs                    # 올해점(olhaejeom). 기준 코드 yeardots-probe main 1dc5a65
 node scripts/build-subway-escape.mjs               # 지하철 탈출(subway-escape). 기준 코드 subway-escape main 7a83c7f
 node scripts/build-index.mjs                        # index.html, 404.html
 node scripts/check.mjs                              # lang/charset/viewport/링크 점검
