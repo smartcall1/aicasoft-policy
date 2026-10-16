@@ -1,6 +1,6 @@
 // Bingo Caller Voice(slug bingo-caller) 영어 방침 페이지 생성.
 // 기준: bingo-caller app.config.ts (name, operatorName, serviceName, contactEmail, privacyPolicyUrl, audience),
-//       src/consent/transferNotice.ts, src/screens/PrivacyScreen.tsx, docs/DATA_SAFETY_EN.md, docs/SPEC.md (TTS 결정)
+//       src/consent/transferNotice.ts, src/screens/PrivacyScreen.tsx, docs/DATA_SAFETY_EN.md, docs/SPEC.md (TTS 결정; 음성 클립 우선)
 // 사업자명·책임자는 다른 영어 방침과 같은 표기를 쓴다.
 import { esc, page, write } from './lib.mjs';
 
@@ -29,8 +29,8 @@ const body = [
   p(`${APP} ("the app") has no server and no account system. The developer does not collect or store personal information such as your name or contact details. Your game state (bingo settings, called numbers, and call history) is stored only on your device (local storage) and is never sent to us. Google processes the advertising ID, approximate location, and other data described below to serve ads.`),
   sec('Advertising (Google AdMob)', p(`The app is free, supported by banner and interstitial ads from Google AdMob. To serve ads, Google may collect and use your advertising ID, device information, approximate location (based on IP address), app interactions, and diagnostic data. Users in the European Economic Area (EEA) and the UK are asked for consent on first launch and can change it anytime under "Ad privacy options" in Settings. You can also reset your advertising ID or turn off personalized ads in your device settings. If consent is declined or cannot be confirmed, the app does not request ads.`)),
   sec(
-    'Voice (text-to-speech)',
-    p("The app calls out bingo numbers using the text-to-speech engine installed on your phone. The app does not use the microphone and does not record any audio. Depending on the engine and its settings on your device (for example, Google Text-to-Speech), some voices may be generated over the network by that engine's provider. That is handled by the engine under its own settings and privacy policy, not by the app, and the app does not send the spoken text to us."),
+    'Voice',
+    p("The app calls out bingo numbers by playing pre-recorded voice clips that are stored in the app. The clips are played inside the app and nothing is sent outside the app for this. Only if a clip is missing does the app use the text-to-speech engine installed on your phone; depending on that engine and its settings (for example, Google Text-to-Speech), some voices may then be generated over the network by the engine's provider under its own settings and privacy policy, not by the app, and the app does not send the spoken text to us. The app does not use the microphone and does not record any audio."),
   ),
   sec(
     'International data transfers',
@@ -40,7 +40,7 @@ const body = [
     ].join('\n'),
   ),
   sec('Retention and deletion', p("Game state and settings the app stores on your device are deleted when you uninstall the app. Advertising data sent to Google is kept under Google's retention policies. Once the app is uninstalled, nothing more is sent (you can also cut the link for ads by resetting or deleting your advertising ID in device settings). To request deletion of data already sent, contact us using the details below.")),
-  sec('Age', p('The app is intended for users aged 18 and over and is not directed to children. We do not knowingly collect information from children.')),
+  sec('Age', p('The app is not directed to children under 13. We do not ask your age, and the app collects no name or contact information. Device and advertising IDs are processed automatically to show ads.')),
   sec('Third-party privacy policies', p(`Google Privacy Policy: ${GOOGLE_PRIVACY}`)),
   sec('Your rights', p('You can ask to view or delete your data by emailing the contact address below. You can withdraw ad consent under "Ad privacy options" in Settings, or by resetting or deleting your advertising ID in your device settings.')),
   sec('Changes to this policy', p('We will update this page and the effective date when this policy changes.')),
