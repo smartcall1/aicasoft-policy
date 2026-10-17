@@ -4,8 +4,8 @@
 import { CONTACT, esc, page, write, sectionsHtml, contactHtml, effectiveSub, APPS } from './lib.mjs';
 
 const EFFECTIVE = '2026-10-11';
-// 앱별 시행일(방침을 바꾼 앱만, 나머지는 EFFECTIVE). 월급마중 대상 연령 10-17, 꼬마체스 설정 동기화 10-16, 에어로 18+·날씨 제거 10-17.
-const EFFECTIVE_BY_SLUG = { 'alba-pay': '2026-10-17', 'kids-chess': '2026-10-16', aero: '2026-10-17' };
+// 앱별 시행일(방침을 바꾼 앱만, 나머지는 EFFECTIVE). 월급마중 대상 연령 10-17, 꼬마체스 설정 동기화 10-16, 에어로 18+·날씨 제거 10-17, 이름마중 Cloudflare 이전 10-17.
+const EFFECTIVE_BY_SLUG = { 'alba-pay': '2026-10-17', 'kids-chess': '2026-10-16', aero: '2026-10-17', 'name-demo': '2026-10-17' };
 
 const josa = (word, withFinal, withoutFinal) => {
   const c = word.charCodeAt(word.length - 1);
