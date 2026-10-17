@@ -97,8 +97,7 @@ const block = (id, lang, t) =>
     sec(t.adsHead, p(t.ads)),
     sec(t.transferHead, [p(t.transferIntro), `<h3>${esc(t.transferName)}</h3>\n${dl(t.transferItems)}`].join('\n')),
     sec(t.retentionHead, p(t.retention)),
-    sec(t.permHead, [p(t.permIntro), dl(t.permItems)].join('
-')),
+    sec(t.permHead, [p(t.permIntro), dl(t.permItems)].join('\n')),
     sec(t.ageHead, p(t.age)),
     sec(t.iapHead, p(t.iap)),
     sec(t.thirdPartyHead, p(t.thirdParty)),
