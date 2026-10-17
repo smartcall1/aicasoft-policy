@@ -6,6 +6,8 @@ import { APPS, RETIRED, EFFECTIVE_DATE, CONTACT, esc, page, write, sectionsHtml,
 // action: 앱이 핵심 동작으로 보는 행동(앱마다 다름). 이용 통계는 수집하지 않으므로 현재 방침 문구에는 출력하지 않는다.
 const DETAIL = {
   bow108: {
+    noBackup: true,
+    noDeleteUi: true, // 앱 안에 기록 지우기 화면이 없다(앱 PrivacyScreen 과 같은 사실)
     purpose: '108배와 염주 횟수를 세고, 날짜별 기록을 보여 줍니다.',
     stored: ['이어하기용 진행 중 수행 1건(센 횟수, 목표 횟수, 경과 시간)과 사용자가 고른 설정', '날짜별 수행 기록(그날 센 횟수, 소요 시간, 목표를 채운 횟수)'],
     device: '화면 켜짐 유지와 진동 기능을 쓰지만 이 기능들이 개인정보를 모으지는 않습니다.',
@@ -47,8 +49,8 @@ function permissionItems(slug) {
     '절전 방지와 백그라운드 작업(WAKE_LOCK, FOREGROUND_SERVICE): 광고 SDK가 작업을 마칠 때까지 기기가 잠들지 않게 하는 SDK용 권한입니다.',
     '앱 내부 보호용 권한(DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION): 앱 안의 신호를 다른 앱이 엿보지 못하게 하는 권한입니다.',
   ];
-  // bokbulbok 은 병합 매니페스트에 BIND_GET_INSTALL_REFERRER_SERVICE 가 없다(POLICY_SITE_PROPOSAL 3절). 나머지 광고 앱은 그대로.
-  if (slug !== 'bokbulbok') p.splice(4, 0, '설치 경로 확인(BIND_GET_INSTALL_REFERRER_SERVICE): Google Play가 알려 주는 앱 설치 경로를 광고 측정에 씁니다.');
+  // bow108 도 병합 매니페스트에 없다(10-17 대조). bokbulbok 은 병합 매니페스트에 BIND_GET_INSTALL_REFERRER_SERVICE 가 없다(POLICY_SITE_PROPOSAL 3절). 나머지 광고 앱은 그대로.
+  if (slug !== 'bokbulbok' && slug !== 'bow108') p.splice(4, 0, '설치 경로 확인(BIND_GET_INSTALL_REFERRER_SERVICE): Google Play가 알려 주는 앱 설치 경로를 광고 측정에 씁니다.');
   if (slug === 'bow108') p.push('진동(VIBRATE): 횟수를 셀 때 진동으로 알려 줍니다.');
   return p;
 }
