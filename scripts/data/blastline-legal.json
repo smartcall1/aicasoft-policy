@@ -14,9 +14,18 @@
    "intro": "폭파 한 줄(이하 \"앱\")은 이름이나 연락처 같은 개인정보를 직접 수집하거나 서버에 저장하지 않아요. 앱에서 입력한 값은 기기 안에서만 처리돼요.",
    "sections": [
     {
+     "h": "개인정보의 처리 목적",
+     "list": [
+      "폭파 퍼즐 게임을 하고, 판별 별 개수와 일일 도전 기록을 보여 줘요.",
+      "무료로 쓸 수 있도록 광고를 보여 줘요.",
+      "위 목적 밖으로는 쓰지 않아요."
+     ]
+    },
+    {
      "h": "저장하는 값",
      "ps": [
-      "판별 별 개수, 일일 도전 기록(최근 14일), 광고를 보고 건너뛴 판과 하루 건너뛴 횟수, 소리·화면 모드 설정은 이 기기(localStorage)에만 저장해요. 회사 서버가 없어서 어디로도 보내지 않아요."
+      "판별 별 개수, 일일 도전 기록(최근 14일), 광고를 보고 건너뛴 판과 하루 건너뛴 횟수, 소리·화면 모드 설정은 이 기기(localStorage)에만 저장해요. 회사 서버가 없어서 어디로도 보내지 않아요.",
+      "로그인이나 회원 가입은 없고, 이 앱에는 결제 기능도 없어요."
      ]
     },
     {
@@ -49,7 +58,7 @@
     {
      "h": "보관 기간과 삭제",
      "ps": [
-      "앱이 기기에 저장하는 설정값은 앱을 삭제하면 함께 지워져요. Google로 전송된 광고 데이터는 Google의 보관 정책을 따르며, 앱 삭제나 기기 설정의 광고 ID 재설정·삭제로 연결을 끊을 수 있어요. 삭제 요청은 아래 문의처로 보내 주세요.",
+      "앱이 기기에 저장하는 기록은 사용자가 지우거나 앱을 삭제할 때까지 보관하며, 정해진 기간이 지나면 자동으로 지우는 기능은 없어요. 앱을 삭제하면 함께 지워져요. Google로 전송된 광고 데이터는 Google의 보관 정책을 따르며, 앱 삭제나 기기 설정의 광고 ID 재설정·삭제로 연결을 끊을 수 있어요. 삭제 요청은 아래 문의처로 보내 주세요.",
       "이 앱은 안드로이드 자동 백업을 꺼 두었어요. 저장된 기록은 Google 계정 등으로 백업되지 않고, 앱을 삭제하면 함께 지워져요."
      ]
     },
@@ -72,8 +81,12 @@
     },
     {
      "h": "이용 연령",
-     "ps": [
-      "앱은 만 14세 미만 어린이를 대상으로 하지 않으며, 어린이 정보를 의도적으로 수집하지 않아요."
+     "list": [
+      "이 앱은 모든 이용자를 위한 일반 앱이고 어린이 전용 앱이 아니에요. 광고 요청에 아동 대상 처리 태그를 켜지 않아요.",
+      "나이를 묻지 않고, 만 14세 미만 아동의 개인정보를 따로 모으지 않아요.",
+      "광고는 전체 이용가에 가까운 보호자 지도(PG) 등급 이하로 제한해요.",
+      "맞춤 광고는 광고 동의 절차(동의가 필요한 지역)와 사용자의 Google 광고 설정에 따라 정해져요.",
+      "만 14세 미만 아동의 정보가 모인 것을 알게 되면 아래 개인정보 보호책임자에게 알려 주세요. 확인해서 알려 주신 정보가 회사에 있다면 지체 없이 지워요."
      ]
     },
     {
@@ -137,9 +150,18 @@
    "intro": "Blast Line (the \"App\") does not directly collect personal information such as your name or contact details, and does not store it on a server. Anything you enter in the App is processed only on your device.",
    "sections": [
     {
+     "h": "Purpose of processing",
+     "list": [
+      "To let you play the puzzle game and show your star counts per level and Daily Challenge records.",
+      "To show ads so the App can be free.",
+      "We do not use information for anything beyond these purposes."
+     ]
+    },
+    {
      "h": "What the App stores",
      "ps": [
-      "Star counts per level, Daily Challenge records (last 14 days), levels skipped after watching an ad and the number skipped today, and sound and display-mode settings are stored only on this device (localStorage). We have no server, so none of it is sent anywhere."
+      "Star counts per level, Daily Challenge records (last 14 days), levels skipped after watching an ad and the number skipped today, and sound and display-mode settings are stored only on this device (localStorage). We have no server, so none of it is sent anywhere.",
+      "There is no login or sign-up, and the App has no payment feature."
      ]
     },
     {
@@ -172,7 +194,7 @@
     {
      "h": "Retention and deletion",
      "ps": [
-      "Settings the App stores on your device are deleted when you uninstall the App. Ad data sent to Google follows Google's retention policy; you can cut the link by uninstalling the App or by resetting or deleting your advertising ID in your device settings. Send deletion requests to the contact below.",
+      "Records the App stores on your device are kept until you clear them or uninstall the App; there is no feature that deletes them automatically after a set period. They are deleted when you uninstall the App. Ad data sent to Google follows Google's retention policy; you can cut the link by uninstalling the App or by resetting or deleting your advertising ID in your device settings. Send deletion requests to the contact below.",
       "The App turns off Android automatic backup. Stored records are not backed up to your Google account or elsewhere, and are deleted when you uninstall the App."
      ]
     },
@@ -195,8 +217,12 @@
     },
     {
      "h": "Age",
-     "ps": [
-      "The App is not directed to children under 14 and does not knowingly collect information from children."
+     "list": [
+      "The App is a general app for all users, not an app made for children. It does not turn on the child-directed treatment tag in ad requests.",
+      "It does not ask your age and does not separately collect personal information from children under 14.",
+      "Ads are limited to the Parental Guidance (PG) rating or below, close to suitable for all ages.",
+      "Personalized ads depend on the ad consent process (in regions that require consent) and your Google ad settings.",
+      "If you learn that information from a child under 14 has been collected, please tell the privacy officer below. If we hold the information you identify, we delete it without delay."
      ]
     },
     {
