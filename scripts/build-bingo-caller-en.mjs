@@ -1,62 +1,318 @@
-// Bingo Caller Voice(slug bingo-caller) 영어 방침 페이지 생성.
+// Bingo Caller Voice(slug bingo-caller) 방침 페이지 생성. 한 주소에 앱 지원 언어 5개(en·ko·ja·es·pt-BR)를 함께 둔다.
+// (파일 이름은 예전 영어판 그대로 둔다.)
 // 기준: bingo-caller app.config.ts (name, operatorName, serviceName, contactEmail, privacyPolicyUrl, audience),
-//       src/consent/transferNotice.ts, src/screens/PrivacyScreen.tsx, docs/DATA_SAFETY_EN.md, docs/SPEC.md (TTS 결정; 음성 클립 우선)
-// 사업자명·책임자는 다른 영어 방침과 같은 표기를 쓴다.
+//       src/consent/transferNotice.ts, src/content/{en,ko,ja,es,pt-BR}.ts privacy, docs/DATA_SAFETY_EN.md, docs/SPEC.md (TTS 결정; 음성 클립 우선)
+// 권한 목록: android/app/build/intermediates/merged_manifests/debug 병합 매니페스트(2026-10-17 확인). allowBackup="false" (앱 AndroidManifest.xml).
+// 사업자명·책임자는 다른 방침과 같은 표기를 쓴다.
 import { esc, page, write } from './lib.mjs';
 
 const APP = 'Bingo Caller Voice';
-const EFFECTIVE = '2026-10-12';
-const OPERATOR = 'The First Titan';
+const EFFECTIVE = '2026-10-17';
 const SERVICE = 'AICA SOFT';
-const OFFICER = 'KIM KWANGOK';
 const EMAIL = 'hsindevelop@gmail.com';
 const PUBLIC_URL = 'https://smartcall1.github.io/aicasoft-policy/bingo-caller/';
-const GOOGLE_PRIVACY = 'https://policies.google.com/privacy';
+const GOOGLE = 'https://policies.google.com/privacy';
+const RECIPIENT_ADDR = 'Google LLC (1600 Amphitheatre Parkway, Mountain View, California 94043, USA)';
 
 const p = (t) => `<p>${esc(t)}</p>`;
 const sec = (title, inner) => `<section>\n<h2>${esc(title)}</h2>\n${inner}\n</section>`;
-const dl = (label, value) => `<dt>${esc(label)}</dt><dd>${esc(value)}</dd>`;
+const dl = (items) => `<dl class="contact">\n${items.map(([l, v]) => `<dt>${esc(l)}</dt><dd>${esc(v)}</dd>`).join('\n')}\n</dl>`;
 
-const transferItems = [
-  ['Items transferred', 'Advertising ID, IP address, device information (model, operating system, language, etc.), ad impression and click logs (what you enter in the app is not transferred)'],
-  ['Country, timing, and method', 'United States (may be moved to other countries where Google has servers). Sent over an encrypted network each time an ad is requested while you use the app'],
-  ['Recipient', `Google LLC (1600 Amphitheatre Parkway, Mountain View, California 94043, USA). Google privacy inquiries: ${GOOGLE_PRIVACY}. For app-related inquiries, contact the privacy contact (${EMAIL})`],
-  ['Purpose and retention', "Ad display, ad performance measurement, invalid click prevention. Retention follows Google's retention policies"],
-  ['How to opt out, and what happens', "You can reset or delete your advertising ID or turn off personalized ads in your device settings, and uninstalling the app stops all transfers. Users in the European Economic Area (EEA) and the UK are asked for ad consent on first launch and can change it under 'Ad privacy options' in Settings. If you opt out, the app still works the same; you may see no ads or non-personalized ads."],
+const en = {
+  htmlLang: 'en',
+  title: 'Privacy policy',
+  intro: `${APP} ("the app") has no server and no account system. The developer does not collect or store personal information such as your name or contact details. Your game state (bingo settings, called numbers, and call history) is stored only on your device (local storage) and is never sent to us. Google processes the advertising ID, approximate location, and other data described below to serve ads.`,
+  adsHead: 'Advertising (Google AdMob)',
+  ads: 'The app is free, supported by banner and interstitial ads from Google AdMob. To serve ads, Google may collect and use your advertising ID, device information, approximate location (based on IP address), app interactions, and diagnostic data. Users in the European Economic Area (EEA) and the UK are asked for consent on first launch and can change it anytime under "Ad privacy options" in Settings. You can also reset your advertising ID or turn off personalized ads in your device settings. If consent is declined or cannot be confirmed, the app does not request ads.',
+  voiceHead: 'Voice',
+  voice: "The app calls out bingo numbers by playing pre-recorded voice clips that are stored in the app. The clips are played inside the app and nothing is sent outside the app for this. Only if a clip is missing does the app use the text-to-speech engine installed on your phone; depending on that engine and its settings (for example, Google Text-to-Speech), some voices may then be generated over the network by the engine's provider under its own settings and privacy policy, not by the app, and the app does not send the spoken text to us. The app does not use the microphone and does not record any audio.",
+  transferHead: 'International data transfers',
+  transferIntro: 'For advertising, the information below is sent to Google LLC in the United States. To opt out, reset or delete your advertising ID in your device settings, or uninstall the app.',
+  transferName: 'Advertising (Google AdMob)',
+  transferItems: [
+    ['Items transferred', 'Advertising ID, IP address, device information (model, operating system, language, etc.), ad impression and click logs (what you enter in the app is not transferred)'],
+    ['Country, timing, and method', 'United States (may be moved to other countries where Google has servers). Sent over an encrypted network each time an ad is requested while you use the app'],
+    ['Recipient', `${RECIPIENT_ADDR}. Google privacy inquiries: ${GOOGLE}. For app-related inquiries, contact the privacy contact (${EMAIL})`],
+    ['Purpose and retention', "Ad display, ad performance measurement, invalid click prevention. Retention follows Google's retention policies"],
+    ['How to opt out, and what happens', "You can reset or delete your advertising ID or turn off personalized ads in your device settings, and uninstalling the app stops all transfers. Users in the European Economic Area (EEA) and the UK are asked for ad consent on first launch and can change it under 'Ad privacy options' in Settings. If you opt out, the app still works the same; you may see no ads or non-personalized ads."],
+  ],
+  localHead: 'Information stored on your device',
+  local: 'The app stores your bingo settings, the numbers called in the current game, the call history, and your language, voice, and screen settings only on your device. Nothing is sent to a server. This data is removed when you start a new game or reset the settings in the app, or when you uninstall the app.',
+  permsHead: 'Permissions the app uses',
+  permsIntro: 'These are the Android permissions merged into the app. All are granted at install time, so no prompt appears. The app does not use location, contacts, photos, microphone or camera permissions.',
+  perms: [
+    'Internet (INTERNET): needed to load ads.',
+    'View network state (ACCESS_NETWORK_STATE): checks whether you are online to decide whether to load ads.',
+    'Vibration (VIBRATE): a light buzz when a tap is ignored because it came too soon. You can turn it off in the app settings ("Vibrate on taps").',
+    'Advertising ID (AD_ID, ACCESS_ADSERVICES_AD_ID): reads your device advertising ID to serve and measure ads. You can delete or reset it in your device settings.',
+    'Android ad services (ACCESS_ADSERVICES_ATTRIBUTION, ACCESS_ADSERVICES_TOPICS): lets the ads SDK use ad measurement and interest topics.',
+    'Keep awake and background work (WAKE_LOCK, FOREGROUND_SERVICE): SDK permissions that keep the device awake until the ads SDK finishes its work.',
+    'App-internal protection (DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION): stops other apps from listening to signals inside the app.',
+  ],
+  backupHead: 'Device backup',
+  backup: "The app has Android backup (allowBackup) turned off. Android does not copy the app's data into Google backups or to a new phone during a device transfer, so your game state and settings stay only on this device.",
+  retentionHead: 'Retention and deletion',
+  retention: "Game state and settings the app stores on your device are deleted when you uninstall the app. Advertising data sent to Google is kept under Google's retention policies. Once the app is uninstalled, nothing more is sent (you can also cut the link for ads by resetting or deleting your advertising ID in device settings). To request deletion of data already sent, contact us using the details below.",
+  ageHead: 'Age',
+  age: 'The app is not directed to children under 13. We do not ask your age, and the app collects no name or contact information. Device and advertising IDs are processed automatically to show ads.',
+  thirdHead: 'Third-party privacy policies',
+  third: `Google Privacy Policy: ${GOOGLE}`,
+  rightsHead: 'Requests to view, correct or delete',
+  rights: (email) => [
+    'You can view and delete the records stored on your device in the app, and uninstalling the app removes them all. You can withdraw ad consent under "Ad privacy options" in Settings, or by resetting or deleting your advertising ID in your device settings. Information held by Google can be viewed and deleted in your Google account.',
+    `To request access to, correction of, deletion of, or a halt to processing of your personal information, contact ${email}. We act without delay after confirming it is you, and tell you the result or the reason we cannot act within 10 days at the latest. We hold none of your records, so there is very little we can view or delete for you.`,
+  ],
+  changesHead: 'Changes to this policy',
+  changes: 'We will update this page and the effective date when this policy changes.',
+  contactHead: 'Contact',
+  operator: `Operator: The First Titan (service name: ${SERVICE})`,
+  location: 'The operator is a business located in the Republic of Korea.',
+  officer: 'Privacy officer and contact: KIM KWANGOK',
+  publicUrl: `Public URL: ${PUBLIC_URL}`,
+};
+
+const ko = {
+  htmlLang: 'ko',
+  title: '개인정보처리방침',
+  intro: `${APP}(이하 "앱")는 서버와 계정 시스템이 없어요. 개발자는 이름이나 연락처 같은 개인정보를 수집하거나 저장하지 않아요. 게임 상태(빙고 설정, 호출한 번호, 호출 기록)는 기기 안(로컬 저장소)에만 저장되고 우리에게 전송되지 않아요. 광고 ID, 대략적인 위치 등은 아래 설명대로 Google이 광고 제공을 위해 처리해요.`,
+  adsHead: '광고(Google AdMob)',
+  ads: '앱은 무료로 제공되며 Google AdMob의 배너·전면 광고로 운영돼요. 광고 제공 과정에서 Google이 광고 ID, 기기 정보, 대략적인 위치(IP 기반), 앱 상호작용, 진단 정보를 수집·이용할 수 있어요. 유럽경제지역(EEA)·영국 사용자는 처음 실행할 때 동의를 묻고 설정의 "광고 개인정보 옵션"에서 언제든 바꿀 수 있어요. 기기 설정에서 광고 ID를 재설정하거나 맞춤 광고를 끌 수도 있어요. 동의를 거부했거나 확인할 수 없으면 앱은 광고를 요청하지 않아요.',
+  voiceHead: '음성',
+  voice: '앱은 앱 안에 들어 있는 녹음된 음성 클립을 재생해 빙고 번호를 불러요. 클립은 앱 안에서 재생되며 이를 위해 앱 밖으로 전송되는 것은 없어요. 클립이 없을 때만 휴대폰에 설치된 텍스트 음성 변환(TTS) 엔진을 사용해요. 그 엔진과 설정(예: Google 텍스트 음성 변환)에 따라 일부 음성은 앱이 아니라 엔진 제공자가 자체 설정과 개인정보처리방침에 따라 네트워크로 생성할 수 있고, 앱은 읽어 주는 문장을 우리에게 보내지 않아요. 앱은 마이크를 쓰지 않고 소리를 녹음하지 않아요.',
+  transferHead: '개인정보의 국외 이전',
+  transferIntro: '광고를 위해 아래 정보가 미국의 Google LLC로 전송돼요. 거부하려면 기기 설정에서 광고 ID를 재설정·삭제하거나 앱을 삭제하면 돼요.',
+  transferName: '광고(Google AdMob)',
+  transferItems: [
+    ['이전되는 항목', '광고 ID, IP 주소, 기기 정보(기종·운영체제·언어 등), 광고 노출·클릭 기록 (앱에 입력한 내용은 이전하지 않아요)'],
+    ['이전 국가·시기·방법', '미국(Google 서버가 있는 다른 나라로 옮겨질 수 있어요). 앱을 쓰는 동안 광고를 요청할 때마다 암호화된 네트워크로 전송'],
+    ['이전받는 자', `${RECIPIENT_ADDR}. Google 개인정보 문의: ${GOOGLE}. 앱 관련 문의는 개인정보 보호책임자(${EMAIL})`],
+    ['이용 목적·보유 기간', '광고 표시, 광고 성과 측정, 부정 클릭 방지. 보유 기간은 Google의 보관 정책을 따라요'],
+    ['거부 방법과 효과', "기기 설정에서 광고 ID를 재설정·삭제하거나 맞춤 광고를 끌 수 있고, 앱을 삭제하면 더 이상 보내지 않아요. 유럽경제지역(EEA)·영국 사용자는 처음 실행할 때 광고 동의를 묻고 설정의 '광고 개인정보 옵션'에서 바꿀 수 있어요. 거부해도 앱 기능은 그대로 쓸 수 있고, 광고가 뜨지 않거나 맞춤이 아닌 일반 광고가 뜰 수 있어요."],
+  ],
+  localHead: '기기 안에 저장되는 정보',
+  local: '빙고 설정, 현재 게임에서 호출한 번호, 호출 기록, 언어·음성·화면 설정을 기기 안에만 저장해요. 서버 전송은 없어요. 이 데이터는 앱에서 새 게임을 시작하거나 설정을 초기화하거나 앱을 삭제하면 지워져요.',
+  permsHead: '앱이 쓰는 권한',
+  permsIntro: '아래는 앱에 합쳐지는 안드로이드 권한이에요. 모두 설치할 때 한꺼번에 허용돼서 따로 묻는 창은 뜨지 않아요. 위치·연락처·사진·마이크·카메라 권한은 쓰지 않아요.',
+  perms: [
+    '인터넷(INTERNET): 광고를 받아 오는 데 필요해요.',
+    '네트워크 상태 보기(ACCESS_NETWORK_STATE): 인터넷 연결 여부를 확인해 광고를 불러올지 정해요.',
+    '진동(VIBRATE): 너무 빨리 눌러 입력이 무시될 때 가볍게 진동해요. 앱 설정의 "탭할 때 진동"에서 끌 수 있어요.',
+    '광고 ID 사용(AD_ID, ACCESS_ADSERVICES_AD_ID): 광고 제공과 측정을 위해 기기의 광고 ID를 읽어요. 기기 설정에서 삭제·재설정할 수 있어요.',
+    '안드로이드 광고 서비스(ACCESS_ADSERVICES_ATTRIBUTION, ACCESS_ADSERVICES_TOPICS): 광고 SDK가 광고 측정과 관심 주제 기능을 쓸 수 있게 하는 권한이에요.',
+    '절전 방지와 백그라운드 작업(WAKE_LOCK, FOREGROUND_SERVICE): 광고 SDK가 작업을 마칠 때까지 기기가 잠들지 않게 하는 SDK용 권한이에요.',
+    '앱 내부 보호용 권한(DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION): 앱 안의 신호를 다른 앱이 엿보지 못하게 해요.',
+  ],
+  backupHead: '기기 백업',
+  backup: '앱은 안드로이드 백업(allowBackup)을 꺼 두었어요. 앱의 데이터가 Google 백업이나 새 휴대폰으로의 기기 이전 때 복사되지 않으므로, 게임 상태와 설정은 이 기기에만 남아요.',
+  retentionHead: '보관 기간과 삭제',
+  retention: '앱이 기기에 저장하는 게임 상태와 설정은 앱을 삭제하면 함께 지워져요. Google로 전송된 광고 데이터는 Google의 보관 정책을 따라요. 앱을 삭제하면 더 이상 전송되지 않아요(기기 설정에서 광고 ID를 재설정·삭제해도 광고 연결을 끊을 수 있어요). 이미 전송된 데이터의 삭제를 요청하려면 아래 연락처로 알려 주세요.',
+  ageHead: '이용 연령',
+  age: '앱은 만 13세 미만 어린이를 대상으로 하지 않아요. 나이를 묻지 않고 이름·연락처도 수집하지 않아요. 기기 ID와 광고 ID는 광고 표시를 위해 자동으로 처리돼요.',
+  thirdHead: '제3자 처리방침',
+  third: `Google 개인정보처리방침: ${GOOGLE}`,
+  rightsHead: '열람·정정·삭제 요청',
+  rights: (email) => [
+    '기기에 저장된 기록은 앱에서 직접 보고 지울 수 있고, 앱을 삭제해도 모두 지워져요. 광고 동의는 설정의 "광고 개인정보 옵션"이나 기기 설정의 광고 ID 재설정·삭제로 철회할 수 있어요. Google이 가진 정보는 Google 계정에서 보고 지울 수 있어요.',
+    `개인정보 열람·정정·삭제·처리 정지 요청은 ${email}로 보내 주세요. 본인 확인 뒤 지체 없이 처리하고, 늦어도 10일 안에 처리 결과나 처리하지 못하는 사유를 알려 드려요. 운영자는 사용자의 기록을 갖고 있지 않아 열람하거나 지워 드릴 것이 거의 없어요.`,
+  ],
+  changesHead: '방침 변경',
+  changes: '방침이 바뀌면 이 페이지와 시행일을 고쳐요.',
+  contactHead: '문의',
+  operator: `개인정보처리자: 더퍼스트타이탄 (서비스명 ${SERVICE})`,
+  location: '운영자는 대한민국에 있는 사업자예요.',
+  officer: '개인정보 보호책임자·문의 담당: 김광옥',
+  publicUrl: `공개 주소: ${PUBLIC_URL}`,
+};
+
+const ja = {
+  htmlLang: 'ja',
+  title: 'プライバシーポリシー',
+  intro: `${APP}(以下「本アプリ」)にはサーバーもアカウント機能もありません。開発者は氏名や連絡先などの個人情報を収集・保存しません。ゲームの状態(ビンゴの設定、呼び出した番号、呼び出し履歴)は端末内(ローカルストレージ)にのみ保存され、当方には送信されません。広告ID、おおよその位置情報などは、以下のとおりGoogleが広告配信のために処理します。`,
+  adsHead: '広告(Google AdMob)',
+  ads: '本アプリは無料で、Google AdMobのバナー広告とインタースティシャル広告で運営されています。広告配信のため、Googleが広告ID、端末情報、おおよその位置情報(IPアドレスに基づく)、アプリの利用状況、診断データを収集・利用する場合があります。欧州経済領域(EEA)と英国のユーザーには初回起動時に同意を求め、設定の「広告のプライバシーオプション」からいつでも変更できます。端末の設定で広告IDのリセットやパーソナライズ広告の停止もできます。同意しない場合や同意を確認できない場合、本アプリは広告をリクエストしません。',
+  voiceHead: '音声',
+  voice: '本アプリは、アプリ内に保存された録音済みの音声クリップを再生してビンゴの番号を読み上げます。クリップはアプリ内で再生され、そのためにアプリの外へ送信されるものはありません。クリップがない場合にのみ、端末にインストールされた音声合成(TTS)エンジンを使用します。そのエンジンと設定(例:Googleテキスト読み上げ)によっては、一部の音声がアプリではなくエンジン提供元の設定とプライバシーポリシーに従ってネットワーク経由で生成されることがあり、本アプリが読み上げる文を当方に送信することはありません。本アプリはマイクを使用せず、音声を録音しません。',
+  transferHead: '個人情報の国外移転',
+  transferIntro: '広告のため、以下の情報が米国のGoogle LLCに送信されます。拒否するには、端末の設定で広告IDをリセット・削除するか、アプリを削除してください。',
+  transferName: '広告(Google AdMob)',
+  transferItems: [
+    ['移転される項目', '広告ID、IPアドレス、端末情報(機種・OS・言語など)、広告の表示・クリック履歴(アプリに入力した内容は移転されません)'],
+    ['移転先の国・時期・方法', '米国(Googleのサーバーがある他の国へ移されることがあります)。アプリの利用中、広告をリクエストするたびに暗号化された通信で送信'],
+    ['移転を受ける者', `${RECIPIENT_ADDR}。Googleのプライバシーに関する問い合わせ: ${GOOGLE}。アプリに関する問い合わせは個人情報保護責任者(${EMAIL})まで`],
+    ['利用目的・保有期間', '広告の表示、広告効果の測定、不正クリックの防止。保有期間はGoogleの保管ポリシーに従います'],
+    ['拒否の方法と影響', '端末の設定で広告IDのリセット・削除やパーソナライズ広告の停止ができ、アプリを削除するとそれ以上送信されません。EEAと英国のユーザーには初回起動時に広告の同意を求め、設定の「広告のプライバシーオプション」で変更できます。拒否してもアプリの機能は変わらず使え、広告が表示されないか、パーソナライズされない広告が表示されることがあります。'],
+  ],
+  localHead: '端末内に保存される情報',
+  local: 'ビンゴの設定、現在のゲームで呼び出した番号、呼び出し履歴、言語・音声・画面の設定は端末内にのみ保存されます。サーバーへの送信はありません。このデータは、アプリで新しいゲームを始めるか設定をリセットしたとき、またはアプリを削除したときに消去されます。',
+  permsHead: 'アプリが使用する権限',
+  permsIntro: '以下は本アプリに統合されているAndroidの権限です。すべてインストール時にまとめて許可されるため、確認画面は表示されません。位置情報・連絡先・写真・マイク・カメラの権限は使用しません。',
+  perms: [
+    'インターネット(INTERNET):広告の取得に必要です。',
+    'ネットワーク状態の表示(ACCESS_NETWORK_STATE):オンラインかどうかを確認し、広告を読み込むか判断します。',
+    'バイブレーション(VIBRATE):速すぎてタップが無視されたときに軽く振動します。アプリ設定の「タップ時に振動」でオフにできます。',
+    '広告ID(AD_ID、ACCESS_ADSERVICES_AD_ID):広告の配信と測定のため、端末の広告IDを読み取ります。端末の設定で削除・リセットできます。',
+    'Android広告サービス(ACCESS_ADSERVICES_ATTRIBUTION、ACCESS_ADSERVICES_TOPICS):広告SDKが広告測定と興味関心トピックの機能を使えるようにする権限です。',
+    'スリープ防止とバックグラウンド処理(WAKE_LOCK、FOREGROUND_SERVICE):広告SDKが処理を終えるまで端末をスリープさせないSDK用の権限です。',
+    'アプリ内部の保護用権限(DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION):アプリ内の信号を他のアプリが傍受できないようにします。',
+  ],
+  backupHead: '端末のバックアップ',
+  backup: '本アプリはAndroidのバックアップ(allowBackup)をオフにしています。アプリのデータはGoogleバックアップにも、新しい端末への移行時にもコピーされないため、ゲームの状態と設定はこの端末にのみ残ります。',
+  retentionHead: '保管期間と削除',
+  retention: 'アプリが端末に保存するゲームの状態と設定は、アプリを削除すると消去されます。Googleに送信された広告データはGoogleの保管ポリシーに従います。アプリを削除するとそれ以上送信されません(端末の設定で広告IDをリセット・削除しても広告との関連付けを断てます)。すでに送信されたデータの削除を希望する場合は、下記の連絡先までご連絡ください。',
+  ageHead: '対象年齢',
+  age: '本アプリは13歳未満の子供を対象としていません。年齢は尋ねず、氏名や連絡先も収集しません。端末IDと広告IDは広告表示のために自動的に処理されます。',
+  thirdHead: '第三者のプライバシーポリシー',
+  third: `Googleプライバシーポリシー: ${GOOGLE}`,
+  rightsHead: '閲覧・訂正・削除の請求',
+  rights: (email) => [
+    '端末に保存された記録はアプリ内で確認・削除でき、アプリを削除するとすべて消えます。広告の同意は設定の「広告のプライバシーオプション」、または端末の設定で広告IDをリセット・削除することで撤回できます。Googleが保有する情報はGoogleアカウントで確認・削除できます。',
+    `個人情報の閲覧・訂正・削除・処理停止の請求は ${email} までご連絡ください。本人確認後、遅滞なく対応し、遅くとも10日以内に結果または対応できない理由をお知らせします。運営者はユーザーの記録を保有していないため、閲覧・削除できるものはほとんどありません。`,
+  ],
+  changesHead: 'ポリシーの変更',
+  changes: 'ポリシーが変わったときは、このページと施行日を更新します。',
+  contactHead: 'お問い合わせ',
+  operator: `運営者:The First Titan(더퍼스트타이탄)(サービス名 ${SERVICE})`,
+  location: '運営者は大韓民国にある事業者です。',
+  officer: '個人情報保護責任者・連絡担当:KIM KWANGOK(김광옥)',
+  publicUrl: `公開URL: ${PUBLIC_URL}`,
+};
+
+const es = {
+  htmlLang: 'es',
+  title: 'Política de privacidad',
+  intro: `${APP} («la app») no tiene servidor ni sistema de cuentas. El desarrollador no recopila ni almacena datos personales como tu nombre o datos de contacto. El estado de tus partidas (ajustes del bingo, números cantados e historial) se guarda solo en tu dispositivo (almacenamiento local) y nunca se nos envía. Google procesa el identificador de publicidad, la ubicación aproximada y otros datos descritos abajo para mostrar anuncios.`,
+  adsHead: 'Publicidad (Google AdMob)',
+  ads: 'La app es gratuita y se financia con anuncios de banner e intersticiales de Google AdMob. Para mostrarlos, Google puede recopilar y usar tu identificador de publicidad, información del dispositivo, ubicación aproximada (según la dirección IP), interacciones con la app y datos de diagnóstico. A los usuarios del Espacio Económico Europeo (EEE) y del Reino Unido se les pide consentimiento en el primer inicio y pueden cambiarlo en cualquier momento en «Opciones de privacidad de anuncios» en Ajustes. También puedes restablecer tu identificador de publicidad o desactivar los anuncios personalizados en los ajustes del dispositivo. Si se rechaza el consentimiento o no se puede confirmar, la app no solicita anuncios.',
+  voiceHead: 'Voz',
+  voice: 'La app canta los números del bingo reproduciendo clips de voz pregrabados guardados en la app. Los clips se reproducen dentro de la app y para ello no se envía nada fuera de ella. Solo si falta un clip, la app usa el motor de texto a voz instalado en tu teléfono; según ese motor y sus ajustes (por ejemplo, Síntesis de voz de Google), algunas voces pueden generarse por red por parte del proveedor del motor, con sus propios ajustes y política de privacidad y no por la app, y la app no nos envía el texto leído. La app no usa el micrófono y no graba audio.',
+  transferHead: 'Transferencias internacionales de datos',
+  transferIntro: 'Para la publicidad, la información siguiente se envía a Google LLC en Estados Unidos. Para rechazarlo, restablece o elimina tu identificador de publicidad en los ajustes del dispositivo, o desinstala la app.',
+  transferName: 'Publicidad (Google AdMob)',
+  transferItems: [
+    ['Datos transferidos', 'Identificador de publicidad, dirección IP, información del dispositivo (modelo, sistema operativo, idioma, etc.), registros de impresiones y clics de anuncios (lo que introduces en la app no se transfiere)'],
+    ['País, momento y método', 'Estados Unidos (puede trasladarse a otros países donde Google tiene servidores). Se envía por una red cifrada cada vez que se solicita un anuncio mientras usas la app'],
+    ['Destinatario', `${RECIPIENT_ADDR}. Consultas de privacidad de Google: ${GOOGLE}. Para consultas sobre la app, escribe al contacto de privacidad (${EMAIL})`],
+    ['Finalidad y conservación', 'Mostrar anuncios, medir su rendimiento y evitar clics no válidos. La conservación sigue las políticas de retención de Google'],
+    ['Cómo rechazar y qué ocurre', 'Puedes restablecer o eliminar tu identificador de publicidad o desactivar los anuncios personalizados en los ajustes del dispositivo, y al desinstalar la app dejan de enviarse datos. A los usuarios del EEE y del Reino Unido se les pide consentimiento publicitario en el primer inicio y pueden cambiarlo en «Opciones de privacidad de anuncios» en Ajustes. Si lo rechazas, la app funciona igual; puede que no veas anuncios o que veas anuncios no personalizados.'],
+  ],
+  localHead: 'Información guardada en tu dispositivo',
+  local: 'La app guarda tus ajustes de bingo, los números cantados en la partida actual, el historial de cantos y tus ajustes de idioma, voz y pantalla solo en tu dispositivo. No se envía nada a ningún servidor. Estos datos se eliminan cuando empiezas una partida nueva o restableces los ajustes en la app, o cuando desinstalas la app.',
+  permsHead: 'Permisos que usa la app',
+  permsIntro: 'Estos son los permisos de Android incluidos en la app. Todos se conceden en la instalación, por lo que no aparece ningún aviso. La app no usa permisos de ubicación, contactos, fotos, micrófono ni cámara.',
+  perms: [
+    'Internet (INTERNET): necesario para cargar anuncios.',
+    'Ver el estado de la red (ACCESS_NETWORK_STATE): comprueba si estás conectado para decidir si cargar anuncios.',
+    'Vibración (VIBRATE): una vibración suave cuando se ignora una pulsación por haber sido demasiado rápida. Puedes desactivarla en los ajustes de la app («Vibrar al tocar»).',
+    'Identificador de publicidad (AD_ID, ACCESS_ADSERVICES_AD_ID): lee el identificador de publicidad del dispositivo para mostrar y medir anuncios. Puedes eliminarlo o restablecerlo en los ajustes del dispositivo.',
+    'Servicios de anuncios de Android (ACCESS_ADSERVICES_ATTRIBUTION, ACCESS_ADSERVICES_TOPICS): permiten que el SDK de anuncios use la medición de anuncios y los temas de interés.',
+    'Mantener activo y trabajo en segundo plano (WAKE_LOCK, FOREGROUND_SERVICE): permisos del SDK que mantienen el dispositivo activo hasta que el SDK de anuncios termina su trabajo.',
+    'Protección interna de la app (DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION): impide que otras apps escuchen las señales internas de la app.',
+  ],
+  backupHead: 'Copia de seguridad del dispositivo',
+  backup: 'La app tiene desactivada la copia de seguridad de Android (allowBackup). Android no copia los datos de la app a las copias de Google ni a un teléfono nuevo al transferir el dispositivo, así que el estado de tus partidas y tus ajustes permanecen solo en este dispositivo.',
+  retentionHead: 'Conservación y eliminación',
+  retention: 'El estado de las partidas y los ajustes que la app guarda en tu dispositivo se eliminan al desinstalar la app. Los datos publicitarios enviados a Google se conservan según las políticas de retención de Google. Al desinstalar la app no se envía nada más (también puedes cortar el vínculo de los anuncios restableciendo o eliminando tu identificador de publicidad en los ajustes del dispositivo). Para solicitar la eliminación de datos ya enviados, contáctanos con los datos de abajo.',
+  ageHead: 'Edad',
+  age: 'La app no está dirigida a menores de 13 años. No preguntamos tu edad y la app no recopila nombres ni datos de contacto. Los identificadores del dispositivo y de publicidad se procesan de forma automática para mostrar anuncios.',
+  thirdHead: 'Políticas de privacidad de terceros',
+  third: `Política de privacidad de Google: ${GOOGLE}`,
+  rightsHead: 'Solicitudes de acceso, rectificación o eliminación',
+  rights: (email) => [
+    'Puedes ver y eliminar en la app los registros guardados en tu dispositivo, y al desinstalar la app se borran todos. Puedes retirar el consentimiento publicitario en «Opciones de privacidad de anuncios» en Ajustes, o restableciendo o eliminando tu identificador de publicidad en los ajustes del dispositivo. La información que tiene Google puedes verla y eliminarla en tu cuenta de Google.',
+    `Para solicitar el acceso, la rectificación, la eliminación o el cese del tratamiento de tus datos personales, escribe a ${email}. Actuamos sin demora tras confirmar que eres tú y te comunicamos el resultado, o el motivo por el que no podemos actuar, en un máximo de 10 días. No conservamos ningún registro tuyo, así que hay muy poco que podamos mostrar o eliminar.`,
+  ],
+  changesHead: 'Cambios en esta política',
+  changes: 'Actualizaremos esta página y la fecha de entrada en vigor cuando cambie la política.',
+  contactHead: 'Contacto',
+  operator: `Operador: The First Titan (더퍼스트타이탄) (nombre del servicio: ${SERVICE})`,
+  location: 'El operador es una empresa ubicada en la República de Corea.',
+  officer: 'Responsable de privacidad y contacto: KIM KWANGOK (김광옥)',
+  publicUrl: `URL pública: ${PUBLIC_URL}`,
+};
+
+const ptBR = {
+  htmlLang: 'pt-BR',
+  title: 'Política de privacidade',
+  intro: `O ${APP} («o app») não tem servidor nem sistema de contas. O desenvolvedor não coleta nem armazena dados pessoais, como seu nome ou dados de contato. O estado dos seus jogos (configurações do bingo, números sorteados e histórico) fica salvo apenas no seu dispositivo (armazenamento local) e nunca é enviado para nós. O Google processa o ID de publicidade, a localização aproximada e outros dados descritos abaixo para exibir anúncios.`,
+  adsHead: 'Publicidade (Google AdMob)',
+  ads: 'O app é gratuito e mantido por anúncios de banner e intersticiais do Google AdMob. Para exibi-los, o Google pode coletar e usar seu ID de publicidade, informações do dispositivo, localização aproximada (com base no endereço IP), interações com o app e dados de diagnóstico. Usuários do Espaço Econômico Europeu (EEE) e do Reino Unido são consultados no primeiro uso e podem mudar a escolha a qualquer momento em «Opções de privacidade de anúncios» nas Configurações. Você também pode redefinir seu ID de publicidade ou desativar anúncios personalizados nas configurações do dispositivo. Se o consentimento for recusado ou não puder ser confirmado, o app não solicita anúncios.',
+  voiceHead: 'Voz',
+  voice: 'O app anuncia os números do bingo reproduzindo clipes de voz pré-gravados guardados no app. Os clipes são reproduzidos dentro do app e nada é enviado para fora dele para isso. Somente se faltar um clipe, o app usa o mecanismo de conversão de texto em fala instalado no seu telefone; dependendo desse mecanismo e das suas configurações (por exemplo, Reconhecimento de fala do Google), algumas vozes podem ser geradas pela rede pelo provedor do mecanismo, com configurações e política de privacidade próprias, e não pelo app, e o app não envia o texto lido para nós. O app não usa o microfone e não grava áudio.',
+  transferHead: 'Transferências internacionais de dados',
+  transferIntro: 'Para a publicidade, as informações abaixo são enviadas à Google LLC nos Estados Unidos. Para recusar, redefina ou exclua seu ID de publicidade nas configurações do dispositivo ou desinstale o app.',
+  transferName: 'Publicidade (Google AdMob)',
+  transferItems: [
+    ['Dados transferidos', 'ID de publicidade, endereço IP, informações do dispositivo (modelo, sistema operacional, idioma etc.), registros de exibição e clique de anúncios (o que você insere no app não é transferido)'],
+    ['País, momento e método', 'Estados Unidos (pode ser movido para outros países onde o Google tem servidores). Enviado por rede criptografada a cada solicitação de anúncio enquanto você usa o app'],
+    ['Destinatário', `${RECIPIENT_ADDR}. Dúvidas de privacidade do Google: ${GOOGLE}. Para dúvidas sobre o app, fale com o contato de privacidade (${EMAIL})`],
+    ['Finalidade e retenção', 'Exibir anúncios, medir o desempenho dos anúncios e evitar cliques inválidos. A retenção segue as políticas de retenção do Google'],
+    ['Como recusar e o que acontece', 'Você pode redefinir ou excluir seu ID de publicidade ou desativar anúncios personalizados nas configurações do dispositivo, e ao desinstalar o app nada mais é enviado. Usuários do EEE e do Reino Unido são consultados sobre anúncios no primeiro uso e podem mudar a escolha em «Opções de privacidade de anúncios» nas Configurações. Se você recusar, o app continua funcionando igual; você pode ver nenhum anúncio ou anúncios não personalizados.'],
+  ],
+  localHead: 'Informações guardadas no seu dispositivo',
+  local: 'O app guarda suas configurações de bingo, os números sorteados no jogo atual, o histórico de sorteios e suas configurações de idioma, voz e tela somente no seu dispositivo. Nada é enviado a um servidor. Esses dados são apagados quando você inicia um novo jogo ou redefine as configurações no app, ou quando desinstala o app.',
+  permsHead: 'Permissões usadas pelo app',
+  permsIntro: 'Estas são as permissões do Android incluídas no app. Todas são concedidas na instalação, então nenhum aviso aparece. O app não usa permissões de localização, contatos, fotos, microfone ou câmera.',
+  perms: [
+    'Internet (INTERNET): necessária para carregar anúncios.',
+    'Ver o estado da rede (ACCESS_NETWORK_STATE): verifica se você está online para decidir se carrega anúncios.',
+    'Vibração (VIBRATE): uma vibração leve quando um toque é ignorado por ter sido rápido demais. Você pode desativá-la nas configurações do app («Vibrar ao tocar»).',
+    'ID de publicidade (AD_ID, ACCESS_ADSERVICES_AD_ID): lê o ID de publicidade do dispositivo para exibir e medir anúncios. Você pode excluí-lo ou redefini-lo nas configurações do dispositivo.',
+    'Serviços de anúncios do Android (ACCESS_ADSERVICES_ATTRIBUTION, ACCESS_ADSERVICES_TOPICS): permitem que o SDK de anúncios use a medição de anúncios e os tópicos de interesse.',
+    'Manter ativo e trabalho em segundo plano (WAKE_LOCK, FOREGROUND_SERVICE): permissões do SDK que mantêm o dispositivo ativo até o SDK de anúncios terminar o trabalho.',
+    'Proteção interna do app (DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION): impede que outros apps escutem os sinais internos do app.',
+  ],
+  backupHead: 'Backup do dispositivo',
+  backup: 'O app está com o backup do Android (allowBackup) desativado. O Android não copia os dados do app para os backups do Google nem para um telefone novo na transferência de dispositivo, então o estado dos seus jogos e as configurações ficam apenas neste dispositivo.',
+  retentionHead: 'Retenção e exclusão',
+  retention: 'O estado dos jogos e as configurações que o app guarda no seu dispositivo são apagados quando você desinstala o app. Os dados de publicidade enviados ao Google seguem as políticas de retenção do Google. Ao desinstalar o app, nada mais é enviado (você também pode cortar o vínculo dos anúncios redefinindo ou excluindo seu ID de publicidade nas configurações do dispositivo). Para pedir a exclusão de dados já enviados, entre em contato pelos dados abaixo.',
+  ageHead: 'Idade',
+  age: 'O app não é direcionado a menores de 13 anos. Não perguntamos sua idade e o app não coleta nome nem dados de contato. Os IDs do dispositivo e de publicidade são processados automaticamente para exibir anúncios.',
+  thirdHead: 'Políticas de privacidade de terceiros',
+  third: `Política de Privacidade do Google: ${GOOGLE}`,
+  rightsHead: 'Pedidos de acesso, correção ou exclusão',
+  rights: (email) => [
+    'Você pode ver e excluir no app os registros guardados no seu dispositivo, e desinstalar o app apaga todos eles. Você pode retirar o consentimento de anúncios em «Opções de privacidade de anúncios» nas Configurações, ou redefinindo ou excluindo seu ID de publicidade nas configurações do dispositivo. As informações que o Google possui podem ser vistas e excluídas na sua conta Google.',
+    `Para pedir acesso, correção, exclusão ou suspensão do tratamento dos seus dados pessoais, escreva para ${email}. Agimos sem demora após confirmar que é você e informamos o resultado, ou o motivo de não podermos atender, em no máximo 10 dias. Não mantemos nenhum registro seu, então há muito pouco que possamos mostrar ou excluir.`,
+  ],
+  changesHead: 'Alterações nesta política',
+  changes: 'Atualizaremos esta página e a data de vigência quando a política mudar.',
+  contactHead: 'Contato',
+  operator: `Operador: The First Titan (더퍼스트타이탄) (nome do serviço: ${SERVICE})`,
+  location: 'O operador é uma empresa localizada na República da Coreia.',
+  officer: 'Responsável pela privacidade e contato: KIM KWANGOK (김광옥)',
+  publicUrl: `URL pública: ${PUBLIC_URL}`,
+};
+
+const block = (id, t) =>
+  `<div id="${id}" lang="${t.htmlLang}">\n<h2 class="lang-title">${esc(t.title)}</h2>\n` +
+  [
+    p(t.intro),
+    sec(t.adsHead, p(t.ads)),
+    sec(t.voiceHead, p(t.voice)),
+    sec(t.transferHead, [p(t.transferIntro), `<h3>${esc(t.transferName)}</h3>\n${dl(t.transferItems)}`].join('\n')),
+    sec(t.localHead, p(t.local)),
+    sec(t.permsHead, [p(t.permsIntro), `<ul>\n${t.perms.map((x) => `<li>${esc(x)}</li>`).join('\n')}\n</ul>`].join('\n')),
+    sec(t.backupHead, p(t.backup)),
+    sec(t.retentionHead, p(t.retention)),
+    sec(t.ageHead, p(t.age)),
+    sec(t.thirdHead, p(t.third)),
+    sec(t.rightsHead, t.rights(EMAIL).map(p).join('\n')),
+    sec(t.changesHead, p(t.changes)),
+    sec(t.contactHead, [p(t.operator), p(t.location), p(t.officer), `<p><a href="mailto:${esc(EMAIL)}">${esc(EMAIL)}</a></p>`, p(t.publicUrl)].join('\n')),
+  ].join('\n') +
+  '\n</div>';
+
+const langs = [
+  ['en', 'English', en],
+  ['ko', '한국어', ko],
+  ['ja', '日本語', ja],
+  ['es', 'Español', es],
+  ['pt-BR', 'Português (Brasil)', ptBR],
 ];
-
-const body = [
-  p(`${APP} ("the app") has no server and no account system. The developer does not collect or store personal information such as your name or contact details. Your game state (bingo settings, called numbers, and call history) is stored only on your device (local storage) and is never sent to us. Google processes the advertising ID, approximate location, and other data described below to serve ads.`),
-  sec('Advertising (Google AdMob)', p(`The app is free, supported by banner and interstitial ads from Google AdMob. To serve ads, Google may collect and use your advertising ID, device information, approximate location (based on IP address), app interactions, and diagnostic data. Users in the European Economic Area (EEA) and the UK are asked for consent on first launch and can change it anytime under "Ad privacy options" in Settings. You can also reset your advertising ID or turn off personalized ads in your device settings. If consent is declined or cannot be confirmed, the app does not request ads.`)),
-  sec(
-    'Voice',
-    p("The app calls out bingo numbers by playing pre-recorded voice clips that are stored in the app. The clips are played inside the app and nothing is sent outside the app for this. Only if a clip is missing does the app use the text-to-speech engine installed on your phone; depending on that engine and its settings (for example, Google Text-to-Speech), some voices may then be generated over the network by the engine's provider under its own settings and privacy policy, not by the app, and the app does not send the spoken text to us. The app does not use the microphone and does not record any audio."),
-  ),
-  sec(
-    'International data transfers',
-    [
-      p('For advertising, the information below is sent to Google LLC in the United States. To opt out, reset or delete your advertising ID in your device settings, or uninstall the app.'),
-      `<h3>Advertising (Google AdMob)</h3>\n<dl class="contact">\n${transferItems.map(([l, v]) => dl(l, v)).join('\n')}\n</dl>`,
-    ].join('\n'),
-  ),
-  sec('Retention and deletion', p("Game state and settings the app stores on your device are deleted when you uninstall the app. Advertising data sent to Google is kept under Google's retention policies. Once the app is uninstalled, nothing more is sent (you can also cut the link for ads by resetting or deleting your advertising ID in device settings). To request deletion of data already sent, contact us using the details below.")),
-  sec('Age', p('The app is not directed to children under 13. We do not ask your age, and the app collects no name or contact information. Device and advertising IDs are processed automatically to show ads.')),
-  sec('Third-party privacy policies', p(`Google Privacy Policy: ${GOOGLE_PRIVACY}`)),
-  sec('Your rights', p('You can ask to view or delete your data by emailing the contact address below. You can withdraw ad consent under "Ad privacy options" in Settings, or by resetting or deleting your advertising ID in your device settings.')),
-  sec('Changes to this policy', p('We will update this page and the effective date when this policy changes.')),
-  sec(
-    'Contact',
-    [
-      p(`Operator: ${OPERATOR} (service name: ${SERVICE})`),
-      p('The operator is a business located in the Republic of Korea.'),
-      p(`Privacy contact: ${OFFICER}`),
-      `<p><a href="mailto:${esc(EMAIL)}">${esc(EMAIL)}</a></p>`,
-      p(`Public URL: ${PUBLIC_URL}`),
-    ].join('\n'),
-  ),
-].join('\n');
+const nav = `<p>${langs.map(([id, label]) => `<a href="#${id}">${esc(label)}</a>`).join(' | ')}</p>`;
+const body = [nav, ...langs.map(([id, , t]) => block(id, t))].join('\n<hr>\n');
 
 write(
   'bingo-caller/index.html',
-  page({ title: `${APP} Privacy Policy`, heading: `${APP} Privacy Policy`, sub: `Effective date ${EFFECTIVE}`, body, cssPath: '../style.css', lang: 'en', footer: `${OPERATOR} (${SERVICE})` }),
+  page({ title: `${APP} Privacy Policy`, heading: `${APP} Privacy Policy`, sub: `Effective date ${EFFECTIVE} / 시행일 ${EFFECTIVE}`, body, cssPath: '../style.css', lang: 'en', footer: `The First Titan (${SERVICE})` }),
 );
