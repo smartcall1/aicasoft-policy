@@ -20,7 +20,7 @@ export const APPS = [
   { slug: 'bokbulbok', name: '복불복 모음 (Quick Picks)', desc: 'English / 日本語 / Español / Português / 한국어 privacy policy', en: true },
   { slug: 'scoreboard', name: '스포츠 점수판 (Sports Scoreboard)', desc: 'English / 한국어 privacy policy', en: true },
   { slug: 'lifecalc', name: '사회생활 계산기', desc: '월급 실수령·퇴직금·연차·대출 상환 등 직장인 생활 계산기 8종' },
-  { slug: 'blastline', name: '폭파 한 줄', desc: '한 줄을 폭파시키는 퍼즐 게임' },
+  { slug: 'blastline', name: '폭파 한 줄 (Blast Line)', desc: 'English / 한국어 privacy policy', en: true },
   { slug: 'kwangpick', name: '쾅픽', desc: '두 선택지 중 하나를 AI가 한 줄로 골라 주는 앱' },
   { slug: 'alba-pay', name: '월급마중', desc: '알바 근무를 기록해 월급과 주휴수당을 계산하는 앱' },
   { slug: 'aero', name: 'AERO VOYAGE(에어로 보이지)', desc: '항공편 실시간 추적과 시차 적응을 돕는 비행 동반 앱' },
