@@ -10,7 +10,7 @@
 <body>
 <header>
 <h1>FairTip Privacy Policy</h1>
-<p class="sub">Effective date 2026-10-12</p>
+<p class="sub">Effective date 2026-10-17</p>
 </header>
 <main>
 <p>FairTip (&quot;the app&quot;) does not collect personal information such as your name or contact details, and does not store it on a server. What you enter in the app is processed only on your device.</p>
@@ -31,6 +31,23 @@
 </dl>
 </section>
 <section>
+<h2>Permissions the app uses</h2>
+<p>These are the Android permissions merged into the app (checked in the merged manifest of the build). All are granted at install time, so no prompt appears. The app does not use location, contacts, photos, microphone, camera, storage, or notification permissions.</p>
+<ul>
+<li>Internet (INTERNET): needed to load ads.</li>
+<li>View network state (ACCESS_NETWORK_STATE): checks whether you are online to decide whether to load ads.</li>
+<li>Keep awake (WAKE_LOCK): lets the ads SDK finish its work while the device is active.</li>
+<li>Foreground service (FOREGROUND_SERVICE): declared by a library the app includes (the ads SDK); the app itself does not run a background service.</li>
+<li>Advertising ID (AD_ID, ACCESS_ADSERVICES_AD_ID): reads your device advertising ID to serve and measure ads. You can delete or reset it in your device settings.</li>
+<li>Android ad services (ACCESS_ADSERVICES_ATTRIBUTION, ACCESS_ADSERVICES_TOPICS): lets the ads SDK use ad measurement and interest topics.</li>
+<li>App-internal protection (DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION): stops other apps from listening to signals inside the app. This is declared by the app itself.</li>
+</ul>
+</section>
+<section>
+<h2>Backup</h2>
+<p>The app turns off Android backup (allowBackup is false in the merged manifest). Settings stored on your device are not copied to Google cloud backup or to a new phone through device transfer, and you start fresh after reinstalling or moving to a new phone.</p>
+</section>
+<section>
 <h2>Retention and deletion</h2>
 <p>Settings the app stores on your device are deleted when you uninstall the app. Advertising data sent to Google is kept under Google's retention policies. Once the app is uninstalled, nothing more is sent (you can also cut the link for ads by resetting or deleting your advertising ID in device settings). To request deletion of data already sent, contact us using the details below.</p>
 </section>
@@ -47,14 +64,18 @@
 <p>You can ask to view or delete your data by emailing the contact address below. You can withdraw ad consent under &quot;Ad privacy options&quot; in Settings, or by resetting or deleting your advertising ID in your device settings.</p>
 </section>
 <section>
+<h2>Requests: access, correction, deletion (10 days)</h2>
+<p>To request access to, correction of, deletion of, or a halt to processing of your personal information, email hsindevelop@gmail.com. We act without delay after confirming it is you, and tell you the result, or the reason we cannot act, within 10 days at the latest. We hold none of your records, so there is very little we can view or delete for you. Information held by Google can be viewed and deleted in your Google account.</p>
+</section>
+<section>
 <h2>Changes to this policy</h2>
 <p>We will update this page and the effective date when this policy changes.</p>
 </section>
 <section>
 <h2>Contact</h2>
-<p>Operator: The First Titan (service name: AICA SOFT)</p>
+<p>Operator: The First Titan (더퍼스트타이탄) (service name: AICA SOFT)</p>
 <p>The operator is a business located in the Republic of Korea.</p>
-<p>Privacy contact: KIM KWANGOK</p>
+<p>Privacy contact: KIM KWANGOK (김광옥)</p>
 <p><a href="mailto:hsindevelop@gmail.com">hsindevelop@gmail.com</a></p>
 <p>Public URL: https://smartcall1.github.io/aicasoft-policy/tipsplit/</p>
 </section>
