@@ -119,14 +119,9 @@ const block = (id, lang, t) =>
     sec(t.adsHead, p(t.ads)),
     sec(t.transferHead, [p(t.transferIntro), `<h3>${esc(t.transferName)}</h3>\n${dl(t.transferItems)}`].join('\n')),
     sec(t.localHead, p(t.local)),
-    sec(t.permsHead, [p(t.permsIntro), `<ul>
-${t.perms.map((x) => `<li>${esc(x)}</li>`).join('
-')}
-</ul>`].join('
-')),
+    sec(t.permsHead, [p(t.permsIntro), `<ul>\n${t.perms.map((x) => `<li>${esc(x)}</li>`).join('\n')}\n</ul>`].join('\n')),
     sec(t.retentionHead, p(t.retention)),
-    sec(t.rightsHead, t.rights(EMAIL).map(p).join('
-')),
+    sec(t.rightsHead, t.rights(EMAIL).map(p).join('\n')),
     sec(t.ageHead, p(t.age)),
     sec(t.iapHead, p(t.iap)),
     sec(t.thirdHead, p(t.third)),
