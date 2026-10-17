@@ -42,8 +42,8 @@ function permissionItems(slug) {
     '절전 방지와 백그라운드 작업(WAKE_LOCK, FOREGROUND_SERVICE): 광고 SDK가 작업을 마칠 때까지 기기가 잠들지 않게 하는 SDK용 권한입니다.',
     '앱 내부 보호용 권한(DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION): 앱 안의 신호를 다른 앱이 엿보지 못하게 하는 권한입니다.',
   ];
-  // bow108 도 병합 매니페스트에 없다(10-17 대조). bokbulbok 은 병합 매니페스트에 BIND_GET_INSTALL_REFERRER_SERVICE 가 없다(POLICY_SITE_PROPOSAL 3절). 나머지 광고 앱은 그대로.
-  if (slug !== 'bokbulbok' && slug !== 'bow108') p.splice(4, 0, '설치 경로 확인(BIND_GET_INSTALL_REFERRER_SERVICE): Google Play가 알려 주는 앱 설치 경로를 광고 측정에 씁니다.');
+  // bow108·lifecalc 도 병합 매니페스트에 없다(10-17 대조, lifecalc 은 10-13 병합본). bokbulbok 은 병합 매니페스트에 BIND_GET_INSTALL_REFERRER_SERVICE 가 없다(POLICY_SITE_PROPOSAL 3절). 나머지 광고 앱은 그대로.
+  if (slug !== 'bokbulbok' && slug !== 'bow108' && slug !== 'lifecalc') p.splice(4, 0, '설치 경로 확인(BIND_GET_INSTALL_REFERRER_SERVICE): Google Play가 알려 주는 앱 설치 경로를 광고 측정에 씁니다.');
   if (slug === 'bow108') p.push('진동(VIBRATE): 횟수를 셀 때 진동으로 알려 줍니다.');
   return p;
 }
