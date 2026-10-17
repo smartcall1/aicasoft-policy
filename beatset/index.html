@@ -10,7 +10,7 @@
 <body>
 <header>
 <h1>Beatset Privacy Policy</h1>
-<p class="sub">Effective date 2026-10-12</p>
+<p class="sub">Effective date 2026-10-17</p>
 </header>
 <main>
 <p>Beatset (&quot;the app&quot;) has no server. The developer does not collect or store personal information such as your name or contact details; what you enter in the app is processed only on your device. Google processes the advertising ID, approximate location, and other data described below to serve ads.</p>
@@ -32,6 +32,25 @@
 </dl>
 </section>
 <section>
+<h2>Permissions the app uses</h2>
+<p>These are the Android permissions merged into the app (checked in the merged manifest of the build). All are granted at install time, so no prompt appears, except that Android 13 and later may let you control notifications. The app does not use location, contacts, photos, microphone, camera, or storage permissions.</p>
+<ul>
+<li>Internet (INTERNET): needed to load ads.</li>
+<li>View network state (ACCESS_NETWORK_STATE): checks whether you are online to decide whether to load ads.</li>
+<li>Vibration (VIBRATE): a short vibration at cues during a workout. You can turn it off in the app settings.</li>
+<li>Keep counting in the background (FOREGROUND_SERVICE, FOREGROUND_SERVICE_MEDIA_PLAYBACK): runs the timer as a foreground service of the media playback type, with a notification, so the count continues when the screen is off or the app is in the background.</li>
+<li>Show notifications (POST_NOTIFICATIONS): shows the running timer notification. On Android 13 and later you can turn notifications off in your device settings.</li>
+<li>Keep awake (WAKE_LOCK): keeps the device awake while the timer runs and until the ads SDK finishes its work.</li>
+<li>Advertising ID (AD_ID, ACCESS_ADSERVICES_AD_ID): reads your device advertising ID to serve and measure ads. You can delete or reset it in your device settings.</li>
+<li>Android ad services (ACCESS_ADSERVICES_ATTRIBUTION, ACCESS_ADSERVICES_TOPICS): lets the ads SDK use ad measurement and interest topics.</li>
+<li>App-internal protection (DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION): stops other apps from listening to signals inside the app. This is declared by the app itself.</li>
+</ul>
+</section>
+<section>
+<h2>Backup</h2>
+<p>The app turns off Android backup (allowBackup is false in the merged manifest). Settings stored on your device are not copied to Google cloud backup or to a new phone through device transfer, and you start fresh after reinstalling or moving to a new phone.</p>
+</section>
+<section>
 <h2>Retention and deletion</h2>
 <p>Settings the app stores on your device are deleted when you uninstall the app. Advertising data sent to Google is kept under Google's retention policies. Once the app is uninstalled, nothing more is sent (you can also cut the link for ads by resetting or deleting your advertising ID in device settings). To request deletion of data already sent, contact us using the details below.</p>
 </section>
@@ -45,7 +64,8 @@
 </section>
 <section>
 <h2>Your rights</h2>
-<p>You can ask to view or delete your data by emailing the contact address below. You can withdraw ad consent under &quot;Ad privacy options&quot; in Settings, or by resetting or deleting your advertising ID in your device settings.</p>
+<p>You can view and delete the settings stored on your device in the app, and uninstalling the app removes them all. You can withdraw ad consent under &quot;Ad privacy options&quot; in Settings, or by resetting or deleting your advertising ID in your device settings. Information held by Google can be viewed and deleted in your Google account.</p>
+<p>To request access to, correction of, deletion of, or a halt to processing of your personal information, email hsindevelop@gmail.com. We act without delay after confirming it is you, and tell you the result, or the reason we cannot act, within 10 days at the latest. We hold none of your records, so there is very little we can view or delete for you.</p>
 </section>
 <section>
 <h2>Changes to this policy</h2>
