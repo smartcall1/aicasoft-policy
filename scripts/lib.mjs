@@ -17,7 +17,7 @@ export const SITE_BASE = '/aicasoft-policy/';
 export const APPS = [
   { slug: 'danamtok', name: '다남겨톡', desc: '지워진 메신저 알림을 이 기기에 남겨 두는 앱' },
   { slug: 'bow108', name: '108배·염주', desc: '108배와 염주 횟수를 세는 앱' },
-  { slug: 'bokbulbok', name: '복불복 모음', desc: '이름 뽑기·사다리 같은 복불복 게임 모음' },
+  { slug: 'bokbulbok', name: '복불복 모음 (Quick Picks)', desc: 'English / 日本語 / Español / Português / 한국어 privacy policy', en: true },
   { slug: 'scoreboard', name: '스포츠 점수판 (Sports Scoreboard)', desc: 'English / 한국어 privacy policy', en: true },
   { slug: 'lifecalc', name: '사회생활 계산기', desc: '월급 실수령·퇴직금·연차·대출 상환 등 직장인 생활 계산기 8종' },
   { slug: 'blastline', name: '폭파 한 줄', desc: '한 줄을 폭파시키는 퍼즐 게임' },
