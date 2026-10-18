@@ -35,6 +35,8 @@ export const APPS = [
   { slug: 'bingo-caller', name: 'Bingo Caller Voice', desc: 'English privacy policy', en: true },
   // 앱 config 의 privacyPolicyUrl 이 .../lastdays/ (앱 이름 Lastmark). 영어·한국어를 한 페이지에 함께 둔다.
   { slug: 'lastdays', name: 'Lastmark', desc: 'English / 한국어 privacy policy', en: true },
+  // 앱 config 의 privacyPolicyUrl 이 .../charcount/ (앱 이름 글자수 세기 / Char Count). 영어·한국어를 한 페이지에 함께 둔다.
+  { slug: 'charcount', name: 'Char Count (글자수 세기)', desc: 'English / 한국어 privacy policy', en: true },
 ];
 
 // 출시 전에 lifecalc 로 통합돼 앱이 나오지 않은 옛 폴더. 이미 공개된 주소가 404가 되지 않도록 안내 페이지만 둔다.
