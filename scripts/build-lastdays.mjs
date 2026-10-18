@@ -31,6 +31,8 @@ const en = {
   ],
   retentionHead: 'Retention and deletion',
   retention: 'Data the app stores on your device is deleted when you uninstall the app. On devices with Android auto backup turned on, your items and settings may be included in your Google account backup, and a backup file you create is saved to the location you choose. Ad data sent to Google follows Google’s retention policy. Once the app is uninstalled, nothing more is sent (you can also cut the link for ads by resetting or deleting your advertising ID in your device settings). To ask for deletion of data already sent, contact us below.',
+  backupHead: 'Backup files',
+  backup: 'A backup file is saved only where you choose (for example, your phone or Google Drive). The app never sends it to a server.',
   permHead: 'App permissions',
   permIntro: 'The app uses the permissions below. It asks for no permission that needs your approval (no location, camera, microphone, contacts, storage or other dangerous permissions).',
   permItems: [
@@ -67,6 +69,8 @@ const ko = {
   ],
   retentionHead: '보관 기간과 삭제',
   retention: '앱이 기기에 저장하는 설정값은 앱을 삭제하면 함께 지워져요. Android 자동 백업이 켜진 기기에서는 앱의 항목·설정이 사용자의 Google 계정 백업에 포함될 수 있고, 사용자가 만든 백업 파일은 사용자가 고른 위치에 저장돼요. Google로 전송된 광고 데이터는 Google의 보관 정책을 따라요. 앱을 삭제하면 더 이상 보내지 않아요(광고는 기기 설정의 광고 ID 재설정·삭제로도 연결을 끊을 수 있어요). 이미 보낸 데이터의 삭제 요청은 아래 문의처로 보내 주세요.',
+  backupHead: '백업 파일',
+  backup: '백업 파일은 사용자가 고른 위치(예: 휴대폰 저장공간, Google 드라이브)에만 저장되며, 앱은 이 파일을 서버로 보내지 않아요.',
   permHead: '앱 권한',
   permIntro: '앱은 아래 권한을 사용해요. 사용자에게 허락을 따로 묻는 권한(위치·카메라·마이크·연락처·저장소 등 위험 권한)은 없어요.',
   permItems: [
@@ -93,6 +97,7 @@ const block = (id, lang, t) =>
     sec(t.adsHead, p(t.ads)),
     sec(t.transferHead, [p(t.transferIntro), `<h3>${esc(t.transferName)}</h3>\n${dl(t.transferItems)}`].join('\n')),
     sec(t.retentionHead, p(t.retention)),
+    sec(t.backupHead, p(t.backup)),
     sec(t.permHead, [p(t.permIntro), dl(t.permItems)].join('\n')),
     sec(t.ageHead, p(t.age)),
     sec(t.thirdPartyHead, p(t.thirdParty)),
