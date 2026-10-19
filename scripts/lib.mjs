@@ -29,6 +29,7 @@ export const APPS = [
   { slug: 'olhaejeom', name: 'YearDOT(1년세기)', desc: '올해가 얼마나 지났는지 점으로 그려 잠금화면을 매일 바꿔 주는 앱' },
   { slug: 'subway-escape', name: '지하철 탈출', desc: '열차를 탭해 탈출시키는 퍼즐 게임' },
   { slug: 'numbaseball', name: '스리볼 (Bulls & Cows)', desc: 'English / 日本語 / 한국어 privacy policy', en: true },
+  { slug: 'dotsboxes', name: '점잇기 박스 (Dots & Boxes)', desc: 'English / 한국어 privacy policy', en: true },
   // 영어 방침 페이지(앱 config 의 privacyPolicyUrl 이 .../tipsplit/). 앱 이름은 app.config.ts 의 name.
   { slug: 'tipsplit', name: 'FairTip', desc: 'English privacy policy', en: true },
   { slug: 'beatset', name: 'Beatset', desc: 'English privacy policy', en: true },

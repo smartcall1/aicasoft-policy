@@ -1,3 +1,4 @@
+// [수동 관리 - 이 생성기를 쓰지 말 것] 2026-10-19 은퇴. danamtok/index.html 이 정본이고, 이 생성기는 외부 앱 privacy.ts 에 의존해 어느 앱 버전으로 돌려도 게시본과 달라진다(최신 앱 main 은 intro 형식도 달라 오류). 방침 수정은 danamtok/index.html 을 직접 고친다.
 // 다남겨톡 방침 페이지 생성. 앱의 privacy.ts 를 직접 import 한다(별도 파싱 없음).
 // 필요: Node 22.18+ (TypeScript 타입 제거 기본 지원; 그 아래면 `node --experimental-strip-types` 로 실행).
 // 사용: node scripts/build-danamtok.mjs <privacy.ts 경로>   (또는 환경변수 DANAMTOK_PRIVACY_TS)

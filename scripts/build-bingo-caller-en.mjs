@@ -37,7 +37,7 @@ const en = {
     ['How to opt out, and what happens', "You can reset or delete your advertising ID or turn off personalized ads in your device settings, and uninstalling the app stops all transfers. Users in the European Economic Area (EEA) and the UK are asked for ad consent on first launch and can change it under 'Ad privacy options' in Settings. If you opt out, the app still works the same; you may see no ads or non-personalized ads."],
   ],
   localHead: 'Information stored on your device',
-  local: 'The app stores your bingo settings, the numbers called in the current game, the call history, and your language, voice, and screen settings only on your device. Nothing is sent to a server. This data is removed when you start a new game or reset the settings in the app, or when you uninstall the app.',
+  local: 'The app stores your bingo settings, the numbers called in the current game, the call history, and your language, voice, and screen settings only on your device. Nothing is sent to a server. This data is removed when you start a new game or reset the settings in the app, or when you uninstall the app. If a saved record is damaged and cannot be read, the original is kept separately on this phone; it never leaves the device and is removed when you uninstall the app.',
   permsHead: 'Permissions the app uses',
   permsIntro: 'These are the Android permissions merged into the app. All are granted at install time, so no prompt appears. The app does not use location, contacts, photos, microphone or camera permissions.',
   perms: [
@@ -90,7 +90,7 @@ const ko = {
     ['거부 방법과 효과', "기기 설정에서 광고 ID를 재설정·삭제하거나 맞춤 광고를 끌 수 있고, 앱을 삭제하면 더 이상 보내지 않아요. 유럽경제지역(EEA)·영국 사용자는 처음 실행할 때 광고 동의를 묻고 설정의 '광고 개인정보 옵션'에서 바꿀 수 있어요. 거부해도 앱 기능은 그대로 쓸 수 있고, 광고가 뜨지 않거나 맞춤이 아닌 일반 광고가 뜰 수 있어요."],
   ],
   localHead: '기기 안에 저장되는 정보',
-  local: '빙고 설정, 현재 게임에서 호출한 번호, 호출 기록, 언어·음성·화면 설정을 기기 안에만 저장해요. 서버 전송은 없어요. 이 데이터는 앱에서 새 게임을 시작하거나 설정을 초기화하거나 앱을 삭제하면 지워져요.',
+  local: '빙고 설정, 현재 게임에서 호출한 번호, 호출 기록, 언어·음성·화면 설정을 기기 안에만 저장해요. 서버 전송은 없어요. 이 데이터는 앱에서 새 게임을 시작하거나 설정을 초기화하거나 앱을 삭제하면 지워져요. 저장 기록이 깨져 읽지 못하면 원문을 같은 기기 안에 따로 보관하며, 기기 밖으로 나가지 않고 앱을 삭제할 때 함께 지워집니다.',
   permsHead: '앱이 쓰는 권한',
   permsIntro: '아래는 앱에 합쳐지는 안드로이드 권한이에요. 모두 설치할 때 한꺼번에 허용돼서 따로 묻는 창은 뜨지 않아요. 위치·연락처·사진·마이크·카메라 권한은 쓰지 않아요.',
   perms: [
@@ -143,7 +143,7 @@ const ja = {
     ['拒否の方法と影響', '端末の設定で広告IDのリセット・削除やパーソナライズ広告の停止ができ、アプリを削除するとそれ以上送信されません。EEAと英国のユーザーには初回起動時に広告の同意を求め、設定の「広告のプライバシーオプション」で変更できます。拒否してもアプリの機能は変わらず使え、広告が表示されないか、パーソナライズされない広告が表示されることがあります。'],
   ],
   localHead: '端末内に保存される情報',
-  local: 'ビンゴの設定、現在のゲームで呼び出した番号、呼び出し履歴、言語・音声・画面の設定は端末内にのみ保存されます。サーバーへの送信はありません。このデータは、アプリで新しいゲームを始めるか設定をリセットしたとき、またはアプリを削除したときに消去されます。',
+  local: 'ビンゴの設定、現在のゲームで呼び出した番号、呼び出し履歴、言語・音声・画面の設定は端末内にのみ保存されます。サーバーへの送信はありません。このデータは、アプリで新しいゲームを始めるか設定をリセットしたとき、またはアプリを削除したときに消去されます。 保存記録が壊れて読み込めない場合は、元のデータを同じ端末内に別途保管します。端末の外には出ず、アプリをアンインストールすると一緒に削除されます。',
   permsHead: 'アプリが使用する権限',
   permsIntro: '以下は本アプリに統合されているAndroidの権限です。すべてインストール時にまとめて許可されるため、確認画面は表示されません。位置情報・連絡先・写真・マイク・カメラの権限は使用しません。',
   perms: [
@@ -196,7 +196,7 @@ const es = {
     ['Cómo rechazar y qué ocurre', 'Puedes restablecer o eliminar tu identificador de publicidad o desactivar los anuncios personalizados en los ajustes del dispositivo, y al desinstalar la app dejan de enviarse datos. A los usuarios del EEE y del Reino Unido se les pide consentimiento publicitario en el primer inicio y pueden cambiarlo en «Opciones de privacidad de anuncios» en Ajustes. Si lo rechazas, la app funciona igual; puede que no veas anuncios o que veas anuncios no personalizados.'],
   ],
   localHead: 'Información guardada en tu dispositivo',
-  local: 'La app guarda tus ajustes de bingo, los números cantados en la partida actual, el historial de cantos y tus ajustes de idioma, voz y pantalla solo en tu dispositivo. No se envía nada a ningún servidor. Estos datos se eliminan cuando empiezas una partida nueva o restableces los ajustes en la app, o cuando desinstalas la app.',
+  local: 'La app guarda tus ajustes de bingo, los números cantados en la partida actual, el historial de cantos y tus ajustes de idioma, voz y pantalla solo en tu dispositivo. No se envía nada a ningún servidor. Estos datos se eliminan cuando empiezas una partida nueva o restableces los ajustes en la app, o cuando desinstalas la app. Si un registro guardado se daña y no se puede leer, el original se conserva aparte en este dispositivo; nunca sale del dispositivo y se elimina al desinstalar la app.',
   permsHead: 'Permisos que usa la app',
   permsIntro: 'Estos son los permisos de Android incluidos en la app. Todos se conceden en la instalación, por lo que no aparece ningún aviso. La app no usa permisos de ubicación, contactos, fotos, micrófono ni cámara.',
   perms: [
@@ -249,7 +249,7 @@ const ptBR = {
     ['Como recusar e o que acontece', 'Você pode redefinir ou excluir seu ID de publicidade ou desativar anúncios personalizados nas configurações do dispositivo, e ao desinstalar o app nada mais é enviado. Usuários do EEE e do Reino Unido são consultados sobre anúncios no primeiro uso e podem mudar a escolha em «Opções de privacidade de anúncios» nas Configurações. Se você recusar, o app continua funcionando igual; você pode ver nenhum anúncio ou anúncios não personalizados.'],
   ],
   localHead: 'Informações guardadas no seu dispositivo',
-  local: 'O app guarda suas configurações de bingo, os números sorteados no jogo atual, o histórico de sorteios e suas configurações de idioma, voz e tela somente no seu dispositivo. Nada é enviado a um servidor. Esses dados são apagados quando você inicia um novo jogo ou redefine as configurações no app, ou quando desinstala o app.',
+  local: 'O app guarda suas configurações de bingo, os números sorteados no jogo atual, o histórico de sorteios e suas configurações de idioma, voz e tela somente no seu dispositivo. Nada é enviado a um servidor. Esses dados são apagados quando você inicia um novo jogo ou redefine as configurações no app, ou quando desinstala o app. Se um registro salvo estiver danificado e não puder ser lido, o original é mantido separadamente neste dispositivo; ele nunca sai do dispositivo e é excluído ao desinstalar o app.',
   permsHead: 'Permissões usadas pelo app',
   permsIntro: 'Estas são as permissões do Android incluídas no app. Todas são concedidas na instalação, então nenhum aviso aparece. O app não usa permissões de localização, contatos, fotos, microfone ou câmera.',
   perms: [
