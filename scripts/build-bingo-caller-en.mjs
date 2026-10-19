@@ -67,7 +67,7 @@ const en = {
   contactHead: 'Contact',
   operator: `Operator: The First Titan (service name: ${SERVICE})`,
   location: 'The operator is a business located in the Republic of Korea.',
-  officer: 'Privacy officer and contact: KIM KWANGOK',
+  officer: 'Privacy officer and contact: The First Titan',
   publicUrl: `Public URL: ${PUBLIC_URL}`,
 };
 
@@ -120,7 +120,7 @@ const ko = {
   contactHead: '문의',
   operator: `개인정보처리자: 더퍼스트타이탄 (서비스명 ${SERVICE})`,
   location: '운영자는 대한민국에 있는 사업자예요.',
-  officer: '개인정보 보호책임자·문의 담당: 김광옥',
+  officer: '개인정보 보호 담당: 더퍼스트타이탄',
   publicUrl: `공개 주소: ${PUBLIC_URL}`,
 };
 
@@ -173,7 +173,7 @@ const ja = {
   contactHead: 'お問い合わせ',
   operator: `運営者:The First Titan(더퍼스트타이탄)(サービス名 ${SERVICE})`,
   location: '運営者は大韓民国にある事業者です。',
-  officer: '個人情報保護責任者・連絡担当:KIM KWANGOK(김광옥)',
+  officer: '個人情報保護責任者・連絡担当:The First Titan',
   publicUrl: `公開URL: ${PUBLIC_URL}`,
 };
 
@@ -226,7 +226,7 @@ const es = {
   contactHead: 'Contacto',
   operator: `Operador: The First Titan (더퍼스트타이탄) (nombre del servicio: ${SERVICE})`,
   location: 'El operador es una empresa ubicada en la República de Corea.',
-  officer: 'Responsable de privacidad y contacto: KIM KWANGOK (김광옥)',
+  officer: 'Responsable de privacidad y contacto: The First Titan',
   publicUrl: `URL pública: ${PUBLIC_URL}`,
 };
 
@@ -279,7 +279,7 @@ const ptBR = {
   contactHead: 'Contato',
   operator: `Operador: The First Titan (더퍼스트타이탄) (nome do serviço: ${SERVICE})`,
   location: 'O operador é uma empresa localizada na República da Coreia.',
-  officer: 'Responsável pela privacidade e contato: KIM KWANGOK (김광옥)',
+  officer: 'Responsável pela privacidade e contato: The First Titan',
   publicUrl: `URL pública: ${PUBLIC_URL}`,
 };
 

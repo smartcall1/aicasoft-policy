@@ -30,7 +30,7 @@ const en = {
   thirdParty: `Google Privacy Policy: ${GOOGLE}`,
   contactHead: 'Contact',
   operator: `Data controller: The First Titan (service name: ${SERVICE})`,
-  officer: 'Privacy officer and contact: KIM KWANGOK',
+  officer: 'Privacy officer and contact: The First Titan',
   publicUrl: `Public page: ${PUBLIC_URL}`,
 };
 
@@ -59,7 +59,7 @@ const ko = {
   thirdParty: `Google 개인정보처리방침: ${GOOGLE}`,
   contactHead: '문의',
   operator: `개인정보처리자: 더퍼스트타이탄 (서비스명 ${SERVICE})`,
-  officer: '개인정보 보호책임자·문의 담당: 김광옥',
+  officer: '개인정보 보호 담당: 더퍼스트타이탄',
   publicUrl: `공개 주소: ${PUBLIC_URL}`,
 };
 

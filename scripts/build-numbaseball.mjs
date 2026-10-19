@@ -172,7 +172,7 @@ const en = {
   third: `Google Privacy Policy: ${GOOGLE}`,
   contactHead: 'Contact',
   operator: `Data controller: The First Titan (service name: ${CONTACT.service})`,
-  officer: 'Privacy officer and contact: KIM KWANGOK',
+  officer: 'Privacy officer and contact: The First Titan',
   publicUrl: `Public URL: ${PUBLIC_URL}`,
 };
 
@@ -220,7 +220,7 @@ const ja = {
   third: `Google プライバシーポリシー：${GOOGLE}`,
   contactHead: 'お問い合わせ',
   operator: `個人情報取扱事業者：The First Titan（サービス名：${CONTACT.service}）`,
-  officer: '個人情報保護責任者・お問い合わせ担当：KIM KWANGOK',
+  officer: '個人情報保護責任者・お問い合わせ担当：The First Titan',
   publicUrl: `公開URL：${PUBLIC_URL}`,
 };
 

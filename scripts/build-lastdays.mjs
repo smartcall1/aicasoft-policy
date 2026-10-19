@@ -48,7 +48,7 @@ const en = {
   contactHead: 'Contact',
   rightsRequest: 'To request access to, correction of, or deletion of your personal information, use the contact details below. We handle requests without delay, within 10 days.',
   operator: `Data controller: The First Titan (service name: ${SERVICE})`,
-  officer: 'Privacy officer and contact: KIM KWANGOK',
+  officer: 'Privacy officer and contact: The First Titan',
   publicUrl: `Web version: ${PUBLIC_URL}`,
 };
 
@@ -86,7 +86,7 @@ const ko = {
   contactHead: '문의',
   rightsRequest: '개인정보 열람·정정·삭제 요청은 아래 연락처로 보내 주세요. 요청은 지체 없이(10일 이내) 처리해요.',
   operator: `개인정보처리자: 더퍼스트타이탄 (서비스명 ${SERVICE})`,
-  officer: '개인정보 보호책임자·문의 담당: 김광옥',
+  officer: '개인정보 보호 담당: 더퍼스트타이탄',
   publicUrl: `공개 주소: ${PUBLIC_URL}`,
 };
 

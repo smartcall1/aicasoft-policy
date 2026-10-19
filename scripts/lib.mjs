@@ -7,7 +7,7 @@ export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
 export const SERVICE_NAME = 'AICA SOFT';
 // 개인정보처리자는 사업자 상호, AICA SOFT 는 서비스명(2026-10-10 결정)
-export const CONTACT = { company: '더퍼스트타이탄', service: SERVICE_NAME, officer: '김광옥', email: 'hsindevelop@gmail.com' };
+export const CONTACT = { company: '더퍼스트타이탄', service: SERVICE_NAME, officer: '더퍼스트타이탄 개인정보 보호 담당', email: 'hsindevelop@gmail.com' };
 export const EFFECTIVE_DATE = '2026-10-09';
 
 // GitHub Pages 프로젝트 사이트 주소의 경로(저장소 이름). 404.html 의 홈 링크에만 쓴다.
