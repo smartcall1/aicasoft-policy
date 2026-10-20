@@ -13,6 +13,9 @@ node scripts/build-apps4.mjs                       # 월급마중(alba-pay)·AER
 node scripts/build-olhaejeom.mjs                    # 올해점(olhaejeom). 기준 코드 yeardots-probe main 1dc5a65
 node scripts/build-subway-escape.mjs               # 지하철 탈출(subway-escape). 기준 코드 subway-escape main 7a83c7f
 node scripts/build-blastline.mjs                    # 폭파 한 줄(blastline) ko·en 한 URL. 앱 blastline 의 scripts/export-legal.ts 로 내보낸 scripts/data/blastline-legal.json 을 읽음
+node scripts/build-percentcalc.mjs                  # 퍼센토(percentcalc) ko·en 한 URL
+node scripts/build-noisemeter.mjs                   # dB 줄자(noisemeter) ko·en 한 URL
+node scripts/build-classicboard.mjs                 # 클래식 보드게임(classicboard) ko·en 한 URL
 node scripts/build-index.mjs                        # index.html, 404.html
 node scripts/check.mjs                              # lang/charset/viewport/링크 점검
 ```

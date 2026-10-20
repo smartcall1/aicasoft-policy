@@ -38,6 +38,9 @@ export const APPS = [
   { slug: 'lastdays', name: 'Lastmark', desc: 'English / 한국어 privacy policy', en: true },
   // 앱 config 의 privacyPolicyUrl 이 .../charcount/ (앱 이름 글자수 세기 / Char Count). 영어·한국어를 한 페이지에 함께 둔다.
   { slug: 'charcount', name: 'Char Count (글자수 세기)', desc: 'English / 한국어 privacy policy', en: true },
+  { slug: 'percentcalc', name: '퍼센토', desc: 'English / 한국어 privacy policy', en: true },
+  { slug: 'noisemeter', name: 'dB 줄자', desc: 'English / 한국어 privacy policy', en: true },
+  { slug: 'classicboard', name: '클래식 보드게임', desc: 'English / 한국어 privacy policy', en: true },
 ];
 
 // 출시 전에 lifecalc 로 통합돼 앱이 나오지 않은 옛 폴더. 이미 공개된 주소가 404가 되지 않도록 안내 페이지만 둔다.
