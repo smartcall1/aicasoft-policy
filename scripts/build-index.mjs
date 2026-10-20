@@ -12,7 +12,13 @@ write(
     title: 'AICA SOFT 개인정보처리방침',
     heading: 'AICA SOFT 개인정보처리방침',
     sub: effectiveSub(EFFECTIVE_DATE),
-    body: `<p>AICA SOFT 앱의 개인정보처리방침을 앱별로 모아 두었습니다. 보고 싶은 앱을 골라 주십시오.</p>\n<ul class="apps">\n${list}\n</ul>`,
+    // Search Console 소유권 확인(Play 조직 웹사이트 인증, 10-20) — 지우면 인증이 풀린다
+    headExtra: '<meta name="google-site-verification" content="3RZf5WDPSfhaTnvxHpZYqitwda8e6wwiwWSabBIN5VM" />\n',
+    body: `<section class="about">
+<p>AICA SOFT는 더퍼스트타이탄(The First Titan)이 운영하는 모바일 앱 서비스입니다. 생활 계산기·측정 도구·보드게임 같은 작은 Android 앱을 만듭니다.</p>
+<p>문의: <a href="mailto:hsindevelop@gmail.com">hsindevelop@gmail.com</a></p>
+</section>
+<p>AICA SOFT 앱의 개인정보처리방침을 앱별로 모아 두었습니다. 보고 싶은 앱을 골라 주십시오.</p>\n<ul class="apps">\n${list}\n</ul>`,
     cssPath: 'style.css',
   }),
 );

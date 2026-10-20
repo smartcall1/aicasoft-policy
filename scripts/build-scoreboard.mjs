@@ -49,7 +49,7 @@ const en = {
   retention: "The match in progress, history, counters and settings that the app stores on your device are removed when you delete them yourself or uninstall the app. Advertising data sent to Google follows Google's retention policy. Nothing is sent once you uninstall the app (you can also cut the link for ads by resetting or deleting your advertising ID in your device settings). To request deletion of data already sent, contact us using the details below.",
   rightsHead: 'Requests to view, correct or delete',
   rights: (email) => [
-    'You can view and delete the records stored on your device in the app, and uninstalling the app removes them all. Ad settings can be changed in your device settings > Google > Ads or under "Ad privacy options" in the app Settings. Information held by Google can be viewed and deleted in your Google account.',
+    'You can view and delete the records stored on your device in the app, and uninstalling the app removes them all. Ad settings can be changed in your device settings > Google > Ads or under "Ad privacy options" in the app Settings (shown only in regions where consent is required). Information held by Google can be viewed and deleted in your Google account.',
     `To request access to, correction of, deletion of, or a halt to processing of your personal information, contact ${email}. We act without delay after confirming it is you, and tell you the result or the reason we cannot act within 10 days at the latest. We hold none of your records, so there is very little we can view or delete for you.`,
   ],
   ageHead: 'Age',
@@ -97,7 +97,7 @@ const ko = {
   retention: '앱이 기기에 저장하는 진행 중 경기·전적·카운터·설정값은 직접 지우거나 앱을 삭제하면 함께 지워져요. Google로 전송된 광고 데이터는 Google의 보관 정책을 따라요. 앱을 삭제하면 더 이상 보내지 않아요(광고는 기기 설정의 광고 ID 재설정·삭제로도 연결을 끊을 수 있어요). 이미 보낸 데이터의 삭제 요청은 아래 문의처로 보내 주세요.',
   rightsHead: '열람·정정·삭제 요청',
   rights: (email) => [
-    '기기에 저장된 기록은 앱에서 직접 보고 지울 수 있고, 앱을 삭제해도 모두 지워져요. 광고 설정은 기기 설정 > Google > 광고나 앱 설정의 "광고 개인정보 옵션"에서 바꿀 수 있어요. Google이 가진 정보는 Google 계정에서 확인하고 지울 수 있어요.',
+    '기기에 저장된 기록은 앱에서 직접 보고 지울 수 있고, 앱을 삭제해도 모두 지워져요. 광고 설정은 기기 설정 > Google > 광고나 앱 설정의 "광고 개인정보 옵션"(동의가 필요한 지역에서만 보여요)에서 바꿀 수 있어요. Google이 가진 정보는 Google 계정에서 확인하고 지울 수 있어요.',
     `개인정보 열람·정정·삭제·처리 정지 요청은 ${email}로 보내 주세요. 본인 확인 뒤 지체 없이 처리하고, 늦어도 10일 안에 처리 결과나 처리하지 못하는 사유를 알려 드려요. 회사는 사용자의 기록을 갖고 있지 않아서 회사가 열람·삭제해 드릴 정보는 거의 없어요.`,
   ],
   ageHead: '이용 연령',
