@@ -1,4 +1,4 @@
-// 올해점(YearDots) 방침 페이지 생성. 내용은 앱 코드에서 확인한 사실만 쓴다. 근거 파일:줄은 페이지에 넣지 않고 작업 보고서에 있다.
+// 이어닷(YearDot, 옛 이름 올해점) 방침 페이지 생성. 내용은 앱 코드에서 확인한 사실만 쓴다. 근거 파일:줄은 페이지에 넣지 않고 작업 보고서에 있다.
 // 기준 코드: yeardots-probe main 1dc5a65 (저장 항목은 Store.kt SharedPreferences 키 기준, 10-16 갱신; 결제는 아직 UnavailableBilling)
 // 인앱 결제(Pro)는 출시 전 계획이라 현재 앱 코드에는 결제 코드가 없다. 그래서 "예정"으로만 쓴다.
 import { CONTACT, esc, page, write, sectionsHtml, contactHtml, effectiveSub, APPS } from './lib.mjs';
@@ -48,7 +48,7 @@ const sections = number([
     title: '개인정보의 파기 절차 및 방법',
     items: [
       '앱을 삭제하면 설정값, 배경 사진, 원래 배경 백업, 동작 기록이 모두 지워집니다.',
-      '휴대폰 설정 > 앱 > YearDOT > 저장공간에서 데이터를 지워도 모두 사라집니다.',
+      '휴대폰 설정 > 앱 > 이어닷 > 저장공간에서 데이터를 지워도 모두 사라집니다.',
       '앱의 "원래 배경 복원"을 누르면 저장해 둔 원래 배경으로 잠금화면을 되돌리고 자동 교체를 끕니다. 백업이 없으면 잠금화면이 기본 상태(홈 배경 공유)로 돌아갑니다. 이 기능은 앱 안의 사진 파일을 지우지는 않으니, 파일까지 없애려면 위 두 방법을 쓰십시오.',
       '이 앱에는 배경 사진 파일만 따로 지우는 버튼이 없습니다.',
     ],
@@ -104,7 +104,7 @@ const sections = number([
 ]);
 
 const app = APPS.find((a) => a.slug === 'olhaejeom');
-const intro = `${CONTACT.company}(서비스명 ${CONTACT.service}, 이하 "회사")은 YearDOT 앱을 제공하면서 개인정보 보호법 제30조에 따라 아래와 같이 개인정보 처리방침을 정해 공개합니다.`;
+const intro = `${CONTACT.company}(서비스명 ${CONTACT.service}, 이하 "회사")은 이어닷(YearDot) 앱을 제공하면서 개인정보 보호법 제30조에 따라 아래와 같이 개인정보 처리방침을 정해 공개합니다.`;
 const body = `<p>${esc(intro)}</p>
 ${sectionsHtml(sections)}
 <p class="back"><a href="../">다른 앱 방침 보기</a></p>`;

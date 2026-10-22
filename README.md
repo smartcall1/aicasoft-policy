@@ -10,7 +10,7 @@ Node 22.18 이상 필요(개발은 24.11). 의존성 없음.
 # (은퇴) build-danamtok.mjs: 수동 관리 - 쓰지 말 것. danamtok/index.html 을 직접 고친다
 node scripts/build-adapps.mjs                       # 광고 앱 4개(108배·복불복·점수판·사회생활 계산기) + 쾅픽(서버·AI 앱이라 별도 문구) + 통합돼 안내 페이지만 둔 carloan·salarycalc
 node scripts/build-apps4.mjs                       # 월급마중(alba-pay)·AERO VOYAGE(aero)·꼬마체스(kids-chess)·이름마중(name-demo). 근거 기준 커밋은 스크립트 머리 주석
-node scripts/build-olhaejeom.mjs                    # 올해점(olhaejeom). 기준 코드 yeardots-probe main 1dc5a65
+node scripts/build-olhaejeom.mjs                    # 이어닷(olhaejeom). 기준 코드 yeardots-probe main 1dc5a65
 node scripts/build-subway-escape.mjs               # 지하철 탈출(subway-escape). 기준 코드 subway-escape main 7a83c7f
 node scripts/build-blastline.mjs                    # 폭파 한 줄(blastline) ko·en 한 URL. 앱 blastline 의 scripts/export-legal.ts 로 내보낸 scripts/data/blastline-legal.json 을 읽음
 node scripts/build-percentcalc.mjs                  # 퍼센토(percentcalc) ko·en 한 URL
