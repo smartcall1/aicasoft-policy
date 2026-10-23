@@ -19,7 +19,7 @@ const ko = [
   ])}`),
   section('보관 기간과 삭제', p('기기에 저장한 진행 중인 판·전적·설정은 앱을 삭제하면 함께 지워져요. 전적은 앱 설정에서 따로 지울 수 있어요. Google로 전송된 광고 데이터는 Google의 보관 정책을 따라요. 앱을 삭제하면 추가 전송은 멈춰요. 이미 보낸 데이터의 삭제는 아래 문의처로 요청해 주세요.')),
   section('이용 연령', p('앱은 만 14세 미만 어린이를 대상으로 하지 않으며, 어린이 정보를 의도적으로 수집하지 않아요.')),
-  section('인앱 결제', p('광고 제거는 1회 구매예요. 구매는 Google Play가 처리하고 구매 내역도 Google Play가 보관해요. 앱은 구매 여부만 Google Play에 확인하며 결제 수단 등 결제 정보를 수집·저장하지 않아요. 별도 서버가 없고, 소유 여부만 기기에 최대 7일 캐시로 저장해요.')),
+  section('인앱 결제', p('광고 제거는 1회 구매예요. 구매는 Google Play가 처리하고 구매 내역도 Google Play가 보관해요. 앱은 구매 여부만 Google Play에 확인하며 결제 수단 등 결제 정보를 수집·저장하지 않아요. 별도 서버가 없고, 구매 여부는 앱을 열 때마다 Google Play에 다시 확인해요.')),
   section('제3자 처리방침', p('Google 개인정보처리방침: https://policies.google.com/privacy')),
   contact('개인정보처리자: 더퍼스트타이탄 (서비스명 AICA SOFT)', '개인정보 보호책임자·문의 담당: 더퍼스트타이탄 개인정보 담당', '문의'),
 ].join('\n');
@@ -36,7 +36,7 @@ const en = [
   ])}`),
   section('Retention and deletion', p('Your game in progress, records, and settings are deleted when you uninstall the App; you can also clear records in Settings. Ad data sent to Google follows Google’s retention policy. Uninstalling the App stops further transfers. To request deletion of data already sent, contact us below.')),
   section('Age', p('The App is not directed to children under 14 and does not knowingly collect children’s information.')),
-  section('In-app purchase', p('Removing ads is a one-time purchase. Google Play processes the purchase and keeps the purchase history. The App only asks Google Play whether you own it, and does not collect or store payment information. There is no separate server, and only whether you own it is cached on your device for up to 7 days.')),
+  section('In-app purchase', p('Removing ads is a one-time purchase. Google Play processes the purchase and keeps the purchase history. The App only asks Google Play whether you own it, and does not collect or store payment information. There is no separate server, and the App checks with Google Play each time it opens.')),
   section('Third-party policy', p('Google Privacy Policy: https://policies.google.com/privacy')),
   contact('Operator: The First Titan (service: AICA SOFT)', 'Privacy Officer, The First Titan', 'Contact'),
 ].join('\n');
