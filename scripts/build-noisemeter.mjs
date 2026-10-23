@@ -1,6 +1,7 @@
 // dB 줄자(noisemeter) 방침. 앱 PrivacyScreen.tsx와 transferNotice.ts의 사실만 공개한다.
 import { CONTACT, EFFECTIVE_DATE, esc, page, write } from './lib.mjs';
 
+const EFFECTIVE = '2026-10-23'; // 광고 제거 인앱 결제 구역 추가
 const url = 'https://smartcall1.github.io/aicasoft-policy/noisemeter/';
 const p = (text) => `<p>${esc(text)}</p>`;
 const section = (title, content) => `<section><h2>${esc(title)}</h2>${content}</section>`;
@@ -20,6 +21,7 @@ const ko = [
   ])}`),
   section('보관 기간과 삭제', p('기기에 저장한 기록·설정은 앱 안에서 지우거나 앱을 삭제하면 지워져요. Google로 전송된 광고 데이터는 Google의 보관 정책을 따라요. 이미 보낸 데이터의 삭제는 아래 문의처로 요청해 주세요.')),
   section('이용 연령', p('앱은 만 14세 미만 어린이를 대상으로 하지 않으며, 어린이 정보를 의도적으로 수집하지 않아요.')),
+  section('광고 제거 구매', p('광고 제거는 1회 구매예요. 구매는 Google Play가 처리하고 구매 내역도 Google Play가 보관해요. 앱은 구매 여부만 Google Play에 확인하며 결제 수단 등 결제 정보를 수집·저장하지 않아요. 별도 서버가 없고, 소유 여부만 기기에 최대 7일 캐시로 저장해요.')),
   section('제3자 처리방침', p('Google 개인정보처리방침: https://policies.google.com/privacy')),
   contact('개인정보처리자: 더퍼스트타이탄 (서비스명 AICA SOFT)', '개인정보 보호책임자·문의 담당: 더퍼스트타이탄 개인정보 담당', '문의'),
 ].join('\n');
@@ -38,9 +40,10 @@ const en = [
   ])}`),
   section('Retention and deletion', p('Records and settings on your device are deleted when you clear them in the App or uninstall it. Ad data sent to Google follows Google’s retention policy. To request deletion of data already sent, contact us below.')),
   section('Age', p('The App is not directed to children under 14 and does not knowingly collect children’s information.')),
+  section('Remove-ads purchase', p('Removing ads is a one-time purchase. Google Play processes the purchase and keeps the purchase history. The App only asks Google Play whether you own it, and does not collect or store payment information. There is no separate server, and only whether you own it is cached on your device for up to 7 days.')),
   section('Third-party policy', p('Google Privacy Policy: https://policies.google.com/privacy')),
   contact('Data controller: The First Titan (service name AICA SOFT)', 'Privacy Officer, The First Titan', 'Contact'),
 ].join('\n');
 
 const body = `<p><a href="#en">English</a> | <a href="#ko">한국어</a></p><div id="en" lang="en"><h2 class="lang-title">Privacy policy</h2>${en}</div><hr><div id="ko" lang="ko"><h2 class="lang-title">개인정보처리방침</h2>${ko}</div><p class="back"><a href="../">목록으로</a></p>`;
-write('noisemeter/index.html', page({ title: 'dB Ruler Privacy Policy', heading: 'dB 줄자 / dB Ruler Privacy Policy', sub: `Effective date ${EFFECTIVE_DATE} / 시행일 ${EFFECTIVE_DATE}`, body, cssPath: '../style.css', lang: 'en', footer: 'The First Titan (AICA SOFT)' }));
+write('noisemeter/index.html', page({ title: 'dB Ruler Privacy Policy', heading: 'dB 줄자 / dB Ruler Privacy Policy', sub: `Effective date ${EFFECTIVE} / 시행일 ${EFFECTIVE}`, body, cssPath: '../style.css', lang: 'en', footer: 'The First Titan (AICA SOFT)' }));
