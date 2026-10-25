@@ -17,6 +17,7 @@ node scripts/build-percentcalc.mjs                  # 퍼센토(percentcalc) ko�
 node scripts/build-noisemeter.mjs                   # dB 줄자(noisemeter) ko·en 한 URL
 node scripts/build-classicboard.mjs                 # 클래식 보드게임(classicboard) ko·en 한 URL
 node scripts/build-manseryeok.mjs                  # 오프라인 만세력(manseryeok) ko·en 한 URL. 앱 PrivacyScreen.tsx와 문장 대조
+node scripts/build-dogwhistle.mjs               # 반려견 호각(dogwhistle) ko·en 한 URL. 앱 docs/DATA_SAFETY.md·병합 매니페스트와 대조
 node scripts/build-index.mjs                        # index.html, 404.html
 node scripts/check.mjs                              # lang/charset/viewport/링크 점검
 ```
