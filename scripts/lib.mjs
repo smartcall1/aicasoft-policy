@@ -41,6 +41,7 @@ export const APPS = [
   { slug: 'percentcalc', name: '퍼센토', desc: 'English / 한국어 privacy policy', en: true },
   { slug: 'noisemeter', name: 'dB 줄자', desc: 'English / 한국어 privacy policy', en: true },
   { slug: 'classicboard', name: '클래식 보드게임', desc: 'English / 한국어 privacy policy', en: true },
+  { slug: 'manseryeok', name: '오프라인 만세력', desc: 'English / 한국어 privacy policy', en: true },
   { slug: 'jesa-day', name: '제삿날 알리미', desc: '음력 제사 기일을 양력으로 바꿔 보여 주고 알려 주는 앱' },
 ];
 

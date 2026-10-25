@@ -16,6 +16,7 @@ node scripts/build-blastline.mjs                    # 폭파 한 줄(blastline) 
 node scripts/build-percentcalc.mjs                  # 퍼센토(percentcalc) ko·en 한 URL
 node scripts/build-noisemeter.mjs                   # dB 줄자(noisemeter) ko·en 한 URL
 node scripts/build-classicboard.mjs                 # 클래식 보드게임(classicboard) ko·en 한 URL
+node scripts/build-manseryeok.mjs                  # 오프라인 만세력(manseryeok) ko·en 한 URL. 앱 PrivacyScreen.tsx와 문장 대조
 node scripts/build-index.mjs                        # index.html, 404.html
 node scripts/check.mjs                              # lang/charset/viewport/링크 점검
 ```
