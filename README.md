@@ -20,6 +20,7 @@ node scripts/build-manseryeok.mjs                  # 오프라인 만세력(mans
 node scripts/build-dogwhistle.mjs               # 반려견 호각(dogwhistle) ko·en 한 URL. 앱 docs/DATA_SAFETY.md·병합 매니페스트와 대조
 node scripts/build-fakecall.mjs               # 가짜 수신 전화(fakecall) ko·en 한 URL. 앱 docs/DATA_SAFETY.md·병합 매니페스트와 대조
 node scripts/build-tapspeed.mjs               # 탭 속도 측정(tapspeed) ko·en 한 URL. 앱 docs/DATA_SAFETY.md·병합 매니페스트와 대조
+node scripts/build-timecalc.mjs               # 시간 계산기(timecalc) ko·en 한 URL. 앱 docs/DATA_SAFETY.md·병합 매니페스트와 대조
 node scripts/build-index.mjs                        # index.html, 404.html
 node scripts/check.mjs                              # lang/charset/viewport/링크 점검
 ```

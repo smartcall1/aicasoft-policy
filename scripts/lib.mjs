@@ -45,6 +45,7 @@ export const APPS = [
   { slug: 'dogwhistle', name: '반려견 호각', desc: 'English / 한국어 privacy policy', en: true },
   { slug: 'fakecall', name: '가짜 수신 전화', desc: 'English / 한국어 privacy policy', en: true },
   { slug: 'tapspeed', name: '탭 속도 측정', desc: 'English / 한국어 privacy policy', en: true },
+  { slug: 'timecalc', name: '시간 계산기', desc: 'English / 한국어 privacy policy', en: true },
   { slug: 'jesa-day', name: '제삿날 알리미', desc: '음력 제사 기일을 양력으로 바꿔 보여 주고 알려 주는 앱' },
 ];
 
