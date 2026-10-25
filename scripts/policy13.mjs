@@ -22,13 +22,15 @@ export function buildPolicy(c) {
   const { slug, nameKo, nameEn, titleEn, effective } = c;
   const url = `https://smartcall1.github.io/aicasoft-policy/${slug}/`;
   const entries = c.perms.map((x) => (typeof x === 'string' ? PERM[x] : x));
+  // 권한 개수는 항목 이름 괄호 안의 권한 이름을 센 값(한 항목에 2개씩 묶인 것 포함)
+  const permCount = entries.reduce((n, e) => n + (e[0].match(/\(([^)]*)\)\s*$/)?.[1].split(',').length ?? 1), 0);
   const iap = c.iap; // { ko, en } 또는 null(광고 제거 결제 꺼짐)
   const ko = [
     p(`${nameKo}(${nameEn}, 이하 "앱")은 이름이나 연락처 같은 개인정보를 직접 수집하거나 서버에 저장하지 않아요. 앱에서 입력한 값은 기기 안에서만 처리돼요.`),
     sec('1. 개인정보의 처리 목적', li([...c.purposeKo, '무료로 쓸 수 있도록 광고를 보여 줘요.', ...(iap ? ['광고 제거 1회 구매 여부를 확인해 광고를 끄는 데 써요.'] : []), '위 목적 밖으로는 쓰지 않아요.'])),
     sec('2. 저장하는 값', [p(c.storedKo), p(iap ? iap.ko : '로그인이나 회원 가입은 없고, 이 앱에는 결제 기능도 없어요(광고 제거 결제는 꺼져 있어요).')].join('\n')),
     sec('3. 광고(Google AdMob)', p(`앱은 무료 제공을 위해 Google AdMob 광고를 표시해요. 광고 제공 과정에서 Google이 광고 ID, 기기 정보, 대략적인 위치(IP 기반), 앱 상호작용, 진단 정보를 수집·이용할 수 있어요. 유럽경제지역(EEA)·영국 사용자에게는 처음 실행할 때 동의를 구하며, 설정의 "광고 개인정보 옵션"에서 언제든 바꿀 수 있어요. 기기 설정에서 광고 ID를 재설정하거나 맞춤 광고를 끌 수도 있어요. 동의를 거부하거나 확인에 실패하면 앱은 광고를 요청하지 않아요. ${c.adsKo}`)),
-    sec('4. 앱이 쓰는 권한', [p(`아래는 앱을 만들 때 합쳐지는 안드로이드 권한 목록(${entries.length}개)이에요. ${c.permIntroKo}`), li(entries.map((e) => `${e[0]}: ${e[2]}`))].join('\n')),
+    sec('4. 앱이 쓰는 권한', [p(`아래는 앱을 만들 때 합쳐지는 안드로이드 권한 목록(${permCount}개)이에요. ${c.permIntroKo}`), li(entries.map((e) => `${e[0]}: ${e[2]}`))].join('\n')),
     sec('5. 개인정보의 국외 이전', [p('광고를 위해 아래 정보가 목적별로 국외(미국 Google LLC)로 이전돼요. 거부하려면 기기 설정에서 광고 ID를 재설정·삭제하거나 앱을 삭제하면 돼요.'), '<h3>광고(Google AdMob)</h3>', dl([
       ['이전되는 항목', '광고 ID, IP 주소, 기기 정보(기종·운영체제·언어 등), 광고 노출·클릭 기록 (앱에 입력한 내용은 이전하지 않아요)'],
       ['이전 국가·시기·방법', '미국(Google 서버가 있는 다른 나라로 옮겨질 수 있어요). 앱을 쓰는 동안 광고를 요청할 때마다 암호화된 네트워크로 전송'],
@@ -51,7 +53,7 @@ export function buildPolicy(c) {
     sec('1. Purpose of processing', li([...c.purposeEn, 'To show ads so the App can be free.', ...(iap ? ['To check whether you made the one-time remove-ads purchase and turn ads off.'] : []), 'We do not use information for anything beyond these purposes.'])),
     sec('2. What the App stores', [p(c.storedEn), p(iap ? iap.en : 'There is no login or sign-up, and the App has no payment feature (the remove-ads purchase is turned off).')].join('\n')),
     sec('3. Advertising (Google AdMob)', p(`To stay free, the App shows Google AdMob ads. To serve ads, Google may collect and use your advertising ID, device information, approximate location (based on IP), app interactions, and diagnostics. Users in the European Economic Area (EEA) and the UK are asked for consent on first launch, and can change it any time under "Ad privacy options" in Settings. You can also reset your advertising ID or turn off personalized ads in your device settings. If you decline consent or consent cannot be confirmed, the App does not request ads. ${c.adsEn}`)),
-    sec('4. Permissions the App uses', [p(`Below are the ${entries.length} Android permissions merged into the App when it is built. ${c.permIntroEn}`), li(entries.map((e) => `${e[1]}: ${e[3]}`))].join('\n')),
+    sec('4. Permissions the App uses', [p(`Below are the ${permCount} Android permissions merged into the App when it is built. ${c.permIntroEn}`), li(entries.map((e) => `${e[1]}: ${e[3]}`))].join('\n')),
     sec('5. Transfer of personal information abroad', [p('For advertising, the information below is transferred abroad (to Google LLC in the USA), by purpose. To opt out, reset or delete your advertising ID in your device settings, or uninstall the App.'), '<h3>Advertising (Google AdMob)</h3>', dl([
       ['Information transferred', 'Advertising ID, IP address, device information (model, operating system, language, etc.), ad impression and click records (nothing you enter in the App is transferred)'],
       ['Country, timing and method', 'USA (it may be moved to other countries where Google has servers). Sent over an encrypted network each time an ad is requested while you use the App'],
