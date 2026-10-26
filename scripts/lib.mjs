@@ -47,6 +47,7 @@ export const APPS = [
   { slug: 'tapspeed', name: '탭 속도 측정', desc: 'English / 한국어 privacy policy', en: true },
   { slug: 'timecalc', name: '시간 계산기', desc: 'English / 한국어 privacy policy', en: true },
   { slug: 'jesa-day', name: '제삿날 알리미', desc: '음력 제사 기일을 양력으로 바꿔 보여 주고 알려 주는 앱' },
+  { slug: 'hangul-typing', name: '키보드 한글 타자 - 자리연습', desc: '한글 자리연습 타자 앱 (English included)' },
 ];
 
 // 출시 전에 lifecalc 로 통합돼 앱이 나오지 않은 옛 폴더. 이미 공개된 주소가 404가 되지 않도록 안내 페이지만 둔다.
