@@ -45,8 +45,8 @@ const body = [
 write(
   'bokbulbok/index.html',
   page({
-    title: 'Quick Picks (복불복 모음) Privacy Policy',
-    heading: 'Quick Picks / 복불복 모음 / ランダム抽選 / Decisiones Rápidas / Decisões Rápidas',
+    title: 'Lucky Picks (복불복 모음) Privacy Policy',
+    heading: 'Lucky Picks / 복불복 모음 / くじ引き・ルーレット / Sorteos de grupo / Sorteios do grupo',
     sub: `Privacy policy / 개인정보처리방침 / プライバシーポリシー / Política de privacidad / Política de Privacidade<br>Effective ${esc(data.effective)}`,
     body,
     cssPath: '../style.css',

@@ -159,8 +159,8 @@
   "en": {
    "lang": "en",
    "title": "Privacy Policy",
-   "appName": "Quick Picks",
-   "intro": "The First Titan (service name: AICA SOFT, the \"Company\") publishes this privacy policy for Quick Picks (the \"App\") in accordance with applicable privacy law. The App does not directly collect personal information such as your name or contact details, and does not store it on a server.",
+   "appName": "Lucky Picks",
+   "intro": "The First Titan (service name: AICA SOFT, the \"Company\") publishes this privacy policy for Lucky Picks (the \"App\") in accordance with applicable privacy law. The App does not directly collect personal information such as your name or contact details, and does not store it on a server.",
    "sections": [
     {
      "h": "Purpose of processing",
@@ -305,8 +305,8 @@
   "ja": {
    "lang": "ja",
    "title": "プライバシーポリシー",
-   "appName": "ランダム抽選",
-   "intro": "The First Titan（サービス名：AICA SOFT、以下「当社」）は、ランダム抽選（以下「本アプリ」）の提供にあたり、個人情報保護に関する法令に従い、以下のとおりプライバシーポリシーを定め公開します。本アプリは、お名前や連絡先などの個人情報を直接収集せず、サーバーにも保存しません。",
+   "appName": "くじ引き・ルーレット",
+   "intro": "The First Titan（サービス名：AICA SOFT、以下「当社」）は、くじ引き・ルーレット（以下「本アプリ」）の提供にあたり、個人情報保護に関する法令に従い、以下のとおりプライバシーポリシーを定め公開します。本アプリは、お名前や連絡先などの個人情報を直接収集せず、サーバーにも保存しません。",
    "sections": [
     {
      "h": "個人情報の取扱いの目的",
@@ -451,8 +451,8 @@
   "es": {
    "lang": "es",
    "title": "Política de privacidad",
-   "appName": "Decisiones Rápidas",
-   "intro": "The First Titan (nombre del servicio: AICA SOFT, la «Empresa») publica esta política de privacidad de Decisiones Rápidas (la «App») conforme a la normativa de protección de datos aplicable. La App no recopila directamente datos personales como tu nombre o datos de contacto, ni los guarda en ningún servidor.",
+   "appName": "Sorteos de grupo",
+   "intro": "The First Titan (nombre del servicio: AICA SOFT, la «Empresa») publica esta política de privacidad de Sorteos de grupo (la «App») conforme a la normativa de protección de datos aplicable. La App no recopila directamente datos personales como tu nombre o datos de contacto, ni los guarda en ningún servidor.",
    "sections": [
     {
      "h": "Finalidad del tratamiento",
@@ -597,8 +597,8 @@
   "pt-BR": {
    "lang": "pt-BR",
    "title": "Política de Privacidade",
-   "appName": "Decisões Rápidas",
-   "intro": "The First Titan (nome do serviço: AICA SOFT, a \"Empresa\") publica esta política de privacidade do Decisões Rápidas (o \"App\") conforme a legislação de proteção de dados aplicável. O App não coleta diretamente dados pessoais, como seu nome ou dados de contato, nem os armazena em servidor.",
+   "appName": "Sorteios do grupo",
+   "intro": "The First Titan (nome do serviço: AICA SOFT, a \"Empresa\") publica esta política de privacidade de Sorteios do grupo (o \"App\") conforme a legislação de proteção de dados aplicável. O App não coleta diretamente dados pessoais, como seu nome ou dados de contato, nem os armazena em servidor.",
    "sections": [
     {
      "h": "Finalidade do tratamento",
