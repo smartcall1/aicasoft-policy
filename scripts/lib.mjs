@@ -97,8 +97,7 @@ export function contactHtml(labels = {}, withRep = false) {
   const L = { company: '개인정보처리자', officer: '개인정보 보호책임자', email: '문의 이메일', ...labels };
   return `<dl class="contact">
 <dt>${esc(L.company)}</dt><dd>${esc(CONTACT.company)} (서비스명 ${esc(CONTACT.service)})</dd>
-${withRep ? `<dt>대표자</dt><dd>KIM KWANGOK</dd>
-` : ''}<dt>${esc(L.officer)}</dt><dd>${esc(CONTACT.officer)}</dd>
+<dt>${esc(L.officer)}</dt><dd>${esc(CONTACT.officer)}</dd>
 <dt>${esc(L.email)}</dt><dd><a href="mailto:${esc(CONTACT.email)}">${esc(CONTACT.email)}</a></dd>
 </dl>`;
 }
