@@ -21,6 +21,7 @@ node scripts/build-dogwhistle.mjs               # 반려견 호각(dogwhistle) k
 node scripts/build-fakecall.mjs               # 가짜 수신 전화(fakecall) ko·en 한 URL. 앱 docs/DATA_SAFETY.md·병합 매니페스트와 대조
 node scripts/build-tapspeed.mjs               # 탭 속도 측정(tapspeed) ko·en 한 URL. 앱 docs/DATA_SAFETY.md·병합 매니페스트와 대조
 node scripts/build-timecalc.mjs               # 시간 계산기(timecalc) ko·en 한 URL. 앱 docs/DATA_SAFETY.md·병합 매니페스트와 대조
+node scripts/build-runpace.mjs                    # 러닝 페이스(runpace) ko·en 한 URL. 근거는 scripts/data/runpace-legal.json _source
 node scripts/build-index.mjs                        # index.html, 404.html
 node scripts/check.mjs                              # lang/charset/viewport/링크 점검
 ```

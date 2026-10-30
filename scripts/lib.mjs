@@ -52,6 +52,7 @@ export const APPS = [
   { slug: 'kkeutmal', name: '끝말잇기 (Kkeutmal)', desc: 'English / 한국어 privacy policy', en: true },
   { slug: 'airhockey', name: '에어하키 (Air Hockey)', desc: 'English / 한국어 privacy policy', en: true },
   { slug: 'studytimer', name: '순공 타이머 (Study Timer)', desc: 'English / 한국어 privacy policy', en: true },
+  { slug: 'runpace', name: '러닝 페이스 (Run Pace)', desc: 'English / 한국어 privacy policy', en: true },
   { slug: 'jsonviewer', name: 'JSON 뷰어 (JSON Viewer)', desc: 'English / 한국어 privacy policy', en: true },
 ];
 
