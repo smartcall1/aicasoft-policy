@@ -17,15 +17,11 @@ export const SITE_BASE = '/aicasoft-policy/';
 export const APPS = [
   { slug: 'danamtok', name: '다남겨톡', desc: '지워진 메신저 알림을 이 기기에 남겨 두는 앱' },
   { slug: 'bow108', name: '108배·염주', desc: '108배와 염주 횟수를 세는 앱' },
-  { slug: 'bokbulbok', name: '복불복 모음 (Quick Picks)', desc: 'English / 日本語 / Español / Português / 한국어 privacy policy', en: true },
+  { slug: 'bokbulbok', name: '복불복 모음 (Lucky Picks)', desc: 'English / 日本語 / Español / Português / 한국어 privacy policy', en: true },
   { slug: 'scoreboard', name: '스포츠 점수판 (Sports Scoreboard)', desc: 'English / 한국어 privacy policy', en: true },
   { slug: 'lifecalc', name: '사회생활 계산기', desc: '월급 실수령·퇴직금·연차·대출 상환 등 직장인 생활 계산기 11종' },
   { slug: 'bricks', name: '벽돌깨기 (Brick Breaker)', desc: 'English / 한국어 privacy policy', en: true },
   { slug: 'blastline', name: '폭파 한 줄 (Blast Line)', desc: 'English / 한국어 privacy policy', en: true },
-  { slug: 'kkeutmal', name: '끝말잇기 (Kkeutmal)', desc: 'English / 한국어 privacy policy', en: true },
-  { slug: 'airhockey', name: '에어하키 (Air Hockey)', desc: 'English / 한국어 privacy policy', en: true },
-  { slug: 'studytimer', name: '순공 타이머 (Study Timer)', desc: 'English / 한국어 privacy policy', en: true },
-  { slug: 'jsonviewer', name: 'JSON 뷰어 (JSON Viewer)', desc: 'English / 한국어 privacy policy', en: true },
   { slug: 'kwangpick', name: '쾅픽', desc: '두 선택지 중 하나를 AI가 한 줄로 골라 주는 앱' },
   { slug: 'alba-pay', name: '월급마중', desc: '알바 근무를 기록해 월급과 주휴수당을 계산하는 앱' },
   { slug: 'aero', name: 'AERO VOYAGE(에어로 보이지)', desc: '항공편 실시간 추적과 시차 적응을 돕는 비행 동반 앱' },
@@ -47,7 +43,16 @@ export const APPS = [
   { slug: 'noisemeter', name: 'dB 줄자', desc: 'English / 한국어 privacy policy', en: true },
   { slug: 'classicboard', name: '클래식 보드게임', desc: 'English / 한국어 privacy policy', en: true },
   { slug: 'manseryeok', name: '오프라인 만세력', desc: 'English / 한국어 privacy policy', en: true },
+  { slug: 'dogwhistle', name: '반려견 호각', desc: 'English / 한국어 privacy policy', en: true },
+  { slug: 'fakecall', name: '가짜 수신 전화', desc: 'English / 한국어 privacy policy', en: true },
+  { slug: 'tapspeed', name: '탭 속도 측정', desc: 'English / 한국어 privacy policy', en: true },
+  { slug: 'timecalc', name: '시간 계산기', desc: 'English / 한국어 privacy policy', en: true },
   { slug: 'jesa-day', name: '제삿날 알리미', desc: '음력 제사 기일을 양력으로 바꿔 보여 주고 알려 주는 앱' },
+  { slug: 'hangul-typing', name: '키보드 한글 타자 - 자리연습', desc: '한글 자리연습 타자 앱 (English included)' },
+  { slug: 'kkeutmal', name: '끝말잇기 (Kkeutmal)', desc: 'English / 한국어 privacy policy', en: true },
+  { slug: 'airhockey', name: '에어하키 (Air Hockey)', desc: 'English / 한국어 privacy policy', en: true },
+  { slug: 'studytimer', name: '순공 타이머 (Study Timer)', desc: 'English / 한국어 privacy policy', en: true },
+  { slug: 'jsonviewer', name: 'JSON 뷰어 (JSON Viewer)', desc: 'English / 한국어 privacy policy', en: true },
 ];
 
 // 출시 전에 lifecalc 로 통합돼 앱이 나오지 않은 옛 폴더. 이미 공개된 주소가 404가 되지 않도록 안내 페이지만 둔다.
@@ -97,8 +102,7 @@ export function contactHtml(labels = {}, withRep = false) {
   const L = { company: '개인정보처리자', officer: '개인정보 보호책임자', email: '문의 이메일', ...labels };
   return `<dl class="contact">
 <dt>${esc(L.company)}</dt><dd>${esc(CONTACT.company)} (서비스명 ${esc(CONTACT.service)})</dd>
-${withRep ? `<dt>대표자</dt><dd>KIM KWANGOK</dd>
-` : ''}<dt>${esc(L.officer)}</dt><dd>${esc(CONTACT.officer)}</dd>
+<dt>${esc(L.officer)}</dt><dd>${esc(CONTACT.officer)}</dd>
 <dt>${esc(L.email)}</dt><dd><a href="mailto:${esc(CONTACT.email)}">${esc(CONTACT.email)}</a></dd>
 </dl>`;
 }

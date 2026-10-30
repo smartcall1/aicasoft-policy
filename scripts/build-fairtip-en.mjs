@@ -50,9 +50,14 @@ const body = [
   ].join('\n')),
   sec('Backup', p('The app turns off Android backup (allowBackup is false in the merged manifest). Settings stored on your device are not copied to Google cloud backup or to a new phone through device transfer, and you start fresh after reinstalling or moving to a new phone.')),
   sec('Retention and deletion', p("Settings the app stores on your device are deleted when you uninstall the app. Advertising data sent to Google is kept under Google's retention policies. Once the app is uninstalled, nothing more is sent (you can also cut the link for ads by resetting or deleting your advertising ID in device settings). To request deletion of data already sent, contact us using the details below.")),
-  sec('Age', p('The app is not directed to children under 13, and we do not knowingly collect information from children.')),
+  sec('Age', [
+    p('The app is not directed to children under 13, and we do not knowingly collect information from children.'),
+    p('The app is intended for users aged 13 and over and is not a children-only app.'),
+    p('It does not ask for your age, name, or contact details, and there are no user accounts. However, your device ID and advertising ID are processed automatically to serve ads.'),
+    p(`A legal guardian of a user under 14 may request access or deletion at ${EMAIL}. If we learn that a child's information has been collected, we will delete it without delay.`),
+  ].join('\n')),
   sec('Third-party privacy policies', p(`Google Privacy Policy: ${GOOGLE_PRIVACY}`)),
-  sec('Your rights', p('You can ask to view or delete your data by emailing the contact address below. You can withdraw ad consent under "Ad privacy options" in Settings, or by resetting or deleting your advertising ID in your device settings.')),
+  sec('Your rights', p('You can ask to view or delete your data by emailing the contact address below. You can withdraw ad consent under "Ad privacy options" in Settings (shown only where required in your region, such as the EEA and UK), or by resetting or deleting your advertising ID in your device settings.')),
   sec('Requests: access, correction, deletion (10 days)', p(`To request access to, correction of, deletion of, or a halt to processing of your personal information, email ${EMAIL}. We act without delay after confirming it is you, and tell you the result, or the reason we cannot act, within 10 days at the latest. We hold none of your records, so there is very little we can view or delete for you. Information held by Google can be viewed and deleted in your Google account.`)),
   sec('Changes to this policy', p('We will update this page and the effective date when this policy changes.')),
   sec(
