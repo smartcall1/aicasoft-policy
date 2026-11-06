@@ -107,7 +107,7 @@ function sectionsFor(app) {
     {
       title: '개인정보의 국외 이전',
       items: [
-        '이전받는 자: Google LLC (1600 Amphitheatre Parkway, Mountain View, California 94043, USA, Google AdMob 운영). Google 개인정보 문의: policies.google.com/privacy. 앱 관련 문의는 개인정보 보호책임자(hsindevelop@gmail.com)',
+        '이전받는 자: Google LLC (1600 Amphitheatre Parkway, Mountain View, California 94043, USA, Google AdMob 운영). Google 개인정보 문의: policies.google.com/privacy. 앱 관련 문의는 개인정보 보호책임자(support@aicasoft.app)',
         '이전되는 국가: 미국(Google 서버가 있는 다른 나라로 옮겨질 수 있습니다)',
         '이전 항목: 광고 ID, 기기 정보(기종·운영체제 버전·언어 등), 네트워크 통신에 따른 IP 주소, 광고 노출·클릭 정보. 앱에 입력한 내용은 이전하지 않습니다.',
         '이전 시기와 방법: 앱을 쓰는 동안 광고를 불러올 때마다 암호화된 네트워크로 전송됩니다.',

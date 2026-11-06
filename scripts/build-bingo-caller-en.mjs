@@ -9,7 +9,7 @@ import { esc, page, write } from './lib.mjs';
 const APP = 'Bingo Caller Voice';
 const EFFECTIVE = '2026-10-17';
 const SERVICE = 'AICA SOFT';
-const EMAIL = 'hsindevelop@gmail.com';
+const EMAIL = 'support@aicasoft.app';
 const PUBLIC_URL = 'https://smartcall1.github.io/aicasoft-policy/bingo-caller/';
 const GOOGLE = 'https://policies.google.com/privacy';
 const RECIPIENT_ADDR = 'Google LLC (1600 Amphitheatre Parkway, Mountain View, California 94043, USA)';

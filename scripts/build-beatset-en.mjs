@@ -8,7 +8,7 @@ const EFFECTIVE = '2026-10-17';
 const OPERATOR = 'The First Titan';
 const SERVICE = 'AICA SOFT';
 const OFFICER = 'Privacy Officer, The First Titan';
-const EMAIL = 'hsindevelop@gmail.com';
+const EMAIL = 'support@aicasoft.app';
 const PUBLIC_URL = 'https://smartcall1.github.io/aicasoft-policy/beatset/';
 const GOOGLE_PRIVACY = 'https://policies.google.com/privacy';
 

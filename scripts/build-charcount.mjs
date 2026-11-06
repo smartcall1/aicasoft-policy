@@ -5,7 +5,7 @@ import { esc, page, write } from './lib.mjs';
 
 const EFFECTIVE = '2026-10-18';
 const SERVICE = 'AICA SOFT';
-const EMAIL = 'hsindevelop@gmail.com';
+const EMAIL = 'support@aicasoft.app';
 const PUBLIC_URL = 'https://smartcall1.github.io/aicasoft-policy/charcount/';
 const GOOGLE = 'https://policies.google.com/privacy';
 

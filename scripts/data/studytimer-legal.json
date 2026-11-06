@@ -11,7 +11,7 @@
     "보상형 광고: 화면 호출 없음 -> 쓰지 않음. 알림 권한 2종의 정확한 용도 문구는 코드에서 확인 못 해 \"로컬 알림용\"으로만 적음. 기록을 앱 안에서 지우는 기능 유무는 확인 못 해 쓰지 않음"
   ],
   "effective": "2026-10-30",
-  "email": "hsindevelop@gmail.com",
+  "email": "support@aicasoft.app",
   "publicUrl": "https://smartcall1.github.io/aicasoft-policy/studytimer/",
   "langs": [
     "ko",
@@ -35,7 +35,7 @@
         },
         {
           "label": "이전받는 자",
-          "value": "Google LLC (1600 Amphitheatre Parkway, Mountain View, California 94043, USA). Google 개인정보 문의: https://policies.google.com/privacy. 앱 관련 문의는 개인정보 보호책임자(hsindevelop@gmail.com)"
+          "value": "Google LLC (1600 Amphitheatre Parkway, Mountain View, California 94043, USA). Google 개인정보 문의: https://policies.google.com/privacy. 앱 관련 문의는 개인정보 보호책임자(support@aicasoft.app)"
         },
         {
           "label": "이용 목적·보유 기간",
@@ -131,7 +131,7 @@
         },
         {
           "label": "Recipient",
-          "value": "Google LLC (1600 Amphitheatre Parkway, Mountain View, California 94043, USA). Google privacy inquiries: https://policies.google.com/privacy. For app-related questions, contact our privacy officer (hsindevelop@gmail.com)"
+          "value": "Google LLC (1600 Amphitheatre Parkway, Mountain View, California 94043, USA). Google privacy inquiries: https://policies.google.com/privacy. For app-related questions, contact our privacy officer (support@aicasoft.app)"
         },
         {
           "label": "Purpose and retention",

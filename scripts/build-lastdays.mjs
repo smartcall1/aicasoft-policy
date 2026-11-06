@@ -6,7 +6,7 @@ import { esc, page, write } from './lib.mjs';
 const APP = 'Lastmark';
 const EFFECTIVE = '2026-10-17';
 const SERVICE = 'AICA SOFT';
-const EMAIL = 'hsindevelop@gmail.com';
+const EMAIL = 'support@aicasoft.app';
 const PUBLIC_URL = 'https://smartcall1.github.io/aicasoft-policy/lastdays/';
 const GOOGLE = 'https://policies.google.com/privacy';
 
