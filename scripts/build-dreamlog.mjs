@@ -1,15 +1,15 @@
-// dreamlog(꿈 기록) 방침 페이지 생성. 한 주소(/dreamlog/)에 ko·en 2개 언어를 함께 둔다. build-minesweeper.mjs 를 최소 복제.
+// dreamlog(꿈 일기) 방침 페이지 생성. 한 주소(/dreamlog/)에 ko·en 2개 언어를 함께 둔다. build-minesweeper.mjs 를 최소 복제.
 // 본문은 scripts/data/dreamlog-legal.json(손으로 관리). 앱 설정의 '개인정보처리방침' 행이 이 주소로 연결만 한다(src/lib/settingsCopy.ts PRIVACY_URL).
-// 기준: dreamlog docs/DATA_SAFETY.md(main fa5ba28). 기기 로컬 SQLite만, 서버·계정 없음, AdMob 하단 배너 1종 + UMP(전 세계, EEA·영국 포함), 광고 제거 1회 결제(Play Billing), allowBackup=true, 앱 안 [전체 삭제], 내보내기·가져오기·공유는 사용자가 직접
+// 기준: dreamlog docs/DATA_SAFETY.md(main fa5ba28). 기기 로컬 SQLite만, 서버·계정 없음, AdMob 하단 배너 1종 + UMP, 광고 제거 1회 결제(Play Billing), allowBackup=true, 앱 안 [전체 삭제], 내보내기·가져오기·공유는 사용자가 직접
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { ROOT, esc, page, write } from './lib.mjs';
+import { CONTACT, ROOT, esc, page, write } from './lib.mjs';
 
 const data = JSON.parse(readFileSync(join(ROOT, 'scripts', 'data', 'dreamlog-legal.json'), 'utf8'));
 const ORDER = ['ko', 'en'];
 const NAV = { ko: '한국어', en: 'English' };
 if (JSON.stringify([...ORDER].sort()) !== JSON.stringify([...data.langs].sort())) throw new Error(`언어 목록 불일치: ${data.langs}`);
-if (data.email !== 'hsindevelop@gmail.com') throw new Error('문의 메일은 hsindevelop@gmail.com 이어야 합니다(dreamlog 지시: 사업자정보·연락처 블록 없이 부서명+메일만)');
+if (data.email !== CONTACT.email) throw new Error('문의 메일이 lib.mjs CONTACT 와 다릅니다');
 
 const p = (t) => `<p>${esc(t)}</p>`;
 const ul = (items) => `<ul>\n${items.map((i) => `<li>${esc(i)}</li>`).join('\n')}\n</ul>`;
@@ -43,12 +43,12 @@ const body = [
 write(
   'dreamlog/index.html',
   page({
-    title: 'dreamlog (꿈 기록) Privacy Policy',
-    heading: 'dreamlog / 꿈 기록',
+    title: 'dreamlog (꿈 일기) Privacy Policy',
+    heading: 'dreamlog / 꿈 일기',
     sub: `Privacy policy / 개인정보처리방침<br>Effective ${esc(data.effective)}`,
     body,
     cssPath: '../style.css',
     lang: 'en',
-    footer: 'AICA SOFT',
+    footer: `The First Titan (${CONTACT.service})`,
   }),
 );

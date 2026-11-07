@@ -1,6 +1,6 @@
 {
  "effective": "2026-11-08",
- "email": "hsindevelop@gmail.com",
+ "email": "support@aicasoft.app",
  "publicUrl": "https://smartcall1.github.io/aicasoft-policy/dreamlog/",
  "langs": ["ko", "en"],
  "_source": "D:\\App_develop\\dreamlog\\docs\\DATA_SAFETY.md (main fa5ba28), docs/SPEC.md. 형식은 babylog-legal.json 을 따름.",
@@ -8,8 +8,8 @@
   "ko": {
    "lang": "ko",
    "title": "개인정보처리방침",
-   "appName": "꿈 기록",
-   "intro": "꿈 기록(dreamlog, 이하 \"앱\")은 꾼 꿈을 바로 적어 두는 앱이에요. 계정과 회사 서버가 없고, 앱에 적은 꿈 기록은 이 기기 안에만 저장돼요. 회사는 사용자가 적은 기록을 받지 않아요. 이 앱은 만 13세 미만 어린이가 쓰도록 만든 앱이 아니에요.",
+   "appName": "꿈 일기",
+   "intro": "꿈 일기(dreamlog, 이하 \"앱\")은 꾼 꿈을 바로 적어 두는 앱이에요. 계정과 회사 서버가 없고, 앱에 적은 꿈 기록은 이 기기 안에만 저장돼요. 회사는 사용자가 적은 기록을 받지 않아요. 이 앱은 만 13세 미만 어린이가 쓰도록 만든 앱이 아니에요.",
    "sections": [
     {
      "h": "개인정보의 처리 목적",
@@ -148,7 +148,7 @@
     },
     {
      "label": "이전받는 자",
-     "value": "Google LLC (1600 Amphitheatre Parkway, Mountain View, California 94043, USA). Google 개인정보 문의: https://policies.google.com/privacy. 앱 관련 문의는 아래 문의처(hsindevelop@gmail.com)"
+     "value": "Google LLC (1600 Amphitheatre Parkway, Mountain View, California 94043, USA). Google 개인정보 문의: https://policies.google.com/privacy. 앱 관련 문의는 아래 문의처(support@aicasoft.app)"
     },
     {
      "label": "이용 목적·보유 기간",
@@ -159,8 +159,8 @@
      "value": "기기 설정에서 광고 ID를 재설정·삭제하거나 맞춤 광고를 끌 수 있고, 앱을 삭제하면 더 이상 보내지 않아요. 광고 제거를 구매하면 앱이 광고를 요청하지 않아요. 동의가 필요한 지역에서 동의를 거부하면 앱은 광고를 요청하지 않아요. 거부해도 기록 기능은 그대로 쓸 수 있어요."
     }
    ],
-   "operatorLine": "운영: AICA SOFT",
-   "officerLine": "개인정보 문의 담당: AICA SOFT",
+   "operatorLine": "개인정보처리자: 더퍼스트타이탄 (서비스명 AICA SOFT)",
+   "officerLine": "개인정보 보호 담당: 더퍼스트타이탄",
    "publicUrlLabel": "공개 주소",
    "effectiveLabel": "시행일"
   },
@@ -307,7 +307,7 @@
     },
     {
      "label": "Recipient",
-     "value": "Google LLC (1600 Amphitheatre Parkway, Mountain View, California 94043, USA). Google privacy inquiries: https://policies.google.com/privacy. For app-related questions, use the contact below (hsindevelop@gmail.com)"
+     "value": "Google LLC (1600 Amphitheatre Parkway, Mountain View, California 94043, USA). Google privacy inquiries: https://policies.google.com/privacy. For app-related questions, use the contact below (support@aicasoft.app)"
     },
     {
      "label": "Purpose and retention",
@@ -318,8 +318,8 @@
      "value": "You can reset or delete your advertising ID or turn off personalized ads in your device settings, and uninstalling the App stops all sending. If you buy Remove Ads, the App does not request ads. In regions that require consent, declining consent means the App does not request ads. If you refuse, the record features still work as usual."
     }
    ],
-   "operatorLine": "Operator: AICA SOFT",
-   "officerLine": "Privacy contact: AICA SOFT",
+   "operatorLine": "Operator: The First Titan (service name AICA SOFT)",
+   "officerLine": "Privacy officer and contact: The First Titan",
    "publicUrlLabel": "Public URL",
    "effectiveLabel": "Effective"
   }
