@@ -56,6 +56,7 @@ export const APPS = [
   { slug: 'jsonviewer', name: 'JSON 뷰어 (JSON Viewer)', desc: 'English / 한국어 privacy policy', en: true },
   { slug: 'minesweeper', name: '지뢰찾기 (Minesweeper)', desc: 'English / 한국어 privacy policy', en: true },
   { slug: 'ringsize', name: '반지 호수 재기 (Ring Size Check)', desc: 'English / 한국어 privacy policy', en: true },
+  { slug: 'babylog', name: 'babylog (아기 기록)', desc: 'English / 한국어 privacy policy', en: true },
 ];
 
 // 출시 전에 lifecalc 로 통합돼 앱이 나오지 않은 옛 폴더. 이미 공개된 주소가 404가 되지 않도록 안내 페이지만 둔다.
