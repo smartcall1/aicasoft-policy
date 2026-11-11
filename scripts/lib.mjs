@@ -63,6 +63,10 @@ export const APPS = [
   { slug: 'babylog', name: 'babylog (아기 기록)', desc: 'English / 한국어 privacy policy', en: true },
   { slug: 'dreamlog', name: 'dreamlog (꿈 일기)', desc: 'English / 한국어 privacy policy', en: true },
   { slug: 'feverlog', name: '우리아이열관리 (feverlog)', desc: 'English / 한국어 privacy policy', en: true },
+  { slug: 'drawmusic-v2', name: '선 그려 연주 (Scribble Sound)', desc: 'English / 한국어 privacy policy', en: true },
+  { slug: 'charades', name: '이마퀴즈 (Forehead Words)', desc: 'English / 한국어 privacy policy', en: true },
+  { slug: 'unzip', name: '풀어.zip (Zip Opener)', desc: 'English / 한국어 privacy policy', en: true },
+  { slug: 'metaldetect', name: '금속탐지기 (Magnet Finder)', desc: 'English / 한국어 privacy policy', en: true },
 ];
 
 // 출시 전에 lifecalc 로 통합돼 앱이 나오지 않은 옛 폴더. 이미 공개된 주소가 404가 되지 않도록 안내 페이지만 둔다.
