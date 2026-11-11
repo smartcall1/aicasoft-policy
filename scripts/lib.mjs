@@ -55,6 +55,7 @@ export const APPS = [
   { slug: 'runpace', name: '러닝 페이스 (Run Pace)', desc: 'English / 한국어 privacy policy', en: true },
   { slug: 'jsonviewer', name: 'JSON 뷰어 (JSON Viewer)', desc: 'English / 한국어 privacy policy', en: true },
   { slug: 'minesweeper', name: '지뢰찾기 (Minesweeper)', desc: 'English / 한국어 privacy policy', en: true },
+  { slug: 'minesweeper-v2', name: '지뢰찾기 v2 (Safe Mines)', desc: 'English / 한국어 privacy policy', en: true },
   { slug: 'ringsize', name: '반지 호수 재기 (Ring Size Check)', desc: 'English / 한국어 privacy policy', en: true },
   { slug: 'babylog', name: 'babylog (아기 기록)', desc: 'English / 한국어 privacy policy', en: true },
   { slug: 'dreamlog', name: 'dreamlog (꿈 일기)', desc: 'English / 한국어 privacy policy', en: true },
