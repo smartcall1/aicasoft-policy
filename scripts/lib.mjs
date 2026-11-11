@@ -56,6 +56,7 @@ export const APPS = [
   { slug: 'jsonviewer', name: 'JSON 뷰어 (JSON Viewer)', desc: 'English / 한국어 privacy policy', en: true },
   { slug: 'minesweeper', name: '지뢰찾기 (Minesweeper)', desc: 'English / 한국어 privacy policy', en: true },
   { slug: 'ringsize', name: '반지 호수 재기 (Ring Size Check)', desc: 'English / 한국어 privacy policy', en: true },
+  { slug: 'ringsize-v2', name: '반지 사이즈 (Ring Measure)', desc: 'English / 한국어 privacy policy', en: true },
   { slug: 'babylog', name: 'babylog (아기 기록)', desc: 'English / 한국어 privacy policy', en: true },
   { slug: 'dreamlog', name: 'dreamlog (꿈 일기)', desc: 'English / 한국어 privacy policy', en: true },
 ];
