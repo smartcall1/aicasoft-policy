@@ -10,7 +10,8 @@ buildPolicy({
   storedEn: 'The screen calibration made with a card, the list of ring sizes you save (name, hand, finger, inner diameter, save date), the number of save slots and times you unlocked more with a rewarded ad, settings (display mode, country shown, text size, sound), and whether you have seen the first-launch guide are stored only on this device. We have no server, so none of it is sent anywhere. The App does not take photos and does not use the camera or photo permissions. When you tap share, the result text and an image (PNG) are handed to the device share sheet and go only to the app you choose. We do not receive them, and what happens afterward follows that app\'s policy. The image for sharing is created briefly in the App\'s temporary storage (cache).',
   adsKo: '광고는 결과 화면의 배너, 저장 뒤 전면 광고, 사용자가 직접 고르는 보상형 광고로 나오며, 측정 중과 결과가 나오기 전에는 나오지 않아요.',
   adsEn: 'Ads appear as a banner on the result screen, an interstitial after saving, and a rewarded ad you choose yourself. No ads appear while measuring or before the result is shown.',
-  perms: ['INTERNET', 'NETWORK', 'ADID', 'ADSERVICES', 'WAKE', 'BILLING', 'DYN'],
+  // 11-12 노이즈 마이너: 합쳐진 매니페스트에 FOREGROUND_SERVICE 도 있음(10개) — 이 앱만 WAKE 항목을 넓혀 씀
+  perms: ['INTERNET', 'NETWORK', 'ADID', 'ADSERVICES', ['절전 방지와 백그라운드 작업(WAKE_LOCK, FOREGROUND_SERVICE)', 'Keep awake and background work (WAKE_LOCK, FOREGROUND_SERVICE)', '광고 SDK 같은 라이브러리가 작업을 마칠 때까지 기기가 잠들지 않게 하고, 짧은 작업을 백그라운드에서 끝내게 하는 권한이에요.', 'lets a library such as the ad SDK keep the device awake and finish short work in the background.'], 'BILLING', 'DYN'],
   permIntroKo: '모두 설치할 때 한꺼번에 허용되는 권한이라 따로 묻는 창은 뜨지 않아요. 카메라, 사진, 마이크, 위치, 연락처 권한은 쓰지 않아요.',
   permIntroEn: 'All are granted at install time, so no prompt appears. The App does not use camera, photo, microphone, location or contacts permissions.',
   deleteKo: '기기에 저장된 값은 앱에서 저장한 호수를 지우거나, 앱을 삭제하거나, 휴대폰 설정 > 앱 > 이 앱 > 저장공간 > 데이터 삭제로 직접 지울 수 있어요.',
