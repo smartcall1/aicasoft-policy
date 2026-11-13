@@ -15,17 +15,36 @@ test('bokbulbok, bow108, scoreboard mention Google Firebase', () => {
   }
 });
 
-test('ringsize mentions Google AdMob', () => {
+test('ringsize mentions Google AdMob and drops the false no-ads claims', () => {
   const html = read('ringsize/index.html');
   assert.match(html, /Google AdMob/);
   assert.match(html, /https:\/\/policies\.google\.com\/privacy/);
+  for (const bad of ['광고가 없고', '광고 SDK도 들어 있지 않아요', 'has no ads', 'does not include an ad SDK']) {
+    assert.ok(!html.includes(bad), `ringsize: false claim '${bad}' still present`);
+  }
 });
 
-test('salarycalc mentions AdMob, Firebase and support email', () => {
+test('salarycalc is a merged-app notice with no AdMob, Firebase or extra sections', () => {
   const html = read('salarycalc/index.html');
-  assert.match(html, /Google AdMob/);
-  assert.match(html, /Firebase/);
-  assert.match(html, /support@aicasoft\.app/);
+  assert.match(html, /사회생활 계산기로 통합/);
+  assert.ok(!html.includes('AdMob'), 'salarycalc: AdMob still present');
+  assert.ok(!html.includes('Firebase'), 'salarycalc: Firebase still present');
+});
+
+test('bokbulbok drops the no-analytics claims in all five languages and states Firebase Analytics', () => {
+  const html = read('bokbulbok/index.html');
+  for (const bad of ['No separate analytics service', '別の利用統計サービスも使用しません', '별도의 이용 통계 서비스도 쓰지 않습니다']) {
+    assert.ok(!html.includes(bad), `bokbulbok: false claim '${bad}' still present`);
+  }
+  assert.match(html, /Firebase Analytics/);
+});
+
+test('bokbulbok, bow108, scoreboard do not claim app error collection', () => {
+  for (const f of ['bokbulbok/index.html', 'bow108/index.html', 'scoreboard/index.html']) {
+    const html = read(f);
+    assert.ok(!html.includes('앱 오류'), `${f}: '앱 오류' still present`);
+    assert.ok(!html.includes('app error'), `${f}: 'app error' still present`);
+  }
 });
 
 test('beatset (en and ko) names the operator 더퍼스트타이탄', () => {
