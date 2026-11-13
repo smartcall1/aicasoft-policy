@@ -32,13 +32,14 @@
 <li>카드로 맞춘 화면 보정값: 화면에서 1mm가 몇 px인지, 카드 짧은 변의 px 길이, 화면 배율·화면 너비·화면 밀도 정보, 보정한 시각</li>
 <li>설정: 화면 모드(시스템 설정 따르기·밝게·어둡게)와 한국 호수 표시 여부</li>
 <li>사용 방법 안내를 이미 봤는지 여부</li>
-<li>광고 제거 여부를 담아 두는 칸. 지금은 앱에 광고도 결제도 없어서 쓰이지 않아요.</li>
+<li>광고 제거 여부를 담아 두는 칸. 지금은 앱에 결제가 없어서 쓰이지 않아요.</li>
 </ul>
 </section>
 <section>
 <h2>3. 광고와 결제</h2>
-<p>현재 앱에는 광고가 없고, 광고 SDK도 들어 있지 않아요. 앱 안 결제도 없고, 결제 라이브러리도 들어 있지 않아요. 설정에 광고 제거 항목이 보이더라도 결제 기능은 아직 연결되지 않아서 눌러도 결제는 일어나지 않아요.</p>
-<p>광고나 결제가 앱에 더해지기 전에 이 방침을 먼저 고쳐 올려요.</p>
+<p>앱은 Google AdMob 광고를 표시해요. 광고 제공 과정에서 Google이 광고 ID, 기기 정보, 대략적인 위치(IP 기반)를 수집·이용할 수 있어요. Google 개인정보처리방침(https://policies.google.com/privacy)을 따라요.</p>
+<p>앱 안 결제도 없고, 결제 라이브러리도 들어 있지 않아요. 설정에 광고 제거 항목이 보이더라도 결제 기능은 아직 연결되지 않아서 눌러도 결제는 일어나지 않아요.</p>
+<p>결제가 앱에 더해지기 전에 이 방침을 먼저 고쳐 올려요.</p>
 </section>
 <section>
 <h2>4. 앱이 쓰는 권한과 네트워크</h2>
@@ -47,7 +48,13 @@
 </section>
 <section>
 <h2>5. 개인정보의 국외 이전</h2>
-<p>앱은 정보를 회사나 제3자에게 보내지 않아서 국외로 이전하는 정보가 없어요.</p>
+<p>광고를 위해 아래 정보가 국외(미국 Google LLC)로 이전돼요.</p>
+<dl class="contact">
+<dt>이전되는 항목</dt><dd>광고 ID, IP 주소, 기기 정보(기종·운영체제·언어 등), 광고 노출·클릭 기록 (앱에 입력한 내용은 이전하지 않아요)</dd>
+<dt>이전 국가·시기·방법</dt><dd>미국(Google 서버가 있는 다른 나라로 옮겨질 수 있어요). 앱을 쓰는 동안 광고를 요청할 때마다 암호화된 네트워크로 전송</dd>
+<dt>이전받는 자</dt><dd>Google LLC (1600 Amphitheatre Parkway, Mountain View, California 94043, USA). Google 개인정보 문의: https://policies.google.com/privacy</dd>
+<dt>이용 목적·보유 기간</dt><dd>광고 표시, 광고 성과 측정, 부정 클릭 방지. 보유 기간은 Google의 보관 정책을 따라요</dd>
+</dl>
 </section>
 <section>
 <h2>6. 보관 기간과 삭제</h2>
@@ -66,6 +73,8 @@
 <h2>8. 제3자 제공 및 처리 위탁</h2>
 <ul>
 <li>회사는 사용자의 값을 제3자에게 제공하거나 처리를 맡기지 않아요. 값이 회사에 오지 않기 때문이에요.</li>
+<li>광고(Google AdMob): Google LLC가 광고 제공과 측정뿐 아니라 부정 사용 방지 같은 Google 자신의 목적으로도 쓰기 때문에, 회사가 맡긴 처리가 아니라 Google LLC에 대한 제3자 제공으로 봐요. 광고 ID, 기기 정보, 광고 노출 정보가 전송돼요.</li>
+<li>이용 목적은 광고 게재이고, 보유·이용 기간은 Google LLC의 정책을 따라요.</li>
 <li>앱은 오픈소스 라이브러리 Capacitor(MIT 라이선스)로 만들었고, 이 라이브러리는 기기 안에서만 동작해요.</li>
 </ul>
 </section>
@@ -118,13 +127,14 @@
 <li>Screen calibration from the card: how many px equal 1 mm on screen, the card's short-side length in px, screen scale, screen width and screen density, and when you calibrated</li>
 <li>Settings: display mode (follow system, light, dark) and whether to show Korean ring sizes</li>
 <li>Whether you have already seen the how-to-use hint</li>
-<li>A slot that holds whether ads are removed. The App has no ads and no payments right now, so it is not used.</li>
+<li>A slot that holds whether ads are removed. The App has no payments right now, so it is not used.</li>
 </ul>
 </section>
 <section>
 <h2>3. Ads and payments</h2>
-<p>The App currently has no ads and does not include an ad SDK. It has no in-app payments and does not include a billing library. Even if a Remove Ads item appears in Settings, the payment feature is not connected yet, so nothing is charged when you tap it.</p>
-<p>Before ads or payments are added to the App, we update this policy first.</p>
+<p>The App shows Google AdMob ads. To serve ads, Google may collect your advertising ID, device information, and approximate location (based on IP address). Google's privacy policy applies: https://policies.google.com/privacy</p>
+<p>The App has no in-app payments and does not include a billing library. Even if a Remove Ads item appears in Settings, the payment feature is not connected yet, so nothing is charged when you tap it.</p>
+<p>Before payments are added to the App, we update this policy first.</p>
 </section>
 <section>
 <h2>4. Permissions and network</h2>
@@ -133,7 +143,13 @@
 </section>
 <section>
 <h2>5. Transfer of personal information abroad</h2>
-<p>The App sends no information to us or to third parties, so nothing is transferred abroad.</p>
+<p>For advertising, the information below is transferred abroad (to Google LLC in the USA).</p>
+<dl class="contact">
+<dt>Information transferred</dt><dd>Advertising ID, IP address, device information (model, operating system, language, etc.), ad impression and click records (nothing you enter in the App is transferred)</dd>
+<dt>Country, timing and method</dt><dd>USA (it may be moved to other countries where Google has servers). Sent over an encrypted network each time an ad is requested while you use the App</dd>
+<dt>Recipient</dt><dd>Google LLC (1600 Amphitheatre Parkway, Mountain View, California 94043, USA). Google privacy inquiries: https://policies.google.com/privacy</dd>
+<dt>Purpose and retention</dt><dd>Showing ads, measuring ad performance, preventing invalid clicks. Retention follows Google's retention policy</dd>
+</dl>
 </section>
 <section>
 <h2>6. Retention and deletion</h2>
@@ -152,6 +168,8 @@
 <h2>8. Provision to third parties and outsourcing</h2>
 <ul>
 <li>We do not provide your values to third parties or outsource their processing, because your values never reach us.</li>
+<li>Advertising (Google AdMob): Google LLC uses ad data not only to serve and measure ads but also for its own purposes such as preventing misuse, so this is treated as provision to a third party (Google LLC), not processing we outsourced. Your advertising ID, device information and ad impression information are sent.</li>
+<li>The purpose is showing ads, and retention follows Google LLC's policy.</li>
 <li>The App is built with the open-source library Capacitor (MIT License), which runs only on your device.</li>
 </ul>
 </section>
