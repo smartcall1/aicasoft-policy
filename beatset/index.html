@@ -10,7 +10,7 @@
 <body>
 <header>
 <h1>Beatset Privacy Policy</h1>
-<p class="sub">Effective date 2026-10-17</p>
+<p class="sub">Effective date 2026-11-15</p>
 </header>
 <main>
 <p>Beatset (&quot;the app&quot;) has no server. The developer does not collect or store personal information such as your name or contact details; what you enter in the app is processed only on your device. Google processes the advertising ID, approximate location, and other data described below to serve ads.</p>
@@ -20,8 +20,12 @@
 <p>The app is free, supported by ads from Google AdMob. To serve ads, Google may collect and use your advertising ID, device information, approximate location (based on IP address), app interactions, and diagnostic data. Users in the European Economic Area (EEA) and the UK are asked for consent on first launch and can change it anytime under &quot;Ad privacy options&quot; in Settings. You can also reset your advertising ID or turn off personalized ads in your device settings. If consent is declined or cannot be confirmed, the app does not request ads.</p>
 </section>
 <section>
+<h2>Usage statistics (Google Firebase Analytics)</h2>
+<p>To improve the app and measure ad performance, the app may send pseudonymous usage statistics (app launches, sessions, and how many beat sets are started and completed) and an app instance ID to Google Firebase. Your name, contact details and anything you enter in the app are not included. Usage statistics are not sent in the EEA, the UK or other regions where consent is required, and not if consent cannot be confirmed.</p>
+</section>
+<section>
 <h2>International data transfers</h2>
-<p>For advertising, the information below is sent to Google LLC in the United States. To opt out, reset or delete your advertising ID in your device settings, or uninstall the app.</p>
+<p>For advertising and usage statistics, the information below is sent to Google LLC in the United States. To opt out of advertising, reset or delete your advertising ID in your device settings; uninstalling the app stops all transfers.</p>
 <h3>Advertising (Google AdMob)</h3>
 <dl class="contact">
 <dt>Items transferred</dt><dd>Advertising ID, IP address, device information (model, operating system, language, etc.), ad impression and click logs (what you enter in the app is not transferred)</dd>
@@ -29,6 +33,14 @@
 <dt>Recipient</dt><dd>Google LLC (1600 Amphitheatre Parkway, Mountain View, California 94043, USA). Google privacy inquiries: https://policies.google.com/privacy. For app-related inquiries, contact the privacy contact (support@aicasoft.app)</dd>
 <dt>Purpose and retention</dt><dd>Ad display, ad performance measurement, invalid click prevention. Retention follows Google's retention policies</dd>
 <dt>How to opt out, and what happens</dt><dd>You can reset or delete your advertising ID or turn off personalized ads in your device settings, and uninstalling the app stops all transfers. Users in the European Economic Area (EEA) and the UK are asked for ad consent on first launch and can change it under 'Ad privacy options' in Settings. If you opt out, the app still works the same; you may see no ads or non-personalized ads.</dd>
+</dl>
+<h3>Usage statistics (Google Firebase Analytics)</h3>
+<dl class="contact">
+<dt>Items transferred</dt><dd>App instance ID, advertising ID, IP address, device information (model, operating system, language, etc.), app usage records (launches, sessions, beat sets started and completed, ad impressions) (what you enter in the app is not transferred)</dd>
+<dt>Country, timing, and method</dt><dd>United States. Sent over an encrypted network each time usage statistics are sent while you use the app</dd>
+<dt>Recipient</dt><dd>Google LLC (1600 Amphitheatre Parkway, Mountain View, California 94043, USA). Google privacy inquiries: https://policies.google.com/privacy. For app-related inquiries, contact the privacy contact (support@aicasoft.app)</dd>
+<dt>Purpose and retention</dt><dd>Usage analysis, ad performance measurement and app improvement. Retention follows the Google Analytics data retention setting (up to 14 months), then Google's retention policies</dd>
+<dt>How to opt out, and what happens</dt><dd>Unlike ads, usage statistics do not stop if you reset or delete your advertising ID; uninstalling the app stops all transfers. In the European Economic Area (EEA), the UK and other regions where consent is required, usage statistics are not sent. The app still works the same.</dd>
 </dl>
 </section>
 <section>
@@ -43,6 +55,7 @@
 <li>Keep awake (WAKE_LOCK): keeps the device awake while the timer runs and until the ads SDK finishes its work.</li>
 <li>Advertising ID (AD_ID, ACCESS_ADSERVICES_AD_ID): reads your device advertising ID to serve and measure ads. You can delete or reset it in your device settings.</li>
 <li>Android ad services (ACCESS_ADSERVICES_ATTRIBUTION, ACCESS_ADSERVICES_TOPICS): lets the ads SDK use ad measurement and interest topics.</li>
+<li>Install referrer (com.google.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE): lets the Firebase usage statistics library read from Google Play where the app was installed from (for example, an ad campaign). Added by the Firebase library.</li>
 <li>App-internal protection (DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION): stops other apps from listening to signals inside the app. This is declared by the app itself.</li>
 </ul>
 </section>
@@ -52,7 +65,7 @@
 </section>
 <section>
 <h2>Retention and deletion</h2>
-<p>Settings the app stores on your device are deleted when you uninstall the app. Advertising data sent to Google is kept under Google's retention policies. Once the app is uninstalled, nothing more is sent (you can also cut the link for ads by resetting or deleting your advertising ID in device settings). To request deletion of data already sent, contact us using the details below.</p>
+<p>Settings the app stores on your device are deleted when you uninstall the app. Advertising data sent to Google is kept under Google's retention policies, and usage statistics sent to Firebase Analytics are kept for up to 14 months depending on the Google Analytics data retention setting. Once the app is uninstalled, nothing more is sent (you can also cut the link for ads by resetting or deleting your advertising ID in device settings). To request deletion of data already sent, contact us using the details below.</p>
 </section>
 <section>
 <h2>Age</h2>
@@ -61,6 +74,7 @@
 <section>
 <h2>Third-party privacy policies</h2>
 <p>Google Privacy Policy: https://policies.google.com/privacy</p>
+<p>Google Firebase Privacy and Security: https://firebase.google.com/support/privacy</p>
 </section>
 <section>
 <h2>Your rights</h2>
